@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://clcnqqd543jvn"]
+
+[ext_resource type="PackedScene" uid="uid://dcicnmjo4bet4" path="res://assets/office-room/source/20022f19412f4a489019c52ff16a4b82.glb" id="1_h3jde"]
+
+[node name="OfficeRoom" type="Node3D" unique_id=737126231]
+
+[node name="Sketchfab_Scene" parent="." unique_id=1252424109 instance=ExtResource("1_h3jde")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
