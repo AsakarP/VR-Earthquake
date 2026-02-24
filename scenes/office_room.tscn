@@ -1,8 +1,207 @@
 [gd_scene format=3 uid="uid://clcnqqd543jvn"]
 
-[ext_resource type="PackedScene" uid="uid://dcicnmjo4bet4" path="res://assets/office-room/source/20022f19412f4a489019c52ff16a4b82.glb" id="1_h3jde"]
+[ext_resource type="ArrayMesh" uid="uid://c2c00slxk8wn" path="res://scenes/office_meshes/Sketchfab_Scene_Material2.res" id="1_jhc02"]
+[ext_resource type="ArrayMesh" uid="uid://il8168t4ilhl" path="res://scenes/office_meshes/Sketchfab_Scene_Material22.res" id="2_koyjm"]
+[ext_resource type="ArrayMesh" uid="uid://celj13pv7caxl" path="res://scenes/office_meshes/Sketchfab_Scene_Material23.res" id="3_ofqel"]
+[ext_resource type="ArrayMesh" uid="uid://cui7fl5plaidg" path="res://scenes/office_meshes/Sketchfab_Scene_Material24.res" id="4_gwqhx"]
+[ext_resource type="ArrayMesh" uid="uid://d46mj2frma6w" path="res://scenes/office_meshes/Sketchfab_Scene_Material25.res" id="5_fhnxh"]
+[ext_resource type="ArrayMesh" uid="uid://bylil8msgmyj1" path="res://scenes/office_meshes/Sketchfab_Scene_Material26.res" id="6_gyt04"]
+[ext_resource type="ArrayMesh" uid="uid://bluhesjfwrw1n" path="res://scenes/office_meshes/Sketchfab_Scene_Material27.res" id="7_j5fdi"]
+[ext_resource type="ArrayMesh" uid="uid://c7y3llrjdetdi" path="res://scenes/office_meshes/Sketchfab_Scene_Material28.res" id="8_gs3vc"]
+[ext_resource type="ArrayMesh" uid="uid://dr8ahv86y5yyj" path="res://scenes/office_meshes/Sketchfab_Scene_Material29.res" id="9_60g3v"]
+[ext_resource type="ArrayMesh" uid="uid://cywt41xkeyuwm" path="res://scenes/office_meshes/Sketchfab_Scene_Material210.res" id="10_h50as"]
+[ext_resource type="ArrayMesh" uid="uid://btixq5rxrysrq" path="res://scenes/office_meshes/Sketchfab_Scene_Material3.res" id="11_87aal"]
+[ext_resource type="ArrayMesh" uid="uid://7vuee2vgl4l1" path="res://scenes/office_meshes/Sketchfab_Scene_Material32.res" id="12_qrf3h"]
+[ext_resource type="ArrayMesh" uid="uid://ufb7ie0okv66" path="res://scenes/office_meshes/Sketchfab_Scene_Material33.res" id="13_i0mhe"]
+[ext_resource type="ArrayMesh" uid="uid://dmkhb54jhbms0" path="res://scenes/office_meshes/Sketchfab_Scene_Material34.res" id="14_y5qw4"]
+[ext_resource type="ArrayMesh" uid="uid://cnlh06rjhxbqk" path="res://scenes/office_meshes/Sketchfab_Scene_Material35.res" id="15_1ihyg"]
+[ext_resource type="ArrayMesh" uid="uid://mnm5ifkaufjg" path="res://scenes/office_meshes/Sketchfab_Scene_Material36.res" id="16_7gqfi"]
+[ext_resource type="ArrayMesh" uid="uid://bd3pnxx3ag5cr" path="res://scenes/office_meshes/Sketchfab_Scene_Material37.res" id="17_wo3em"]
+[ext_resource type="ArrayMesh" uid="uid://srujx2agfdwt" path="res://scenes/office_meshes/Sketchfab_Scene_Material38.res" id="18_s2vtu"]
+[ext_resource type="ArrayMesh" uid="uid://bttodncbuymhy" path="res://scenes/office_meshes/Sketchfab_Scene_Material39.res" id="19_vq6xq"]
+[ext_resource type="ArrayMesh" uid="uid://bww3k2re7hrgc" path="res://scenes/office_meshes/Sketchfab_Scene_Material310.res" id="20_cubef"]
+[ext_resource type="ArrayMesh" uid="uid://b5o8unirtihm2" path="res://scenes/office_meshes/Sketchfab_Scene_Material211.res" id="21_by2jk"]
+[ext_resource type="ArrayMesh" uid="uid://fxpmgjq8cwfk" path="res://scenes/office_meshes/Sketchfab_Scene_Material212.res" id="22_5vf3u"]
+[ext_resource type="ArrayMesh" uid="uid://bu03o5roppyjj" path="res://scenes/office_meshes/Sketchfab_Scene_Material213.res" id="23_pnydi"]
+[ext_resource type="ArrayMesh" uid="uid://dnauiq0wvox0x" path="res://scenes/office_meshes/Sketchfab_Scene_Material214.res" id="24_4bqqw"]
+[ext_resource type="ArrayMesh" uid="uid://yirek7lp1xk1" path="res://scenes/office_meshes/Sketchfab_Scene_Material215.res" id="25_xo077"]
+[ext_resource type="ArrayMesh" uid="uid://dchbsa0rwsrjh" path="res://scenes/office_meshes/Sketchfab_Scene_Material216.res" id="26_wctnl"]
+[ext_resource type="ArrayMesh" uid="uid://c6hae8gb42ago" path="res://scenes/office_meshes/Sketchfab_Scene_Material217.res" id="27_nnmph"]
+[ext_resource type="ArrayMesh" uid="uid://chvng1tc1mmjr" path="res://scenes/office_meshes/Sketchfab_Scene_Material218.res" id="28_rqvab"]
+[ext_resource type="ArrayMesh" uid="uid://dapdmgl3syonn" path="res://scenes/office_meshes/Sketchfab_Scene_Material219.res" id="29_ursgv"]
+[ext_resource type="ArrayMesh" uid="uid://b48hfr4nd5d74" path="res://scenes/office_meshes/Sketchfab_Scene_Material311.res" id="30_xuwsm"]
+[ext_resource type="ArrayMesh" uid="uid://62wcod4o4ybe" path="res://scenes/office_meshes/Sketchfab_Scene_Material220.res" id="31_hqfnt"]
+[ext_resource type="ArrayMesh" uid="uid://bicjyanuirgmr" path="res://scenes/office_meshes/Sketchfab_Scene_Material221.res" id="32_gwp7b"]
+[ext_resource type="ArrayMesh" uid="uid://cyr8wtgn8otch" path="res://scenes/office_meshes/Sketchfab_Scene_Material312.res" id="33_n4o5e"]
+[ext_resource type="ArrayMesh" uid="uid://8tdu4dy1va24" path="res://scenes/office_meshes/Sketchfab_Scene_Material222.res" id="34_ery62"]
+[ext_resource type="ArrayMesh" uid="uid://o51614qtqxao" path="res://scenes/office_meshes/Sketchfab_Scene_Material223.res" id="35_u0e3y"]
+[ext_resource type="ArrayMesh" uid="uid://dwiuuhgj5llix" path="res://scenes/office_meshes/Sketchfab_Scene_Material224.res" id="36_arhjg"]
+[ext_resource type="ArrayMesh" uid="uid://cs11ajopenyux" path="res://scenes/office_meshes/Sketchfab_Scene_Material313.res" id="37_lu4ip"]
+[ext_resource type="ArrayMesh" uid="uid://cseft36f82krb" path="res://scenes/office_meshes/Sketchfab_Scene_Material225.res" id="38_fnonu"]
+[ext_resource type="ArrayMesh" uid="uid://by6h2vkg4ndqx" path="res://scenes/office_meshes/Sketchfab_Scene_Material226.res" id="39_jyphk"]
+[ext_resource type="ArrayMesh" uid="uid://chfcejcfuvvr0" path="res://scenes/office_meshes/Sketchfab_Scene_Material314.res" id="40_0tjjp"]
+[ext_resource type="ArrayMesh" uid="uid://blijlhsh0r0st" path="res://scenes/office_meshes/Sketchfab_Scene_Material227.res" id="41_ka3wv"]
+[ext_resource type="ArrayMesh" uid="uid://b0w6vxyyb8ae1" path="res://scenes/office_meshes/Sketchfab_Scene_Material228.res" id="42_pum7n"]
+[ext_resource type="ArrayMesh" uid="uid://d3qk66vvdow4j" path="res://scenes/office_meshes/Sketchfab_Scene_Material229.res" id="43_epkrp"]
+[ext_resource type="ArrayMesh" uid="uid://wxfuy8d57xn4" path="res://scenes/office_meshes/Sketchfab_Scene_Material230.res" id="44_tqgsg"]
+[ext_resource type="ArrayMesh" uid="uid://ddwmipxplqu22" path="res://scenes/office_meshes/Sketchfab_Scene_Material231.res" id="45_mlt15"]
+[ext_resource type="ArrayMesh" uid="uid://dx88n626l06bm" path="res://scenes/office_meshes/Sketchfab_Scene_Material232.res" id="46_uya0h"]
+[ext_resource type="ArrayMesh" uid="uid://cail0r5oy78yd" path="res://scenes/office_meshes/Sketchfab_Scene_Material233.res" id="47_3tuhs"]
+[ext_resource type="ArrayMesh" uid="uid://bjb4qrir0lo5c" path="res://scenes/office_meshes/Sketchfab_Scene_Material234.res" id="48_dbrlh"]
+[ext_resource type="ArrayMesh" uid="uid://clrf6lgfimc0g" path="res://scenes/office_meshes/Sketchfab_Scene_Material251.res" id="67_ftbev"]
+[ext_resource type="ArrayMesh" uid="uid://dv3pij73iv256" path="res://scenes/office_meshes/Sketchfab_Scene_Material252.res" id="68_x7bnf"]
 
-[node name="OfficeRoom" type="Node3D" unique_id=737126231]
+[node name="OfficeRoom" type="Node3D" unique_id=688131988]
 
-[node name="Sketchfab_Scene" parent="." unique_id=1252424109 instance=ExtResource("1_h3jde")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+[node name="Mesh" type="Node3D" parent="." unique_id=433626343]
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, 0.05, 0, -0.05, -2.1855695e-09, 0, 0, 0)
+
+[node name="Material2" type="MeshInstance3D" parent="Mesh" unique_id=366145937]
+mesh = ExtResource("1_jhc02")
+
+[node name="Material22" type="MeshInstance3D" parent="Mesh" unique_id=154865173]
+mesh = ExtResource("2_koyjm")
+
+[node name="Material23" type="MeshInstance3D" parent="Mesh" unique_id=1215359452]
+mesh = ExtResource("3_ofqel")
+
+[node name="Material24" type="MeshInstance3D" parent="Mesh" unique_id=1668270830]
+mesh = ExtResource("4_gwqhx")
+
+[node name="Material25" type="MeshInstance3D" parent="Mesh" unique_id=1430506063]
+mesh = ExtResource("5_fhnxh")
+
+[node name="Material26" type="MeshInstance3D" parent="Mesh" unique_id=374887071]
+mesh = ExtResource("6_gyt04")
+
+[node name="Material27" type="MeshInstance3D" parent="Mesh" unique_id=609698212]
+mesh = ExtResource("7_j5fdi")
+
+[node name="Material28" type="MeshInstance3D" parent="Mesh" unique_id=1424759590]
+mesh = ExtResource("8_gs3vc")
+
+[node name="Material29" type="MeshInstance3D" parent="Mesh" unique_id=340213259]
+mesh = ExtResource("9_60g3v")
+
+[node name="Material210" type="MeshInstance3D" parent="Mesh" unique_id=2066912890]
+mesh = ExtResource("10_h50as")
+
+[node name="Material3" type="MeshInstance3D" parent="Mesh" unique_id=2001227685]
+mesh = ExtResource("11_87aal")
+
+[node name="Material32" type="MeshInstance3D" parent="Mesh" unique_id=557486114]
+mesh = ExtResource("12_qrf3h")
+
+[node name="Material33" type="MeshInstance3D" parent="Mesh" unique_id=1888415556]
+mesh = ExtResource("13_i0mhe")
+
+[node name="Material34" type="MeshInstance3D" parent="Mesh" unique_id=532608172]
+mesh = ExtResource("14_y5qw4")
+
+[node name="Material35" type="MeshInstance3D" parent="Mesh" unique_id=160510739]
+mesh = ExtResource("15_1ihyg")
+
+[node name="Material36" type="MeshInstance3D" parent="Mesh" unique_id=1458080748]
+mesh = ExtResource("16_7gqfi")
+
+[node name="Material37" type="MeshInstance3D" parent="Mesh" unique_id=939258908]
+mesh = ExtResource("17_wo3em")
+
+[node name="Material38" type="MeshInstance3D" parent="Mesh" unique_id=1347919470]
+mesh = ExtResource("18_s2vtu")
+
+[node name="Material39" type="MeshInstance3D" parent="Mesh" unique_id=110651740]
+mesh = ExtResource("19_vq6xq")
+
+[node name="Material310" type="MeshInstance3D" parent="Mesh" unique_id=118492557]
+mesh = ExtResource("20_cubef")
+
+[node name="Material211" type="MeshInstance3D" parent="Mesh" unique_id=643021719]
+mesh = ExtResource("21_by2jk")
+
+[node name="Material212" type="MeshInstance3D" parent="Mesh" unique_id=1389258890]
+mesh = ExtResource("22_5vf3u")
+
+[node name="Material213" type="MeshInstance3D" parent="Mesh" unique_id=1978168867]
+mesh = ExtResource("23_pnydi")
+
+[node name="Material214" type="MeshInstance3D" parent="Mesh" unique_id=413662934]
+mesh = ExtResource("24_4bqqw")
+
+[node name="Material215" type="MeshInstance3D" parent="Mesh" unique_id=721965504]
+mesh = ExtResource("25_xo077")
+
+[node name="Material216" type="MeshInstance3D" parent="Mesh" unique_id=617340933]
+mesh = ExtResource("26_wctnl")
+
+[node name="Material217" type="MeshInstance3D" parent="Mesh" unique_id=979133121]
+mesh = ExtResource("27_nnmph")
+
+[node name="Material218" type="MeshInstance3D" parent="Mesh" unique_id=1327810580]
+mesh = ExtResource("28_rqvab")
+
+[node name="Material219" type="MeshInstance3D" parent="Mesh" unique_id=1068906417]
+mesh = ExtResource("29_ursgv")
+
+[node name="Material311" type="MeshInstance3D" parent="Mesh" unique_id=457478618]
+mesh = ExtResource("30_xuwsm")
+
+[node name="Material220" type="MeshInstance3D" parent="Mesh" unique_id=1927148519]
+mesh = ExtResource("31_hqfnt")
+
+[node name="Material221" type="MeshInstance3D" parent="Mesh" unique_id=563612693]
+mesh = ExtResource("32_gwp7b")
+
+[node name="Material312" type="MeshInstance3D" parent="Mesh" unique_id=558223481]
+mesh = ExtResource("33_n4o5e")
+
+[node name="Material222" type="MeshInstance3D" parent="Mesh" unique_id=401935505]
+mesh = ExtResource("34_ery62")
+
+[node name="Material223" type="MeshInstance3D" parent="Mesh" unique_id=1355705490]
+mesh = ExtResource("35_u0e3y")
+
+[node name="Material224" type="MeshInstance3D" parent="Mesh" unique_id=458232990]
+mesh = ExtResource("36_arhjg")
+
+[node name="Material313" type="MeshInstance3D" parent="Mesh" unique_id=1407867218]
+mesh = ExtResource("37_lu4ip")
+
+[node name="Material225" type="MeshInstance3D" parent="Mesh" unique_id=895730929]
+mesh = ExtResource("38_fnonu")
+
+[node name="Material226" type="MeshInstance3D" parent="Mesh" unique_id=1789760722]
+mesh = ExtResource("39_jyphk")
+
+[node name="Material314" type="MeshInstance3D" parent="Mesh" unique_id=1875628813]
+mesh = ExtResource("40_0tjjp")
+
+[node name="Material227" type="MeshInstance3D" parent="Mesh" unique_id=1524428156]
+mesh = ExtResource("41_ka3wv")
+
+[node name="Material228" type="MeshInstance3D" parent="Mesh" unique_id=1580048379]
+mesh = ExtResource("42_pum7n")
+
+[node name="Material229" type="MeshInstance3D" parent="Mesh" unique_id=70870869]
+mesh = ExtResource("43_epkrp")
+
+[node name="Material230" type="MeshInstance3D" parent="Mesh" unique_id=1401183092]
+mesh = ExtResource("44_tqgsg")
+
+[node name="Material231" type="MeshInstance3D" parent="Mesh" unique_id=531367563]
+mesh = ExtResource("45_mlt15")
+
+[node name="Material232" type="MeshInstance3D" parent="Mesh" unique_id=2049478931]
+mesh = ExtResource("46_uya0h")
+
+[node name="Material233" type="MeshInstance3D" parent="Mesh" unique_id=149397200]
+mesh = ExtResource("47_3tuhs")
+
+[node name="Material234" type="MeshInstance3D" parent="Mesh" unique_id=1891835520]
+mesh = ExtResource("48_dbrlh")
+
+[node name="Material251" type="MeshInstance3D" parent="Mesh" unique_id=717051901]
+mesh = ExtResource("67_ftbev")
+
+[node name="Material252" type="MeshInstance3D" parent="Mesh" unique_id=342950035]
+mesh = ExtResource("68_x7bnf")
