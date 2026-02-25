@@ -12,8 +12,18 @@ config_version=5
 
 config/name="VR Earthquake"
 config/tags=PackedStringArray("simulator", "virtual_reality")
+run/main_scene="uid://c17ou847i44c1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+XRToolsUserSettings="*uid://bqgb8i74tm0t"
+XRToolsRumbleManager="*uid://by853dk86g1qw"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [physics]
 
@@ -22,3 +32,9 @@ config/icon="res://icon.svg"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true

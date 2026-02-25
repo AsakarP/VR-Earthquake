@@ -1,0 +1,279 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rcw3e2woclsw"
+path="res://.godot/imported/a_post-soviet_classroom.glb-d02bfe8245fcb3cd520b9fadc15e4ab4.scn"
+
+[deps]
+
+source_file="res://assets/soviet-classroom/a_post-soviet_classroom.glb"
+dest_files=["res://.godot/imported/a_post-soviet_classroom.glb-d02bfe8245fcb3cd520b9fadc15e4ab4.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Sketchfab_Scene_Object_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_0.res",
+"save_to_file/path": "uid://0dnr1f28it7x"
+},
+"Sketchfab_Scene_Object_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_1.res",
+"save_to_file/path": "uid://du27c0f3fyef1"
+},
+"Sketchfab_Scene_Object_10": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_10.res",
+"save_to_file/path": "uid://dgwtf8igc0h2"
+},
+"Sketchfab_Scene_Object_11": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_11.res",
+"save_to_file/path": "uid://bqr60dli7x6aq"
+},
+"Sketchfab_Scene_Object_12": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_12.res",
+"save_to_file/path": "uid://2i2eck8bcipl"
+},
+"Sketchfab_Scene_Object_13": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_13.res",
+"save_to_file/path": "uid://c8hcue0uscrm2"
+},
+"Sketchfab_Scene_Object_14": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_14.res",
+"save_to_file/path": "uid://c16pn1rg5nhka"
+},
+"Sketchfab_Scene_Object_15": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_15.res",
+"save_to_file/path": "uid://cp5tn7ojbjpb0"
+},
+"Sketchfab_Scene_Object_16": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_16.res",
+"save_to_file/path": "uid://c8kamq7o656pt"
+},
+"Sketchfab_Scene_Object_17": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_17.res",
+"save_to_file/path": "uid://c3ky5cfgqtjpy"
+},
+"Sketchfab_Scene_Object_18": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_18.res",
+"save_to_file/path": "uid://bdjj1epe7tcqf"
+},
+"Sketchfab_Scene_Object_19": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_19.res",
+"save_to_file/path": "uid://b6k5e687pv1nk"
+},
+"Sketchfab_Scene_Object_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_2.res",
+"save_to_file/path": "uid://dj57u03svimgj"
+},
+"Sketchfab_Scene_Object_20": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_20.res",
+"save_to_file/path": "uid://n8fdoes1378m"
+},
+"Sketchfab_Scene_Object_21": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_21.res",
+"save_to_file/path": "uid://c25wc21w7r3p4"
+},
+"Sketchfab_Scene_Object_22": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_22.res",
+"save_to_file/path": "uid://u1uofyrr8j1f"
+},
+"Sketchfab_Scene_Object_23": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_23.res",
+"save_to_file/path": "uid://318bfsmufvmi"
+},
+"Sketchfab_Scene_Object_24": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_24.res",
+"save_to_file/path": "uid://b04y3cipabtat"
+},
+"Sketchfab_Scene_Object_25": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_25.res",
+"save_to_file/path": "uid://eyt1imqoierc"
+},
+"Sketchfab_Scene_Object_3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_3.res",
+"save_to_file/path": "uid://dd4h3x1laenk0"
+},
+"Sketchfab_Scene_Object_4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_4.res",
+"save_to_file/path": "uid://dwffg8rgqhkca"
+},
+"Sketchfab_Scene_Object_5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_5.res",
+"save_to_file/path": "uid://3xtdq51ef7vi"
+},
+"Sketchfab_Scene_Object_6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_6.res",
+"save_to_file/path": "uid://b3o6fh38bw7sg"
+},
+"Sketchfab_Scene_Object_7": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_7.res",
+"save_to_file/path": "uid://1gsolk1k4r6j"
+},
+"Sketchfab_Scene_Object_8": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_8.res",
+"save_to_file/path": "uid://cs67t6e3jtuxw"
+},
+"Sketchfab_Scene_Object_9": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/classroom_meshes/Sketchfab_Scene_Object_9.res",
+"save_to_file/path": "uid://cithgxxxlmwh4"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
