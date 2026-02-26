@@ -429,6 +429,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dxeqngqkopq6s" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface113_MuroDetalle_0.res" id="427_wqhe7"]
 [ext_resource type="ArrayMesh" uid="uid://jneegcxjcijn" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface114_MuroDetalle_0.res" id="428_1gekj"]
 [ext_resource type="ArrayMesh" uid="uid://ciopt8mhvtk7p" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface22_StingrayPBS2_0.res" id="429_74ikh"]
+[ext_resource type="Script" uid="uid://vrb3pomy6ft8" path="res://scenes/animatable_body_3d.gd" id="429_fbpf3"]
 [ext_resource type="ArrayMesh" uid="uid://ytfijc0k51sq" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface66_lambert28_0.res" id="430_ku63s"]
 [ext_resource type="ArrayMesh" uid="uid://deei7lxgnh84g" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_TarimaUp_Tarima1_0.res" id="431_njva7"]
 [ext_resource type="ArrayMesh" uid="uid://bcj1kn8wj7yss" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_TarimaDown_Tarima1_0.res" id="432_yf84s"]
@@ -588,6 +589,9 @@
 [ext_resource type="ArrayMesh" uid="uid://cep0tb20vooep" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_pCube96_lambert42_0.res" id="586_o7kmr"]
 [ext_resource type="ArrayMesh" uid="uid://bsf2773ikq4o2" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_pCube97_lambert42_0.res" id="587_7h3ij"]
 [ext_resource type="ArrayMesh" uid="uid://c3yglyki3bms6" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_pCube98_lambert42_0.res" id="588_42h37"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vuequ"]
+points = PackedVector3Array(0.50000006, -0.4950179, 0.5, -9.7960234e-05, -0.49501777, 0.5, -0.5000002, -0.4950179, 0.5, 0.4999022, -0.4950179, -0.75, -9.7960234e-05, -0.49501777, -0.75, -0.5000002, -0.4950179, -0.75)
 
 [node name="JPClassroom" type="Node3D" unique_id=53845461]
 
@@ -3456,8 +3460,15 @@ transform = Transform3D(96, 0, 0, 0, 24, 0, 0, 0, 48, -36, 12, -18)
 [node name="polySurface22" type="Node3D" parent="Mesh/BakeDifuse/PisoYTecho" unique_id=1208408902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028877886, 0, 0)
 
-[node name="polySurface22_StingrayPBS2_0" type="MeshInstance3D" parent="Mesh/BakeDifuse/PisoYTecho/polySurface22" unique_id=118291036]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Mesh/BakeDifuse/PisoYTecho/polySurface22" unique_id=449101476]
+script = ExtResource("429_fbpf3")
+trauma = 2.0
+
+[node name="polySurface22_StingrayPBS2_0" type="MeshInstance3D" parent="Mesh/BakeDifuse/PisoYTecho/polySurface22/AnimatableBody3D" unique_id=118291036]
 mesh = ExtResource("429_74ikh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/BakeDifuse/PisoYTecho/polySurface22/AnimatableBody3D" unique_id=630915024]
+shape = SubResource("ConvexPolygonShape3D_vuequ")
 
 [node name="polySurface663" type="Node3D" parent="Mesh/BakeDifuse/PisoYTecho" unique_id=1011083414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028877886, -0.0006526673, 0)
