@@ -1,103 +1,46 @@
 [gd_scene format=3 uid="uid://b52lj1klf0oaj"]
 
-[ext_resource type="ArrayMesh" uid="uid://ca0bx1kf4j11i" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_0.res" id="1_fvn43"]
-[ext_resource type="ArrayMesh" uid="uid://bjj3ldln48qti" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_1.res" id="2_npx1w"]
-[ext_resource type="ArrayMesh" uid="uid://c0vlvkej3yy80" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_2.res" id="3_5ibst"]
-[ext_resource type="ArrayMesh" uid="uid://5w2gugviei0l" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_3.res" id="4_h8p8k"]
-[ext_resource type="ArrayMesh" uid="uid://bbwcun662p8h8" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_4.res" id="5_yth6v"]
-[ext_resource type="ArrayMesh" uid="uid://b0hg7pmk2q8y5" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_5.res" id="6_oikxs"]
-[ext_resource type="ArrayMesh" uid="uid://cvhyuqy2qk4ux" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_6.res" id="7_llops"]
-[ext_resource type="ArrayMesh" uid="uid://da51qshypeagc" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_7.res" id="8_n2dbh"]
-[ext_resource type="ArrayMesh" uid="uid://cs67t6e3jtuxw" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_8.res" id="9_g7dgb"]
-[ext_resource type="ArrayMesh" uid="uid://cx3hdbkmxgdy2" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_10.res" id="11_gosg0"]
-[ext_resource type="ArrayMesh" uid="uid://qt1us1noebov" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_11.res" id="12_ypmro"]
-[ext_resource type="ArrayMesh" uid="uid://dsvhp06foec2b" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_12.res" id="13_hmgk2"]
-[ext_resource type="ArrayMesh" uid="uid://cclcrohe7r4km" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_13.res" id="14_58xkn"]
-[ext_resource type="ArrayMesh" uid="uid://coy72jbfjhabx" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_14.res" id="15_ta1t1"]
-[ext_resource type="ArrayMesh" uid="uid://chacx4vrmo8cx" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_15.res" id="16_ilrxt"]
-[ext_resource type="ArrayMesh" uid="uid://cwm5lmwobr5ak" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_16.res" id="17_eu0d8"]
-[ext_resource type="ArrayMesh" uid="uid://ptyne5dvh12a" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_17.res" id="18_da3np"]
-[ext_resource type="ArrayMesh" uid="uid://bajln2u4d2k0w" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_18.res" id="19_qhnca"]
-[ext_resource type="ArrayMesh" uid="uid://d1i3jrhx3fw8s" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_19.res" id="20_v0758"]
-[ext_resource type="ArrayMesh" uid="uid://oxbs15m5ixfc" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_20.res" id="21_1dkfr"]
-[ext_resource type="ArrayMesh" uid="uid://dsxj7nqbofj48" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_21.res" id="22_he5sh"]
-[ext_resource type="ArrayMesh" uid="uid://dwhbwfq76o8dj" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_23.res" id="24_tv40a"]
-[ext_resource type="ArrayMesh" uid="uid://bhecrn17adygq" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_24.res" id="25_mwig5"]
-[ext_resource type="ArrayMesh" uid="uid://bu6amnf533gp5" path="res://assets/classroom_meshes/Sketchfab_Scene_Object_25.res" id="26_u4fwx"]
+[ext_resource type="PackedScene" uid="uid://pk4366l8wrsy" path="res://scenes/zone_base.tscn" id="1_w75qy"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_xkx8l"]
 
-[node name="Classroom" type="Node3D" unique_id=1198688843]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w75qy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[node name="Mesh" type="Node3D" parent="." unique_id=1768715801]
-transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 0)
+[sub_resource type="Sky" id="Sky_8nrr8"]
+sky_material = SubResource("ProceduralSkyMaterial_w75qy")
 
-[node name="Object_2" type="MeshInstance3D" parent="Mesh" unique_id=1904320225]
-mesh = ExtResource("1_fvn43")
+[sub_resource type="Environment" id="Environment_xkx8l"]
+background_mode = 2
+sky = SubResource("Sky_8nrr8")
+tonemap_mode = 2
+glow_enabled = true
 
-[node name="Object_3" type="MeshInstance3D" parent="Mesh" unique_id=2101175568]
-mesh = ExtResource("2_npx1w")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w75qy"]
+albedo_color = Color(0.081984796, 0.31760365, 0.088756494, 1)
 
-[node name="Object_4" type="MeshInstance3D" parent="Mesh" unique_id=1400525604]
-mesh = ExtResource("3_5ibst")
+[sub_resource type="PlaneMesh" id="PlaneMesh_w75qy"]
+material = SubResource("StandardMaterial3D_w75qy")
+size = Vector2(10, 10)
 
-[node name="Object_5" type="MeshInstance3D" parent="Mesh" unique_id=1865267990]
-mesh = ExtResource("4_h8p8k")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w75qy"]
+points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
-[node name="Object_6" type="MeshInstance3D" parent="Mesh" unique_id=766630617]
-mesh = ExtResource("5_yth6v")
+[node name="Classroom" unique_id=315214593 instance=ExtResource("1_w75qy")]
 
-[node name="Object_7" type="MeshInstance3D" parent="Mesh" unique_id=1083881879]
-mesh = ExtResource("6_oikxs")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=900705071]
+environment = SubResource("Environment_xkx8l")
 
-[node name="Object_8" type="MeshInstance3D" parent="Mesh" unique_id=178894959]
-mesh = ExtResource("7_llops")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1" unique_id=1522963206]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
-[node name="Object_9" type="MeshInstance3D" parent="Mesh" unique_id=1650016652]
-mesh = ExtResource("8_n2dbh")
+[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1797780090 instance=ExtResource("2_xkx8l")]
 
-[node name="Object_10" type="MeshInstance3D" parent="Mesh" unique_id=1089095348]
-mesh = ExtResource("9_g7dgb")
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=372338534]
 
-[node name="Object_12" type="MeshInstance3D" parent="Mesh" unique_id=1191414199]
-mesh = ExtResource("11_gosg0")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0" unique_id=111309527]
+mesh = SubResource("PlaneMesh_w75qy")
 
-[node name="Object_13" type="MeshInstance3D" parent="Mesh" unique_id=1699805467]
-mesh = ExtResource("12_ypmro")
-
-[node name="Object_14" type="MeshInstance3D" parent="Mesh" unique_id=183471766]
-mesh = ExtResource("13_hmgk2")
-
-[node name="Object_15" type="MeshInstance3D" parent="Mesh" unique_id=1616663510]
-mesh = ExtResource("14_58xkn")
-
-[node name="Object_16" type="MeshInstance3D" parent="Mesh" unique_id=984676447]
-mesh = ExtResource("15_ta1t1")
-
-[node name="Object_17" type="MeshInstance3D" parent="Mesh" unique_id=1533513702]
-mesh = ExtResource("16_ilrxt")
-
-[node name="Object_18" type="MeshInstance3D" parent="Mesh" unique_id=1473255057]
-mesh = ExtResource("17_eu0d8")
-
-[node name="Object_19" type="MeshInstance3D" parent="Mesh" unique_id=1935485104]
-mesh = ExtResource("18_da3np")
-
-[node name="Object_20" type="MeshInstance3D" parent="Mesh" unique_id=823177577]
-mesh = ExtResource("19_qhnca")
-
-[node name="Object_21" type="MeshInstance3D" parent="Mesh" unique_id=534846857]
-mesh = ExtResource("20_v0758")
-
-[node name="Object_22" type="MeshInstance3D" parent="Mesh" unique_id=2017208089]
-mesh = ExtResource("21_1dkfr")
-
-[node name="Object_23" type="MeshInstance3D" parent="Mesh" unique_id=1391603381]
-mesh = ExtResource("22_he5sh")
-
-[node name="Object_25" type="MeshInstance3D" parent="Mesh" unique_id=9478574]
-mesh = ExtResource("24_tv40a")
-
-[node name="Object_26" type="MeshInstance3D" parent="Mesh" unique_id=190167918]
-mesh = ExtResource("25_mwig5")
-
-[node name="Object_27" type="MeshInstance3D" parent="Mesh" unique_id=137945537]
-mesh = ExtResource("26_u4fwx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=957510803]
+shape = SubResource("ConvexPolygonShape3D_w75qy")
