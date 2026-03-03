@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_k13so"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_oy5cl"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_k13so"]
-[ext_resource type="Script" uid="uid://ck4yn3hxuobj7" path="res://addons/godot-xr-tools/player/player_body.gd" id="8_oy5cl"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_oy5cl"]
 
 [node name="ZoneBase" unique_id=315214593 instance=ExtResource("1_bdkev")]
 
@@ -29,9 +29,6 @@ pose = &"grip"
 [node name="MovementTurn" parent="XROrigin3D/RightHand" index="1" unique_id=605455832 instance=ExtResource("5_oy5cl")]
 turn_mode = 1
 
-[node name="PlayerBody" type="CharacterBody3D" parent="XROrigin3D" index="3" unique_id=1003759215 groups=["player_body"] instance=ExtResource("7_k13so")]
-process_priority = -100
-process_physics_priority = -100
-collision_layer = 524288
-collision_mask = 1023
-script = ExtResource("8_oy5cl")
+[node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347 instance=ExtResource("7_oy5cl")]
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003759215 instance=ExtResource("7_k13so")]

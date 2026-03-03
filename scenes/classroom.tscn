@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b52lj1klf0oaj"]
 
 [ext_resource type="PackedScene" uid="uid://pk4366l8wrsy" path="res://scenes/zone_base.tscn" id="1_w75qy"]
+[ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="2_8nrr8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w75qy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,16 +16,6 @@ sky = SubResource("Sky_8nrr8")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w75qy"]
-albedo_color = Color(0.081984796, 0.31760365, 0.088756494, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_w75qy"]
-material = SubResource("StandardMaterial3D_w75qy")
-size = Vector2(10, 10)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w75qy"]
-points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
-
 [node name="Classroom" unique_id=315214593 instance=ExtResource("1_w75qy")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=900705071]
@@ -34,10 +25,5 @@ environment = SubResource("Environment_xkx8l")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=372338534]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0" unique_id=111309527]
-mesh = SubResource("PlaneMesh_w75qy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=957510803]
-shape = SubResource("ConvexPolygonShape3D_w75qy")
+[node name="ClassroomModel" parent="." index="3" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
