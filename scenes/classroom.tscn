@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pk4366l8wrsy" path="res://scenes/zone_base.tscn" id="1_w75qy"]
 [ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="2_8nrr8"]
+[ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_xkx8l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w75qy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +16,11 @@ background_mode = 2
 sky = SubResource("Sky_8nrr8")
 tonemap_mode = 2
 glow_enabled = true
+glow_levels/2 = 1.0
+glow_levels/3 = 1.0
+glow_levels/4 = 0.5
+glow_levels/5 = 0.2
+glow_intensity = 0.8
 
 [node name="Classroom" unique_id=315214593 instance=ExtResource("1_w75qy")]
 
@@ -25,5 +31,13 @@ environment = SubResource("Environment_xkx8l")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
+[node name="XROrigin3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.079476, -0.38128594)
+
 [node name="ClassroomModel" parent="." index="3" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="4" unique_id=803677723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8057659, 0)
+interior = true
+light_data = ExtResource("3_xkx8l")

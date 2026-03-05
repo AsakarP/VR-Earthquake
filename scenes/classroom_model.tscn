@@ -590,17 +590,29 @@
 [ext_resource type="ArrayMesh" uid="uid://bsf2773ikq4o2" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_pCube97_lambert42_0.res" id="587_lhd15"]
 [ext_resource type="ArrayMesh" uid="uid://c3yglyki3bms6" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_pCube98_lambert42_0.res" id="588_r3nq7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n68vo"]
-size = Vector3(3.5914917, 16.158098, 4.2209167)
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5f7n"]
+size = Vector3(0.001, 1, 1.2519531)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ljsym"]
-points = PackedVector3Array(0.50000006, -0.4950179, 0.5, -9.7960234e-05, -0.49501777, 0.5, -0.5000002, -0.4950179, 0.5, 0.4999022, -0.4950179, -0.75, -9.7960234e-05, -0.49501777, -0.75, -0.5000002, -0.4950179, -0.75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gewuo"]
+size = Vector3(0.0013544923, 1, 1.253418)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e5f7n"]
-points = PackedVector3Array(0.50000006, 0.5006527, 0.5, -0.5000002, 0.5006527, 0.5, -9.7960234e-05, 0.50065255, 0.5, -9.7960234e-05, 0.50065255, -0.75, 0.4999022, 0.5006527, -0.75, -0.5000002, 0.5006527, -0.75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sp0b1"]
+size = Vector3(1, 0.01, 1.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm2tt"]
+size = Vector3(1, 0.007537842, 1.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljsym"]
 size = Vector3(1, 1, 0.0022583008)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b53u1"]
+size = Vector3(3.7376556, 6.459717, 3.486267)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qcmm"]
+size = Vector3(5.027542, 9.994247, 48.2968)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n68vo"]
+size = Vector3(3.5914917, 16.158098, 4.2209167)
 
 [node name="ClassroomModel" type="Node3D" unique_id=1944298536]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
@@ -2683,6 +2695,575 @@ mesh = ExtResource("300_ek43k")
 
 [node name="Room" type="Node3D" parent="Mesh" unique_id=1509456874]
 
+[node name="ClassroomStructure" type="AnimatableBody3D" parent="Mesh/Room" unique_id=633997066]
+transform = Transform3D(95.999985, 0, 0, 0, 23.999996, 0, 0, 0, 47.999992, -35.972275, 11.999998, -17.999996)
+script = ExtResource("429_ljsym")
+trauma = 3.0
+
+[node name="FrontWall" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=632486629]
+transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
+mesh = ExtResource("301_mvy4e")
+
+[node name="FrontWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=565689607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5003941, 0, -0.12597656)
+shape = SubResource("BoxShape3D_e5f7n")
+
+[node name="BackWall" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1245101098]
+transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
+mesh = ExtResource("302_6fnk1")
+
+[node name="BackWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1979400067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4997537, 0, -0.12670898)
+shape = SubResource("BoxShape3D_gewuo")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1221757095]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 5.9604645e-08, -2.9802322e-08)
+mesh = ExtResource("429_hwkxr")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=248416843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.125)
+shape = SubResource("BoxShape3D_sp0b1")
+
+[node name="RoofMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1765067243]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.00065258145, -2.9802322e-08)
+mesh = ExtResource("430_uhkej")
+
+[node name="RoofCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1554088110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50361633, -0.12499994)
+shape = SubResource("BoxShape3D_pm2tt")
+
+[node name="LeftWallMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1864855667]
+transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
+mesh = ExtResource("303_sf8yv")
+
+[node name="TopWindows" type="Node3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=1439697512]
+
+[node name="polySurface73_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/TopWindows" unique_id=243015691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.996804e-15, -18.000006)
+mesh = ExtResource("425_q1y0c")
+
+[node name="polySurface113_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/TopWindows" unique_id=594998026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.68605, -3.996804e-15, -18.000006)
+mesh = ExtResource("427_luc24")
+
+[node name="Windows" type="Node3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=2079494628]
+
+[node name="polySurface72_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1411056837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.996804e-15, -18.000006)
+mesh = ExtResource("426_vay5f")
+
+[node name="polySurface114_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1194907816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.68605, -3.996804e-15, -18.000006)
+mesh = ExtResource("428_cnhlo")
+
+[node name="polySurface101_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1057962320]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.07593406, -1.3111376e-14, 9.441158)
+mesh = ExtResource("363_uq3gp")
+
+[node name="polySurface102_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1521004613]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.07593406, -1.3111377e-14, 9.289467)
+mesh = ExtResource("364_6418h")
+
+[node name="polySurface103_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1296371812]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 4.2976265, -1.3111377e-14, 9.314758)
+mesh = ExtResource("365_lhi8d")
+
+[node name="polySurface104_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1148660711]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 13.69908, -1.3111377e-14, 9.314758)
+mesh = ExtResource("366_bvf48")
+
+[node name="polySurface105_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1674687686]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 9.477388, -1.3111377e-14, 9.289467)
+mesh = ExtResource("367_6y7qe")
+
+[node name="polySurface106_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=2010849378]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 9.477388, -1.3111376e-14, 9.441158)
+mesh = ExtResource("368_hntt6")
+
+[node name="polySurface107_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=964906556]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -20.204878, -1.3111376e-14, 9.441158)
+mesh = ExtResource("369_q4sa6")
+
+[node name="polySurface108_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1755446695]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -15.983186, -1.3111377e-14, 9.314758)
+mesh = ExtResource("370_nfyt4")
+
+[node name="polySurface109_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1200186317]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -10.803424, -1.3111376e-14, 9.441158)
+mesh = ExtResource("371_vobcl")
+
+[node name="polySurface110_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=2088213803]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -6.581732, -1.3111377e-14, 9.314758)
+mesh = ExtResource("372_2q6l7")
+
+[node name="polySurface111_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1045903487]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -20.204878, -1.3111377e-14, 9.289467)
+mesh = ExtResource("373_vtvg5")
+
+[node name="polySurface112_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=800555492]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -10.803424, -1.3111377e-14, 9.289467)
+mesh = ExtResource("374_hdm5r")
+
+[node name="polySurface117_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=567009293]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.76199, -1.3111376e-14, 9.441158)
+mesh = ExtResource("375_nxj0y")
+
+[node name="polySurface126_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=907243817]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 37.88263, -1.3111377e-14, 9.289467)
+mesh = ExtResource("376_xm73a")
+
+[node name="polySurface127_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=391836229]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 28.481178, -1.3111377e-14, 9.289467)
+mesh = ExtResource("377_d6x5l")
+
+[node name="polySurface128_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1559211388]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 42.104324, -1.3111377e-14, 9.314758)
+mesh = ExtResource("378_dx64n")
+
+[node name="polySurface129_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1870041645]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 37.88263, -1.3111376e-14, 9.441158)
+mesh = ExtResource("379_46rmr")
+
+[node name="polySurface130_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=166010525]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 32.702866, -1.3111377e-14, 9.314758)
+mesh = ExtResource("380_23wyp")
+
+[node name="polySurface131_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1672269821]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 28.481178, -1.3111376e-14, 9.441158)
+mesh = ExtResource("381_n4qds")
+
+[node name="polySurface132_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1730653997]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 52.98368, -1.3111377e-14, 9.314758)
+mesh = ExtResource("382_qdv5u")
+
+[node name="polySurface133_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1069354366]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 58.16344, -1.3111376e-14, 9.441158)
+mesh = ExtResource("383_57pxd")
+
+[node name="polySurface134_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=1153383281]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 62.38513, -1.3111377e-14, 9.314758)
+mesh = ExtResource("384_v0yse")
+
+[node name="polySurface135_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=48273492]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.76199, -1.3111377e-14, 9.289467)
+mesh = ExtResource("385_ujwr7")
+
+[node name="polySurface136_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh/Windows" unique_id=2111801072]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 58.16344, -1.3111377e-14, 9.289467)
+mesh = ExtResource("386_fw0ir")
+
+[node name="LeftWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1159148602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5001528)
+shape = SubResource("BoxShape3D_ljsym")
+
+[node name="RightWallMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=504511719]
+transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
+mesh = ExtResource("304_uq4da")
+
+[node name="Door1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=940118488]
+
+[node name="pPlane4_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=568349078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.433393, -1.3111376e-14, -57.475243)
+mesh = ExtResource("305_llic1")
+
+[node name="polySurface27_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=570549653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.433393, -1.3111376e-14, -57.475243)
+mesh = ExtResource("306_ghvwo")
+
+[node name="polySurface88_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=743890743]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -130.75519, -1.3111378e-14, -57.976223)
+mesh = ExtResource("307_ahcly")
+
+[node name="pPlane15_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=1725664805]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -130.80602, -1.3111378e-14, -57.976223)
+mesh = ExtResource("308_nnevt")
+
+[node name="Door2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1437540776]
+
+[node name="pPlane4_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=1720602757]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.100925, -1.3304031e-14, -57.475243)
+mesh = ExtResource("389_i31qf")
+
+[node name="polySurface27_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=1849599409]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.100925, -1.3304031e-14, -57.475243)
+mesh = ExtResource("390_ol7xf")
+
+[node name="polySurface88_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=2027657706]
+transform = Transform3D(1, 0, 0, 0, 1, -2.4492937e-16, 0, 2.4492937e-16, 1, 59.220867, -1.3242681e-14, -57.976227)
+mesh = ExtResource("391_w7i26")
+
+[node name="pPlane15_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=925050345]
+transform = Transform3D(1, 0, 0, 0, 1, -2.4492937e-16, 0, 2.4492937e-16, 1, 59.220436, -1.3242681e-14, -57.976227)
+mesh = ExtResource("392_kgwe7")
+
+[node name="TopWindows1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1967102384]
+
+[node name="polySurface12_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1287922028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
+mesh = ExtResource("309_ep258")
+
+[node name="polySurface16_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=218907412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
+mesh = ExtResource("310_om3ks")
+
+[node name="pPlane3_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=114852790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
+mesh = ExtResource("311_tq7d5")
+
+[node name="polySurface74_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=2048269951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.176796, -1.3111377e-14, -58.12249)
+mesh = ExtResource("312_6f2h6")
+
+[node name="pPlane5_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=377557930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.164595, -1.3111377e-14, -58.12249)
+mesh = ExtResource("313_jvc76")
+
+[node name="polySurface75_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=958344200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
+mesh = ExtResource("314_2rmym")
+
+[node name="polySurface76_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1726688618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
+mesh = ExtResource("315_tgd4o")
+
+[node name="pPlane6_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=41948643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
+mesh = ExtResource("316_xpkrf")
+
+[node name="pPlane7_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1757827948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.228577, -1.3111377e-14, -58.12249)
+mesh = ExtResource("317_7w186")
+
+[node name="polySurface77_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=293265985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2163763, -1.3111377e-14, -58.12249)
+mesh = ExtResource("318_gq24x")
+
+[node name="polySurface78_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1273592537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
+mesh = ExtResource("319_3iaof")
+
+[node name="polySurface79_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=25586180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
+mesh = ExtResource("320_f1nf0")
+
+[node name="pPlane8_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1185108757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
+mesh = ExtResource("321_g8emq")
+
+[node name="polySurface80_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=727430348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.171465, -1.3111377e-14, -58.12249)
+mesh = ExtResource("322_1xmv7")
+
+[node name="pPlane9_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1321159858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.183664, -1.3111377e-14, -58.12249)
+mesh = ExtResource("323_mokjq")
+
+[node name="pPlane10_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1807064342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
+mesh = ExtResource("324_uytir")
+
+[node name="polySurface81_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=94836174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
+mesh = ExtResource("325_5i4v5")
+
+[node name="polySurface82_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1173654562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
+mesh = ExtResource("326_bikf2")
+
+[node name="pPlane11_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=648208313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.790494, -1.3111377e-14, -58.12249)
+mesh = ExtResource("327_vjq8w")
+
+[node name="polySurface83_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1899071413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.778294, -1.3111377e-14, -58.12249)
+mesh = ExtResource("328_2myjc")
+
+[node name="polySurface89_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=39082288]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -9.375752, -1.3111377e-14, 8.549416)
+mesh = ExtResource("329_tb84q")
+
+[node name="polySurface90_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1133493872]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -9.375752, -1.3111376e-14, 8.397731)
+mesh = ExtResource("330_yfwj6")
+
+[node name="pPlane17_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1652335324]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 4.228577, -1.3111377e-14, 8.59584)
+mesh = ExtResource("331_diqfp")
+
+[node name="polySurface92_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=204782508]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.01741886, -1.3111376e-14, 8.397731)
+mesh = ExtResource("332_hdchy")
+
+[node name="polySurface93_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1701608240]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.01741886, -1.3111377e-14, 8.549416)
+mesh = ExtResource("333_ewpci")
+
+[node name="polySurface94_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1799442014]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -5.176796, -1.3111377e-14, 8.549416)
+mesh = ExtResource("334_0lddo")
+
+[node name="polySurface95_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=761761989]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 10.579335, -1.3111377e-14, 8.549416)
+mesh = ExtResource("335_5altc")
+
+[node name="polySurface96_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1594701809]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 10.579335, -1.3111376e-14, 8.397731)
+mesh = ExtResource("336_1k2ty")
+
+[node name="polySurface97_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=572960012]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 14.778294, -1.3111377e-14, 8.549416)
+mesh = ExtResource("337_ejnih")
+
+[node name="polySurface98_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=862694945]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 19.972507, -1.3111377e-14, 8.549416)
+mesh = ExtResource("338_tj2yp")
+
+[node name="polySurface99_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=352916647]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 19.972507, -1.3111376e-14, 8.397731)
+mesh = ExtResource("339_7x4qw")
+
+[node name="polySurface100_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=652298630]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 24.171465, -1.3111377e-14, 8.549416)
+mesh = ExtResource("340_h7bbd")
+
+[node name="polySurface115_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=224746566]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.703472, -1.3111377e-14, 8.549416)
+mesh = ExtResource("341_vdt8s")
+
+[node name="polySurface116_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1445816430]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 43.50926, -1.3111377e-14, 8.549416)
+mesh = ExtResource("342_sghl8")
+
+[node name="polySurface118_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=2090474074]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 72.85752, -1.3111377e-14, 8.549416)
+mesh = ExtResource("343_p812l")
+
+[node name="polySurface119_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1728095859]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 68.658554, -1.3111376e-14, 8.397731)
+mesh = ExtResource("344_dlm5y")
+
+[node name="polySurface120_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1165006804]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 68.658554, -1.3111377e-14, 8.549416)
+mesh = ExtResource("345_s2r1m")
+
+[node name="polySurface121_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1930703453]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 39.3103, -1.3111377e-14, 8.549416)
+mesh = ExtResource("346_k12tq")
+
+[node name="polySurface122_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=634438139]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 39.3103, -1.3111376e-14, 8.397731)
+mesh = ExtResource("347_q4joy")
+
+[node name="polySurface123_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1793500822]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 63.464348, -1.3111377e-14, 8.549416)
+mesh = ExtResource("348_d8vbo")
+
+[node name="polySurface124_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1751857883]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 59.265385, -1.3111376e-14, 8.397731)
+mesh = ExtResource("349_aaad1")
+
+[node name="polySurface125_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1244622114]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 59.265385, -1.3111377e-14, 8.549416)
+mesh = ExtResource("350_hyx1n")
+
+[node name="polySurface137_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=1472855437]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 52.90243, -1.3111377e-14, 8.549416)
+mesh = ExtResource("351_jmfr7")
+
+[node name="polySurface138_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows1" unique_id=838458483]
+transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.703472, -1.3111376e-14, 8.397731)
+mesh = ExtResource("352_65a71")
+
+[node name="TopWindows2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1747335942]
+
+[node name="polySurface12_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1741499381]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
+mesh = ExtResource("393_j5q8k")
+
+[node name="polySurface16_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=999339226]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
+mesh = ExtResource("394_1qm1p")
+
+[node name="pPlane3_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=2089646328]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
+mesh = ExtResource("395_gqe3y")
+
+[node name="polySurface74_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1957620408]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -66.35752, -1.3224768e-14, -58.12249)
+mesh = ExtResource("396_bgeae")
+
+[node name="pPlane5_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=60326864]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -66.36973, -1.3224768e-14, -58.12249)
+mesh = ExtResource("397_k58g0")
+
+[node name="polySurface75_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=603017086]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
+mesh = ExtResource("398_5281o")
+
+[node name="polySurface76_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=898666133]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
+mesh = ExtResource("399_gmcqt")
+
+[node name="pPlane6_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1031513644]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
+mesh = ExtResource("400_gase2")
+
+[node name="pPlane7_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=117434247]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -75.76289, -1.3224768e-14, -58.12249)
+mesh = ExtResource("401_q1b8b")
+
+[node name="polySurface77_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1014745332]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -75.7507, -1.3224768e-14, -58.12249)
+mesh = ExtResource("402_jgxvr")
+
+[node name="polySurface78_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1814360985]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
+mesh = ExtResource("403_rbfp4")
+
+[node name="polySurface79_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=530920492]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
+mesh = ExtResource("404_dk7jq")
+
+[node name="pPlane8_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=677576747]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
+mesh = ExtResource("405_aa4go")
+
+[node name="polySurface80_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=459511194]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -95.705795, -1.3224768e-14, -58.12249)
+mesh = ExtResource("406_3wj4i")
+
+[node name="pPlane9_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1306118968]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -95.71798, -1.3224768e-14, -58.12249)
+mesh = ExtResource("407_2fe07")
+
+[node name="pPlane10_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=2034707087]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
+mesh = ExtResource("408_fsrdl")
+
+[node name="polySurface81_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1072558866]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
+mesh = ExtResource("409_ni0te")
+
+[node name="polySurface82_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=1129035003]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
+mesh = ExtResource("410_nmhs1")
+
+[node name="pPlane11_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=189922659]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -86.324814, -1.3224768e-14, -58.12249)
+mesh = ExtResource("411_at8ev")
+
+[node name="polySurface83_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindows2" unique_id=474402792]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -86.31261, -1.3224768e-14, -58.12249)
+mesh = ExtResource("412_bbv1p")
+
+[node name="Windows1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=819365529]
+
+[node name="polySurface12_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=666667395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3111377e-14, -59.048393)
+mesh = ExtResource("353_a2ksb")
+
+[node name="polySurface16_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=529503037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3111377e-14, -59.048393)
+mesh = ExtResource("354_tjqg4")
+
+[node name="pPlane3_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=1881023603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3111377e-14, -59.048393)
+mesh = ExtResource("355_wxsp7")
+
+[node name="pPlane12_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=204103337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, -1.3111376e-14, -59.174786)
+mesh = ExtResource("356_73ual")
+
+[node name="polySurface84_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=1038287534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, -1.3111376e-14, -59.174786)
+mesh = ExtResource("357_rptnq")
+
+[node name="pPlane13_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=491153797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, -1.3111377e-14, -59.048393)
+mesh = ExtResource("358_1x3nh")
+
+[node name="polySurface85_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=1201683683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, -1.3111377e-14, -59.048393)
+mesh = ExtResource("359_781xm")
+
+[node name="polySurface86_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=1404270278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, -1.3111377e-14, -59.048393)
+mesh = ExtResource("360_6r5l1")
+
+[node name="pPlane14_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=1373686493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623146, -1.3111376e-14, -59.174786)
+mesh = ExtResource("361_rj1rd")
+
+[node name="polySurface87_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows1" unique_id=107308299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623146, -1.3111376e-14, -59.174786)
+mesh = ExtResource("362_mplug")
+
+[node name="Windows2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=610134754]
+
+[node name="polySurface12_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=1579639607]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71.53432, -1.3111377e-14, -59.048393)
+mesh = ExtResource("413_fj6i7")
+
+[node name="polySurface16_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=1179430975]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71.53432, -1.3111377e-14, -59.048393)
+mesh = ExtResource("414_px4fm")
+
+[node name="pPlane3_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=958605739]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71.53432, -1.3111377e-14, -59.048393)
+mesh = ExtResource("415_t117e")
+
+[node name="pPlane12_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=1198031465]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -75.75601, -1.3095898e-14, -59.174786)
+mesh = ExtResource("416_maijk")
+
+[node name="polySurface84_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=2033859792]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -75.75601, -1.3095898e-14, -59.174786)
+mesh = ExtResource("417_ndeph")
+
+[node name="pPlane13_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=467707120]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -80.93577, -1.3111377e-14, -59.048393)
+mesh = ExtResource("418_2aagr")
+
+[node name="polySurface85_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=1717850185]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -80.93577, -1.3111377e-14, -59.048393)
+mesh = ExtResource("419_hq5w1")
+
+[node name="polySurface86_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=2110986864]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -80.93577, -1.3111377e-14, -59.048393)
+mesh = ExtResource("420_b5p2t")
+
+[node name="pPlane14_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=219582774]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -85.15746, -1.3095898e-14, -59.174786)
+mesh = ExtResource("421_f86mo")
+
+[node name="polySurface87_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Windows2" unique_id=1755162571]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -85.15746, -1.3095898e-14, -59.174786)
+mesh = ExtResource("422_5ujhy")
+
+[node name="Frame1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1344238913]
+
+[node name="polySurface66_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Frame1" unique_id=904385130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3111377e-14, -59.048393)
+mesh = ExtResource("387_lnysr")
+
+[node name="polySurface70_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Frame1" unique_id=1571963673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3111377e-14, -59.048393)
+mesh = ExtResource("388_vejr4")
+
+[node name="Frame2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1676523169]
+
+[node name="polySurface66_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Frame2" unique_id=171404431]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71.53432, -1.3111377e-14, -59.048393)
+mesh = ExtResource("423_xd1b3")
+
+[node name="polySurface70_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Frame2" unique_id=1240415211]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71.53432, -1.3111377e-14, -59.048393)
+mesh = ExtResource("424_dfomp")
+
+[node name="RightWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=403076057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
+shape = SubResource("BoxShape3D_ljsym")
+
 [node name="Platform" type="Node3D" parent="Mesh/Room" unique_id=669354164]
 
 [node name="PlatformTop" type="Node3D" parent="Mesh/Room/Platform" unique_id=646650769]
@@ -2776,402 +3357,364 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.644569, 0, 29.032497)
 [node name="polySurface144_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Pizarrones/PizarronBack01/polySurface144" unique_id=812856233]
 mesh = ExtResource("444_gorpp")
 
-[node name="Libreros" type="Node3D" parent="Mesh/Room" unique_id=520652719]
+[node name="Bookshelves" type="Node3D" parent="Mesh/Room" unique_id=520652719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14550331, 2.7614915)
 
-[node name="LibreroCH" type="Node3D" parent="Mesh/Room/Libreros" unique_id=1860595263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.760613)
+[node name="BookshelfFront" type="RigidBody3D" parent="Mesh/Room/Bookshelves" unique_id=955397334]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -2.760613)
 
-[node name="LibreroCH_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroCH" unique_id=539995513]
+[node name="BookshelfFrontMesh" type="Node3D" parent="Mesh/Room/Bookshelves/BookshelfFront" unique_id=1860595263]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="LibreroCH_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfFront/BookshelfFrontMesh" unique_id=539995513]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 mesh = ExtResource("445_em1v7")
 
-[node name="LibreroG" type="Node3D" parent="Mesh/Room/Libreros" unique_id=1629932665]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1662556)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Bookshelves/BookshelfFront" unique_id=505766734]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -82.124146, 3.2315671, 4.23811)
+shape = SubResource("BoxShape3D_b53u1")
 
-[node name="pCube12" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=1499177493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089624785, 0, 0)
+[node name="BookshelfBack" type="RigidBody3D" parent="Mesh/Room/Bookshelves" unique_id=1829414298]
 
-[node name="pCube12_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube12" unique_id=158064411]
+[node name="BookshelfBackMesh" type="Node3D" parent="Mesh/Room/Bookshelves/BookshelfBack" unique_id=1629932665]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 1.1662555)
+
+[node name="pCube12_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=158064411]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.089624785, 0, 0)
 mesh = ExtResource("446_ftjrf")
 
-[node name="pCube13" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=1912232417]
-
-[node name="pCube13_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube13" unique_id=1087411442]
+[node name="pCube13_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1087411442]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("447_yajn8")
 
-[node name="pCube17" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=110618312]
-
-[node name="pCube17_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube17" unique_id=383486073]
+[node name="pCube17_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=383486073]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("448_bkqic")
 
-[node name="pCube18" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=662354386]
-
-[node name="pCube18_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube18" unique_id=1821788111]
+[node name="pCube18_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1821788111]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("449_ykibd")
 
-[node name="pCube19" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=727303349]
-
-[node name="pCube19_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube19" unique_id=1873760212]
+[node name="pCube19_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1873760212]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("450_yk5i5")
 
-[node name="pCube20" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=1183324822]
-
-[node name="pCube20_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube20" unique_id=589299153]
+[node name="pCube20_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=589299153]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("451_f0wax")
 
-[node name="pCube21" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=778722548]
-
-[node name="pCube21_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube21" unique_id=351257210]
+[node name="pCube21_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=351257210]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("452_5mr0q")
 
-[node name="pCube22" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=135535405]
-
-[node name="pCube22_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube22" unique_id=407723037]
+[node name="pCube22_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=407723037]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("453_d6g1y")
 
-[node name="pCube23" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=32460132]
-
-[node name="pCube23_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube23" unique_id=2090217320]
+[node name="pCube23_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=2090217320]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("454_u505t")
 
-[node name="pCube24" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=655491251]
-
-[node name="pCube24_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube24" unique_id=171893258]
+[node name="pCube24_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=171893258]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("455_vdyw0")
 
-[node name="pCube25" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=1809473011]
-
-[node name="pCube25_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube25" unique_id=1776866867]
+[node name="pCube25_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1776866867]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("456_dhv6e")
 
-[node name="pCube26" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=499821720]
-
-[node name="pCube26_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube26" unique_id=1182750331]
+[node name="pCube26_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1182750331]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("457_w1idp")
 
-[node name="pCube27" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=642368401]
-
-[node name="pCube27_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube27" unique_id=1220530413]
+[node name="pCube27_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=1220530413]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("458_0sppw")
 
-[node name="pCube32" type="Node3D" parent="Mesh/Room/Libreros/LibreroG" unique_id=538196304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3783298, 0)
-
-[node name="pCube32_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Libreros/LibreroG/pCube32" unique_id=996478990]
+[node name="pCube32_Libreros1_0" type="MeshInstance3D" parent="Mesh/Room/Bookshelves/BookshelfBack/BookshelfBackMesh" unique_id=996478990]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 3.3783298, 0)
 mesh = ExtResource("459_1rw63")
 
-[node name="Lamparas" type="Node3D" parent="Mesh/Room" unique_id=579874352]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Bookshelves/BookshelfBack" unique_id=1629727442]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 9.4105215, 5.003076, -21.57368)
+shape = SubResource("BoxShape3D_3qcmm")
 
-[node name="Lampara" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=1038030653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7540857, -0.047977746, 0.511038)
+[node name="Lamps" type="Node3D" parent="Mesh/Room" unique_id=579874352]
 
-[node name="Modelado" type="Node3D" parent="Mesh/Room/Lamparas/Lampara" unique_id=833206103]
+[node name="Lamp1" type="Node3D" parent="Mesh/Room/Lamps" unique_id=865576545]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Base" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=338718913]
-
-[node name="Base_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/Base" unique_id=2113775902]
+[node name="Base_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=2113775902]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
 mesh = ExtResource("460_hry6c")
 
-[node name="BaseFoco" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=363408359]
-
-[node name="BaseFoco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/BaseFoco" unique_id=1931657921]
+[node name="BaseFoco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=1931657921]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
 mesh = ExtResource("461_7rjtf")
 
-[node name="Tubo" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=794564456]
-
-[node name="Tubo_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/Tubo" unique_id=204622301]
+[node name="Tubo_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=204622301]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
 mesh = ExtResource("462_kt4qy")
 
-[node name="Foco" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=563138834]
-
-[node name="Foco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/Foco" unique_id=194329881]
-mesh = ExtResource("463_f8keg")
-
-[node name="Tubo1" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=1891094563]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/Tubo1" unique_id=2036502521]
+[node name="Tubo1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=2036502521]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 4.530633)
 mesh = ExtResource("464_bchm6")
 
-[node name="Foco1" type="Node3D" parent="Mesh/Room/Lamparas/Lampara/Modelado" unique_id=715636059]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=194329881]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.75408554, -0.047977738, 0.5110379)
+mesh = ExtResource("463_f8keg")
 
-[node name="Foco1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara/Modelado/Foco1" unique_id=183003867]
+[node name="Foco1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=183003867]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.1288708, -0.047977738, 0.5110379)
 mesh = ExtResource("465_wux7x")
 
-[node name="Lampara1" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=1016454352]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=1143150446]
+transform = Transform3D(6.666667, 0, 0, 0, 6.666667, 0, 0, 0, 6.666667, -60.340504, 21.419012, -8.6589)
+light_energy = 2.067
+
+[node name="Lamp2" type="Node3D" parent="Mesh/Room/Lamps" unique_id=1016454352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7540857, -0.047977746, -29.370884)
 
-[node name="Modelado2" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1" unique_id=606439074]
-
-[node name="Base2" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=1564013371]
-
-[node name="Base_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/Base2" unique_id=797491877]
+[node name="Base_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=797491877]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("466_y4g1k")
 
-[node name="BaseFoco2" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=1090593745]
-
-[node name="BaseFoco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/BaseFoco2" unique_id=272783342]
+[node name="BaseFoco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=272783342]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("467_j80ox")
 
-[node name="Tubo2" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=1773222995]
-
-[node name="Tubo_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/Tubo2" unique_id=583601605]
+[node name="Tubo_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=583601605]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("468_qpqyr")
 
-[node name="Foco2" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=1349133574]
-
-[node name="Foco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/Foco2" unique_id=205356994]
-mesh = ExtResource("469_8pvca")
-
-[node name="Tubo12" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=81237912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/Tubo12" unique_id=1561431094]
+[node name="Tubo1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=1561431094]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
 mesh = ExtResource("470_a3d3u")
 
-[node name="Foco12" type="Node3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2" unique_id=784063897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=205356994]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = ExtResource("469_8pvca")
 
-[node name="Foco1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara1/Modelado2/Foco12" unique_id=384088825]
+[node name="Foco1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=384088825]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.6252149, 0, 0)
 mesh = ExtResource("471_03x7u")
 
-[node name="Lampara2" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=1941488791]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=1534111440]
+transform = Transform3D(6.666666, 0, 0, 0, 6.666666, 0, 0, 0, 6.666666, -59.618675, 21.41901, -9.580318)
+light_energy = 2.067
+
+[node name="Lamp3" type="Node3D" parent="Mesh/Room/Lamps" unique_id=1941488791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.342394, -0.047977746, 0.511038)
 
-[node name="Modelado3" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2" unique_id=335633714]
-
-[node name="Base3" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=504645564]
-
-[node name="Base_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/Base3" unique_id=417966746]
+[node name="Base_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=417966746]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("472_qd6vm")
 
-[node name="BaseFoco3" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=1135057090]
-
-[node name="BaseFoco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/BaseFoco3" unique_id=1926921485]
+[node name="BaseFoco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=1926921485]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("473_ukyj6")
 
-[node name="Tubo3" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=1213450198]
-
-[node name="Tubo_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/Tubo3" unique_id=232699184]
+[node name="Tubo_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=232699184]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("474_ymusx")
 
-[node name="Foco3" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=812846035]
-
-[node name="Foco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/Foco3" unique_id=447596724]
-mesh = ExtResource("475_radiy")
-
-[node name="Tubo13" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=1042897289]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/Tubo13" unique_id=106476808]
+[node name="Tubo1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=106476808]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
 mesh = ExtResource("476_ua7x2")
 
-[node name="Foco13" type="Node3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3" unique_id=1970784569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=447596724]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = ExtResource("475_radiy")
 
-[node name="Foco1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara2/Modelado3/Foco13" unique_id=1487062673]
+[node name="Foco1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=1487062673]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521553, 0, 0)
 mesh = ExtResource("477_8he5f")
 
-[node name="Lampara3" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=986601454]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=851241510]
+transform = Transform3D(6.666666, 0, 0, 0, 6.666666, 0, 0, 0, 6.666666, -59.618683, 21.41901, -9.19362)
+light_energy = 2.067
+
+[node name="Lamp4" type="Node3D" parent="Mesh/Room/Lamps" unique_id=986601454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.342394, -0.047977746, -29.370884)
 
-[node name="Modelado4" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3" unique_id=1201530763]
-
-[node name="Base4" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=1276035405]
-
-[node name="Base_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/Base4" unique_id=1550094201]
+[node name="Base_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=1550094201]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("478_dj680")
 
-[node name="BaseFoco4" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=500331696]
-
-[node name="BaseFoco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/BaseFoco4" unique_id=445746916]
+[node name="BaseFoco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=445746916]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("479_2046p")
 
-[node name="Tubo4" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=797361365]
-
-[node name="Tubo_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/Tubo4" unique_id=931965471]
+[node name="Tubo_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=931965471]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("480_2vxa0")
 
-[node name="Foco4" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=549544549]
-
-[node name="Foco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/Foco4" unique_id=165191377]
-mesh = ExtResource("481_alfhh")
-
-[node name="Tubo14" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=579046463]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/Tubo14" unique_id=1768265085]
+[node name="Tubo1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=1768265085]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
 mesh = ExtResource("482_di4he")
 
-[node name="Foco14" type="Node3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4" unique_id=47073069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=165191377]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = ExtResource("481_alfhh")
 
-[node name="Foco1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara3/Modelado4/Foco14" unique_id=891485981]
+[node name="Foco1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=891485981]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521553, 0, 0)
 mesh = ExtResource("483_r1yal")
 
-[node name="Lampara4" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=106319311]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=1079001942]
+transform = Transform3D(6.666666, 0, 0, 0, 6.666666, 0, 0, 0, 6.666666, -59.61868, 21.41901, -9.60947)
+light_energy = 2.067
+
+[node name="Lamp5" type="Node3D" parent="Mesh/Room/Lamps" unique_id=106319311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.315372, -0.047977746, 0.511038)
 
-[node name="Modelado5" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4" unique_id=983837529]
-
-[node name="Base5" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=480449297]
-
-[node name="Base_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/Base5" unique_id=1836122716]
+[node name="Base_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=1836122716]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("484_rp1tu")
 
-[node name="BaseFoco5" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=1195037945]
-
-[node name="BaseFoco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/BaseFoco5" unique_id=1211938691]
+[node name="BaseFoco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=1211938691]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("485_8wns8")
 
-[node name="Tubo5" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=1174865799]
-
-[node name="Tubo_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/Tubo5" unique_id=450409460]
+[node name="Tubo_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=450409460]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("486_pnox2")
 
-[node name="Foco5" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=1596922356]
-
-[node name="Foco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/Foco5" unique_id=788875285]
-mesh = ExtResource("487_08wf3")
-
-[node name="Tubo15" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=1882425017]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/Tubo15" unique_id=78255597]
+[node name="Tubo1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=78255597]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
 mesh = ExtResource("488_4gj36")
 
-[node name="Foco15" type="Node3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5" unique_id=2038247162]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=788875285]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = ExtResource("487_08wf3")
 
-[node name="Foco1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara4/Modelado5/Foco15" unique_id=225195503]
+[node name="Foco1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=225195503]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521744, 0, 0)
 mesh = ExtResource("489_j2kqf")
 
-[node name="Lampara5" type="Node3D" parent="Mesh/Room/Lamparas" unique_id=755861540]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=136451387]
+transform = Transform3D(6.666666, 0, 0, 0, 6.666666, 0, 0, 0, 6.666666, -59.618683, 21.41901, -9.386162)
+light_energy = 2.067
+
+[node name="Lamp6" type="Node3D" parent="Mesh/Room/Lamps" unique_id=755861540]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.315372, -0.047977746, -29.370884)
 
-[node name="Modelado6" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5" unique_id=234446650]
-
-[node name="Base6" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=1591054366]
-
-[node name="Base_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/Base6" unique_id=189314560]
+[node name="Base_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=189314560]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("490_yffu2")
 
-[node name="BaseFoco6" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=286314126]
-
-[node name="BaseFoco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/BaseFoco6" unique_id=936795265]
+[node name="BaseFoco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=936795265]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("491_of1j5")
 
-[node name="Tubo6" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=980260]
-
-[node name="Tubo_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/Tubo6" unique_id=1890109760]
+[node name="Tubo_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1890109760]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("492_jam3g")
 
-[node name="Foco6" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=829754516]
-
-[node name="Foco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/Foco6" unique_id=1242715004]
-mesh = ExtResource("493_y2mh8")
-
-[node name="Tubo16" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=1123988420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019595)
-
-[node name="Tubo1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/Tubo16" unique_id=181284826]
+[node name="Tubo1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=181284826]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
 mesh = ExtResource("494_54rsa")
 
-[node name="Foco16" type="Node3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6" unique_id=1633704617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6252149, 0, 0)
+[node name="Foco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1242715004]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = ExtResource("493_y2mh8")
 
-[node name="Foco1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamparas/Lampara5/Modelado6/Foco16" unique_id=558185637]
+[node name="Foco1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=558185637]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521744, 0, 0)
 mesh = ExtResource("495_uplk0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1036458743]
+transform = Transform3D(6.666666, 0, 0, 0, 6.666666, 0, 0, 0, 6.666666, -59.618683, 21.41901, -9.45702)
+light_energy = 2.067
 
 [node name="Lockers" type="Node3D" parent="Mesh/Room" unique_id=1431820473]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Mesh/Room/Lockers" unique_id=618611250]
+[node name="Locker1" type="RigidBody3D" parent="Mesh/Room/Lockers" unique_id=618611250]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Locker1" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D" unique_id=1653737986]
+[node name="LockerMesh1" type="Node3D" parent="Mesh/Room/Lockers/Locker1" unique_id=1653737986]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -5.3832173, 0.13872896, -0.98055995)
 
-[node name="group1" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1" unique_id=199907827]
+[node name="group1" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1" unique_id=199907827]
 
-[node name="SeguroP1" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group1" unique_id=1486107507]
+[node name="SeguroP1" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group1" unique_id=1486107507]
 
-[node name="SeguroP1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group1/SeguroP1" unique_id=140066556]
+[node name="SeguroP1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group1/SeguroP1" unique_id=140066556]
 mesh = ExtResource("496_i6ma3")
 
-[node name="SeguroP2" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group1" unique_id=595089290]
+[node name="SeguroP2" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group1" unique_id=595089290]
 
-[node name="SeguroP2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group1/SeguroP2" unique_id=239182280]
+[node name="SeguroP2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group1/SeguroP2" unique_id=239182280]
 mesh = ExtResource("497_6manr")
 
-[node name="group2" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1" unique_id=103259140]
+[node name="group2" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1" unique_id=103259140]
 
-[node name="CuerpoP1" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group2" unique_id=1738191831]
+[node name="CuerpoP1" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group2" unique_id=1738191831]
 
-[node name="CuerpoP1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group2/CuerpoP1" unique_id=70823607]
+[node name="CuerpoP1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group2/CuerpoP1" unique_id=70823607]
 mesh = ExtResource("498_dpw20")
 
-[node name="CuerpoP2" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group2" unique_id=38100207]
+[node name="CuerpoP2" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group2" unique_id=38100207]
 
-[node name="CuerpoP2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/group2/CuerpoP2" unique_id=1055669308]
+[node name="CuerpoP2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/group2/CuerpoP2" unique_id=1055669308]
 mesh = ExtResource("499_dxo45")
 
-[node name="pCylinder2" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1" unique_id=1157988526]
+[node name="pCylinder2" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1" unique_id=1157988526]
 
-[node name="pCylinder2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/pCylinder2" unique_id=142040524]
+[node name="pCylinder2_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/pCylinder2" unique_id=142040524]
 mesh = ExtResource("500_71exk")
 
-[node name="pCylinder15" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1" unique_id=1220507963]
+[node name="pCylinder15" type="Node3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1" unique_id=1220507963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.6807146, 0)
 
-[node name="pCylinder15_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D/Locker1/pCylinder15" unique_id=31220034]
+[node name="pCylinder15_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker1/LockerMesh1/pCylinder15" unique_id=31220034]
 mesh = ExtResource("501_un8ku")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lockers/RigidBody3D" unique_id=1493160044]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lockers/Locker1" unique_id=1493160044]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.190132, 8.225775, -50.379314)
 shape = SubResource("BoxShape3D_n68vo")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="Mesh/Room/Lockers" unique_id=674629111]
+[node name="Locker2" type="RigidBody3D" parent="Mesh/Room/Lockers" unique_id=674629111]
 
-[node name="Locker2" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2" unique_id=2102534861]
+[node name="LockerMesh2" type="Node3D" parent="Mesh/Room/Lockers/Locker2" unique_id=2102534861]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -5.3832164, 0.13872895, 3.4359567)
 
-[node name="group12" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2" unique_id=19286049]
+[node name="group12" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2" unique_id=19286049]
 
-[node name="SeguroP12" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group12" unique_id=927785706]
+[node name="SeguroP12" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group12" unique_id=927785706]
 
-[node name="SeguroP1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group12/SeguroP12" unique_id=457820554]
+[node name="SeguroP1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group12/SeguroP12" unique_id=457820554]
 mesh = ExtResource("502_oebfk")
 
-[node name="SeguroP22" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group12" unique_id=1275914706]
+[node name="SeguroP22" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group12" unique_id=1275914706]
 
-[node name="SeguroP2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group12/SeguroP22" unique_id=1287137953]
+[node name="SeguroP2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group12/SeguroP22" unique_id=1287137953]
 mesh = ExtResource("503_f0r2x")
 
-[node name="group22" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2" unique_id=1318198975]
+[node name="group22" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2" unique_id=1318198975]
 
-[node name="CuerpoP12" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group22" unique_id=102048309]
+[node name="CuerpoP12" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group22" unique_id=102048309]
 
-[node name="CuerpoP1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group22/CuerpoP12" unique_id=1555548295]
+[node name="CuerpoP1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group22/CuerpoP12" unique_id=1555548295]
 mesh = ExtResource("504_gsp18")
 
-[node name="CuerpoP22" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group22" unique_id=963111005]
+[node name="CuerpoP22" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group22" unique_id=963111005]
 
-[node name="CuerpoP2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/group22/CuerpoP22" unique_id=1149880291]
+[node name="CuerpoP2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/group22/CuerpoP22" unique_id=1149880291]
 mesh = ExtResource("505_6rx4x")
 
-[node name="pCylinder22" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2" unique_id=745860772]
+[node name="pCylinder22" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2" unique_id=745860772]
 
-[node name="pCylinder2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/pCylinder22" unique_id=189668011]
+[node name="pCylinder2_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/pCylinder22" unique_id=189668011]
 mesh = ExtResource("506_un88g")
 
-[node name="pCylinder14" type="Node3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2" unique_id=1119817909]
+[node name="pCylinder14" type="Node3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2" unique_id=1119817909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.6807146, 0)
 
-[node name="pCylinder14_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/RigidBody3D2/Locker2/pCylinder14" unique_id=521889763]
+[node name="pCylinder14_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lockers/Locker2/LockerMesh2/pCylinder14" unique_id=521889763]
 mesh = ExtResource("507_71wj6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lockers/RigidBody3D2" unique_id=1553910243]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lockers/Locker2" unique_id=1553910243]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 10.19013, 8.225773, -45.95742)
 shape = SubResource("BoxShape3D_n68vo")
 
@@ -3664,665 +4207,3 @@ transform = Transform3D(2.220446e-16, 0, 1, 0, 1, 0, -1, 0, 2.220446e-16, -81.43
 
 [node name="pCube98_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Libros_y_lapiz1/pCube982" unique_id=698971558]
 mesh = ExtResource("588_r3nq7")
-
-[node name="ClassroomStructure" type="AnimatableBody3D" parent="Mesh/Room" unique_id=633997066]
-transform = Transform3D(95.99999, 0, 0, 0, 23.999998, 0, 0, 0, 47.999996, -35.972275, 11.999999, -17.999998)
-script = ExtResource("429_ljsym")
-trauma = 1.5
-
-[node name="Muros" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=422258183]
-transform = Transform3D(0.010416668, 0, 0, 0, 0.04166667, 0, 0, 0, 0.020833336, 0.37471125, -0.5, 0.375)
-
-[node name="MuroFrontalYtTrasero" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros" unique_id=1295547812]
-
-[node name="polySurface26" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroFrontalYtTrasero" unique_id=504272095]
-
-[node name="polySurface26_StingrayPBS3_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroFrontalYtTrasero/polySurface26" unique_id=632486629]
-mesh = ExtResource("301_mvy4e")
-
-[node name="polySurface25" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroFrontalYtTrasero" unique_id=1925431108]
-
-[node name="polySurface25_StingrayPBS3_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroFrontalYtTrasero/polySurface25" unique_id=1245101098]
-mesh = ExtResource("302_6fnk1")
-
-[node name="MuroLaterales" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros" unique_id=1888178124]
-
-[node name="polySurface30" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroLaterales" unique_id=912471914]
-
-[node name="polySurface7" type="Node3D" parent="Mesh/Room/ClassroomStructure/Muros/MuroLaterales" unique_id=602254302]
-
-[node name="ParedPuerta1" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=65521348]
-transform = Transform3D(0.010416668, 0, 0, 0, 0.04166667, 0, 0, 0, 0.020833336, 0.37471125, -0.5, -0.855175)
-
-[node name="VentanillaM1" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1" unique_id=1228260443]
-
-[node name="polySurface126" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=414295324]
-
-[node name="polySurface12_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface126" unique_id=666667395]
-mesh = ExtResource("353_a2ksb")
-
-[node name="polySurface162" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=101995630]
-
-[node name="polySurface16_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface162" unique_id=529503037]
-mesh = ExtResource("354_tjqg4")
-
-[node name="pPlane32" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1142272474]
-
-[node name="pPlane3_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/pPlane32" unique_id=1881023603]
-mesh = ExtResource("355_wxsp7")
-
-[node name="pPlane12" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1430836900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, 0, -0.12639481)
-
-[node name="pPlane12_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/pPlane12" unique_id=204103337]
-mesh = ExtResource("356_73ual")
-
-[node name="polySurface84" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=334277346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, 0, -0.12639481)
-
-[node name="polySurface84_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface84" unique_id=1038287534]
-mesh = ExtResource("357_rptnq")
-
-[node name="pPlane13" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=2078713272]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="pPlane13_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/pPlane13" unique_id=491153797]
-mesh = ExtResource("358_1x3nh")
-
-[node name="polySurface85" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1469181899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="polySurface85_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface85" unique_id=1201683683]
-mesh = ExtResource("359_781xm")
-
-[node name="polySurface86" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=334929228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="polySurface86_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface86" unique_id=1404270278]
-mesh = ExtResource("360_6r5l1")
-
-[node name="pPlane14" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1327141402]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623145, 0, -0.12639481)
-
-[node name="pPlane14_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/pPlane14" unique_id=1373686493]
-mesh = ExtResource("361_rj1rd")
-
-[node name="polySurface87" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=386753493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623145, 0, -0.12639481)
-
-[node name="polySurface87_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface87" unique_id=107308299]
-mesh = ExtResource("362_mplug")
-
-[node name="polySurface101" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1098736241]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 0.07593405, 0, 68.48955)
-
-[node name="polySurface101_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface101" unique_id=1057962320]
-mesh = ExtResource("363_uq3gp")
-
-[node name="polySurface102" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=62774993]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 0.07593405, 0, 68.33786)
-
-[node name="polySurface102_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface102" unique_id=1521004613]
-mesh = ExtResource("364_6418h")
-
-[node name="polySurface103" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=673406120]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 4.297626, 0, 68.36315)
-
-[node name="polySurface103_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface103" unique_id=1296371812]
-mesh = ExtResource("365_lhi8d")
-
-[node name="polySurface104" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=395932888]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 13.6990795, 0, 68.36315)
-
-[node name="polySurface104_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface104" unique_id=1148660711]
-mesh = ExtResource("366_bvf48")
-
-[node name="polySurface105" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1682704108]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 9.477387, 0, 68.33786)
-
-[node name="polySurface105_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface105" unique_id=1674687686]
-mesh = ExtResource("367_6y7qe")
-
-[node name="polySurface106" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=131205591]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 9.477387, 0, 68.48955)
-
-[node name="polySurface106_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface106" unique_id=2010849378]
-mesh = ExtResource("368_hntt6")
-
-[node name="polySurface107" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1211196809]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -20.204876, 0, 68.48955)
-
-[node name="polySurface107_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface107" unique_id=964906556]
-mesh = ExtResource("369_q4sa6")
-
-[node name="polySurface108" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=2021517162]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -15.983185, 0, 68.36315)
-
-[node name="polySurface108_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface108" unique_id=1755446695]
-mesh = ExtResource("370_nfyt4")
-
-[node name="polySurface109" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1574664470]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -10.803423, 0, 68.48955)
-
-[node name="polySurface109_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface109" unique_id=1200186317]
-mesh = ExtResource("371_vobcl")
-
-[node name="polySurface110" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1111301436]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -6.5817313, 0, 68.36315)
-
-[node name="polySurface110_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface110" unique_id=2088213803]
-mesh = ExtResource("372_2q6l7")
-
-[node name="polySurface111" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1262049758]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -20.204876, 0, 68.33786)
-
-[node name="polySurface111_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface111" unique_id=1045903487]
-mesh = ExtResource("373_vtvg5")
-
-[node name="polySurface112" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1545387855]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, -10.803423, 0, 68.33786)
-
-[node name="polySurface112_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface112" unique_id=800555492]
-mesh = ExtResource("374_hdm5r")
-
-[node name="polySurface117" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1741606666]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 48.761986, 0, 68.48955)
-
-[node name="polySurface117_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface117" unique_id=567009293]
-mesh = ExtResource("375_nxj0y")
-
-[node name="polySurface1262" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1459308792]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 37.88263, 0, 68.33786)
-
-[node name="polySurface126_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface1262" unique_id=907243817]
-mesh = ExtResource("376_xm73a")
-
-[node name="polySurface127" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=237902397]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 28.481176, 0, 68.33786)
-
-[node name="polySurface127_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface127" unique_id=391836229]
-mesh = ExtResource("377_d6x5l")
-
-[node name="polySurface128" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=776948733]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 42.10432, 0, 68.36315)
-
-[node name="polySurface128_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface128" unique_id=1559211388]
-mesh = ExtResource("378_dx64n")
-
-[node name="polySurface129" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=499121621]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 37.88263, 0, 68.48955)
-
-[node name="polySurface129_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface129" unique_id=1870041645]
-mesh = ExtResource("379_46rmr")
-
-[node name="polySurface130" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=600382704]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 32.702866, 0, 68.36315)
-
-[node name="polySurface130_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface130" unique_id=166010525]
-mesh = ExtResource("380_23wyp")
-
-[node name="polySurface131" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=750190586]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 28.481176, 0, 68.48955)
-
-[node name="polySurface131_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface131" unique_id=1672269821]
-mesh = ExtResource("381_n4qds")
-
-[node name="polySurface132" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1655165069]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 52.983677, 0, 68.36315)
-
-[node name="polySurface132_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface132" unique_id=1730653997]
-mesh = ExtResource("382_qdv5u")
-
-[node name="polySurface133" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=613118898]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 58.16344, 0, 68.48955)
-
-[node name="polySurface133_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface133" unique_id=1069354366]
-mesh = ExtResource("383_57pxd")
-
-[node name="polySurface134" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=1875207090]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 62.38513, 0, 68.36315)
-
-[node name="polySurface134_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface134" unique_id=1153383281]
-mesh = ExtResource("384_v0yse")
-
-[node name="polySurface135" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=644153496]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 48.761986, 0, 68.33786)
-
-[node name="polySurface135_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface135" unique_id=48273492]
-mesh = ExtResource("385_ujwr7")
-
-[node name="polySurface136" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1" unique_id=410314585]
-transform = Transform3D(1, -1.2246469e-16, 0, 1.2246469e-16, 1, 0, 0, 0, -1, 58.16344, 0, 68.33786)
-
-[node name="polySurface136_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/VentanillaM1/polySurface136" unique_id=2111801072]
-mesh = ExtResource("386_fw0ir")
-
-[node name="Muro1" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1" unique_id=2102792512]
-
-[node name="polySurface66" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/Muro1" unique_id=446617254]
-
-[node name="polySurface66_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/Muro1/polySurface66" unique_id=904385130]
-mesh = ExtResource("387_lnysr")
-
-[node name="polySurface70" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/Muro1" unique_id=1037466053]
-
-[node name="polySurface70_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta1/Muro1/polySurface70" unique_id=1571963673]
-mesh = ExtResource("388_vejr4")
-
-[node name="ParedPuerta2" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=1112781435]
-transform = Transform3D(-0.010416668, 0, 0, 0, 0.04166667, -5.1026952e-18, 0, 2.5513476e-18, 0.020833336, -0.37043795, -0.5, -0.855175)
-
-[node name="VentanillaM12" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2" unique_id=779585466]
-
-[node name="polySurface1211" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=1591745403]
-
-[node name="polySurface12_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface1211" unique_id=1579639607]
-mesh = ExtResource("413_fj6i7")
-
-[node name="polySurface164" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=175413248]
-
-[node name="polySurface16_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface164" unique_id=1179430975]
-mesh = ExtResource("414_px4fm")
-
-[node name="pPlane34" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=839531594]
-
-[node name="pPlane3_MuroDetalle_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/pPlane34" unique_id=958605739]
-mesh = ExtResource("415_t117e")
-
-[node name="pPlane122" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=897790493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, 0, -0.12639481)
-
-[node name="pPlane12_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/pPlane122" unique_id=1198031465]
-mesh = ExtResource("416_maijk")
-
-[node name="polySurface842" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=1277090326]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2216916, 0, -0.12639481)
-
-[node name="polySurface84_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface842" unique_id=2033859792]
-mesh = ExtResource("417_ndeph")
-
-[node name="pPlane132" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=1300062241]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="pPlane13_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/pPlane132" unique_id=467707120]
-mesh = ExtResource("418_2aagr")
-
-[node name="polySurface852" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=1873466243]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="polySurface85_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface852" unique_id=1717850185]
-mesh = ExtResource("419_hq5w1")
-
-[node name="polySurface862" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=688896372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401453, 0, -1.4210855e-14)
-
-[node name="polySurface86_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface862" unique_id=2110986864]
-mesh = ExtResource("420_b5p2t")
-
-[node name="pPlane142" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=2020265195]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623145, 0, -0.12639481)
-
-[node name="pPlane14_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/pPlane142" unique_id=219582774]
-mesh = ExtResource("421_f86mo")
-
-[node name="polySurface872" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12" unique_id=1544190003]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.623145, 0, -0.12639481)
-
-[node name="polySurface87_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/VentanillaM12/polySurface872" unique_id=1755162571]
-mesh = ExtResource("422_5ujhy")
-
-[node name="Muro12" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2" unique_id=720843780]
-
-[node name="polySurface662" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/Muro12" unique_id=1270892003]
-
-[node name="polySurface66_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/Muro12/polySurface662" unique_id=171404431]
-mesh = ExtResource("423_xd1b3")
-
-[node name="polySurface702" type="Node3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/Muro12" unique_id=790174937]
-
-[node name="polySurface70_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/ParedPuerta2/Muro12/polySurface702" unique_id=1240415211]
-mesh = ExtResource("424_dfomp")
-
-[node name="FloorMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1221757095]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 5.9604645e-08, -2.9802322e-08)
-mesh = ExtResource("429_hwkxr")
-
-[node name="FloorCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=280011639]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 5.9604645e-08, -2.9802322e-08)
-shape = SubResource("ConvexPolygonShape3D_ljsym")
-
-[node name="RoofMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1765067243]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.00065258145, -2.9802322e-08)
-mesh = ExtResource("430_uhkej")
-
-[node name="RoofCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=357498755]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.00065258145, -2.9802322e-08)
-shape = SubResource("ConvexPolygonShape3D_e5f7n")
-
-[node name="LeftWallMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1864855667]
-transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
-mesh = ExtResource("303_sf8yv")
-
-[node name="polySurface73_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=243015691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9968037e-15, -18.000004)
-mesh = ExtResource("425_q1y0c")
-
-[node name="polySurface72_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=1411056837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9968037e-15, -18.000004)
-mesh = ExtResource("426_vay5f")
-
-[node name="polySurface113_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=594998026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.68605, -3.9968037e-15, -18.000004)
-mesh = ExtResource("427_luc24")
-
-[node name="polySurface114_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/LeftWallMesh" unique_id=1194907816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.68605, -3.9968037e-15, -18.000004)
-mesh = ExtResource("428_cnhlo")
-
-[node name="LeftWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1159148602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5001528)
-shape = SubResource("BoxShape3D_ljsym")
-
-[node name="RightWallMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=504511719]
-transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
-mesh = ExtResource("304_uq4da")
-
-[node name="Door2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1437540776]
-
-[node name="pPlane4_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=1720602757]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.100925, -1.3304031e-14, -57.475243)
-mesh = ExtResource("389_i31qf")
-
-[node name="polySurface27_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=1849599409]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.100925, -1.3304031e-14, -57.475243)
-mesh = ExtResource("390_ol7xf")
-
-[node name="polySurface88_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=2027657706]
-transform = Transform3D(1, 0, 0, 0, 1, -2.4492937e-16, 0, 2.4492937e-16, 1, 59.220867, -1.3242681e-14, -57.976227)
-mesh = ExtResource("391_w7i26")
-
-[node name="pPlane15_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door2" unique_id=925050345]
-transform = Transform3D(1, 0, 0, 0, 1, -2.4492937e-16, 0, 2.4492937e-16, 1, 59.220436, -1.3242681e-14, -57.976227)
-mesh = ExtResource("392_kgwe7")
-
-[node name="TopWindow2" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1747335942]
-
-[node name="polySurface12_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1741499381]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
-mesh = ExtResource("393_j5q8k")
-
-[node name="polySurface16_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=999339226]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
-mesh = ExtResource("394_1qm1p")
-
-[node name="pPlane3_MuroDetalle_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=2089646328]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -62.158566, -1.3224768e-14, -58.12249)
-mesh = ExtResource("395_gqe3y")
-
-[node name="polySurface74_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1957620408]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -66.35752, -1.3224768e-14, -58.12249)
-mesh = ExtResource("396_bgeae")
-
-[node name="pPlane5_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=60326864]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -66.36973, -1.3224768e-14, -58.12249)
-mesh = ExtResource("397_k58g0")
-
-[node name="polySurface75_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=603017086]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
-mesh = ExtResource("398_5281o")
-
-[node name="polySurface76_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=898666133]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
-mesh = ExtResource("399_gmcqt")
-
-[node name="pPlane6_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1031513644]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -71.551735, -1.3224768e-14, -58.12249)
-mesh = ExtResource("400_gase2")
-
-[node name="pPlane7_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=117434247]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -75.76289, -1.3224768e-14, -58.12249)
-mesh = ExtResource("401_q1b8b")
-
-[node name="polySurface77_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1014745332]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -75.7507, -1.3224768e-14, -58.12249)
-mesh = ExtResource("402_jgxvr")
-
-[node name="polySurface78_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1814360985]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
-mesh = ExtResource("403_rbfp4")
-
-[node name="polySurface79_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=530920492]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
-mesh = ExtResource("404_dk7jq")
-
-[node name="pPlane8_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=677576747]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -82.113655, -1.3224768e-14, -58.12249)
-mesh = ExtResource("405_aa4go")
-
-[node name="polySurface80_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=459511194]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -95.705795, -1.3224768e-14, -58.12249)
-mesh = ExtResource("406_3wj4i")
-
-[node name="pPlane9_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1306118968]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -95.71798, -1.3224768e-14, -58.12249)
-mesh = ExtResource("407_2fe07")
-
-[node name="pPlane10_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=2034707087]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
-mesh = ExtResource("408_fsrdl")
-
-[node name="polySurface81_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1072558866]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
-mesh = ExtResource("409_ni0te")
-
-[node name="polySurface82_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=1129035003]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -91.50682, -1.3224768e-14, -58.12249)
-mesh = ExtResource("410_nmhs1")
-
-[node name="pPlane11_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=189922659]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -86.324814, -1.3224768e-14, -58.12249)
-mesh = ExtResource("411_at8ev")
-
-[node name="polySurface83_MuroDetalle_02" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow2" unique_id=474402792]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -86.31261, -1.3224768e-14, -58.12249)
-mesh = ExtResource("412_bbv1p")
-
-[node name="Door1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=940118488]
-
-[node name="pPlane4_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=568349078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.433393, -1.3111376e-14, -57.475243)
-mesh = ExtResource("305_llic1")
-
-[node name="polySurface27_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=570549653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.433393, -1.3111376e-14, -57.475243)
-mesh = ExtResource("306_ghvwo")
-
-[node name="polySurface88_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=743890743]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -130.75519, -1.3111378e-14, -57.976223)
-mesh = ExtResource("307_ahcly")
-
-[node name="pPlane15_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/Door1" unique_id=1725664805]
-transform = Transform3D(-1, 0, 0, 0, 1, -1.2246471e-16, 0, 1.2246471e-16, 1, -130.80602, -1.3111378e-14, -57.976223)
-mesh = ExtResource("308_nnevt")
-
-[node name="TopWindow1" type="Node3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh" unique_id=1967102384]
-
-[node name="polySurface12_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1287922028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
-mesh = ExtResource("309_ep258")
-
-[node name="polySurface16_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=218907412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
-mesh = ExtResource("310_om3ks")
-
-[node name="pPlane3_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=114852790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.375752, -1.3111377e-14, -58.12249)
-mesh = ExtResource("311_tq7d5")
-
-[node name="polySurface74_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=2048269951]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.176796, -1.3111377e-14, -58.12249)
-mesh = ExtResource("312_6f2h6")
-
-[node name="pPlane5_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=377557930]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.164595, -1.3111377e-14, -58.12249)
-mesh = ExtResource("313_jvc76")
-
-[node name="polySurface75_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=958344200]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
-mesh = ExtResource("314_2rmym")
-
-[node name="polySurface76_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1726688618]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
-mesh = ExtResource("315_tgd4o")
-
-[node name="pPlane6_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=41948643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01741886, -1.3111377e-14, -58.12249)
-mesh = ExtResource("316_xpkrf")
-
-[node name="pPlane7_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1757827948]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.228577, -1.3111377e-14, -58.12249)
-mesh = ExtResource("317_7w186")
-
-[node name="polySurface77_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=293265985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2163763, -1.3111377e-14, -58.12249)
-mesh = ExtResource("318_gq24x")
-
-[node name="polySurface78_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1273592537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
-mesh = ExtResource("319_3iaof")
-
-[node name="polySurface79_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=25586180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
-mesh = ExtResource("320_f1nf0")
-
-[node name="pPlane8_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1185108757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.579335, -1.3111377e-14, -58.12249)
-mesh = ExtResource("321_g8emq")
-
-[node name="polySurface80_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=727430348]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.171465, -1.3111377e-14, -58.12249)
-mesh = ExtResource("322_1xmv7")
-
-[node name="pPlane9_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1321159858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.183664, -1.3111377e-14, -58.12249)
-mesh = ExtResource("323_mokjq")
-
-[node name="pPlane10_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1807064342]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
-mesh = ExtResource("324_uytir")
-
-[node name="polySurface81_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=94836174]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
-mesh = ExtResource("325_5i4v5")
-
-[node name="polySurface82_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1173654562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.972507, -1.3111377e-14, -58.12249)
-mesh = ExtResource("326_bikf2")
-
-[node name="pPlane11_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=648208313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.790494, -1.3111377e-14, -58.12249)
-mesh = ExtResource("327_vjq8w")
-
-[node name="polySurface83_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1899071413]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.778294, -1.3111377e-14, -58.12249)
-mesh = ExtResource("328_2myjc")
-
-[node name="polySurface89_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=39082288]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -9.375752, -1.3111377e-14, 8.549416)
-mesh = ExtResource("329_tb84q")
-
-[node name="polySurface90_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1133493872]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -9.375752, -1.3111376e-14, 8.397731)
-mesh = ExtResource("330_yfwj6")
-
-[node name="pPlane17_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1652335324]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 4.228577, -1.3111377e-14, 8.59584)
-mesh = ExtResource("331_diqfp")
-
-[node name="polySurface92_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=204782508]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.01741886, -1.3111376e-14, 8.397731)
-mesh = ExtResource("332_hdchy")
-
-[node name="polySurface93_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1701608240]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 0.01741886, -1.3111377e-14, 8.549416)
-mesh = ExtResource("333_ewpci")
-
-[node name="polySurface94_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1799442014]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, -5.176796, -1.3111377e-14, 8.549416)
-mesh = ExtResource("334_0lddo")
-
-[node name="polySurface95_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=761761989]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 10.579335, -1.3111377e-14, 8.549416)
-mesh = ExtResource("335_5altc")
-
-[node name="polySurface96_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1594701809]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 10.579335, -1.3111376e-14, 8.397731)
-mesh = ExtResource("336_1k2ty")
-
-[node name="polySurface97_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=572960012]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 14.778294, -1.3111377e-14, 8.549416)
-mesh = ExtResource("337_ejnih")
-
-[node name="polySurface98_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=862694945]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 19.972507, -1.3111377e-14, 8.549416)
-mesh = ExtResource("338_tj2yp")
-
-[node name="polySurface99_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=352916647]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 19.972507, -1.3111376e-14, 8.397731)
-mesh = ExtResource("339_7x4qw")
-
-[node name="polySurface100_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=652298630]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 24.171465, -1.3111377e-14, 8.549416)
-mesh = ExtResource("340_h7bbd")
-
-[node name="polySurface115_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=224746566]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.703472, -1.3111377e-14, 8.549416)
-mesh = ExtResource("341_vdt8s")
-
-[node name="polySurface116_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1445816430]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 43.50926, -1.3111377e-14, 8.549416)
-mesh = ExtResource("342_sghl8")
-
-[node name="polySurface118_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=2090474074]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 72.85752, -1.3111377e-14, 8.549416)
-mesh = ExtResource("343_p812l")
-
-[node name="polySurface119_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1728095859]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 68.658554, -1.3111376e-14, 8.397731)
-mesh = ExtResource("344_dlm5y")
-
-[node name="polySurface120_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1165006804]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 68.658554, -1.3111377e-14, 8.549416)
-mesh = ExtResource("345_s2r1m")
-
-[node name="polySurface121_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1930703453]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 39.3103, -1.3111377e-14, 8.549416)
-mesh = ExtResource("346_k12tq")
-
-[node name="polySurface122_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=634438139]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 39.3103, -1.3111376e-14, 8.397731)
-mesh = ExtResource("347_q4joy")
-
-[node name="polySurface123_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1793500822]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 63.464348, -1.3111377e-14, 8.549416)
-mesh = ExtResource("348_d8vbo")
-
-[node name="polySurface124_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1751857883]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 59.265385, -1.3111376e-14, 8.397731)
-mesh = ExtResource("349_aaad1")
-
-[node name="polySurface125_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1244622114]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 59.265385, -1.3111377e-14, 8.549416)
-mesh = ExtResource("350_hyx1n")
-
-[node name="polySurface137_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=1472855437]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 52.90243, -1.3111377e-14, 8.549416)
-mesh = ExtResource("351_jmfr7")
-
-[node name="polySurface138_MuroDetalle_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/RightWallMesh/TopWindow1" unique_id=838458483]
-transform = Transform3D(1, -1.224647e-16, 0, 1.224647e-16, 1, 0, 0, 0, -1, 48.703472, -1.3111376e-14, 8.397731)
-mesh = ExtResource("352_65a71")
-
-[node name="RightWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=403076057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
-shape = SubResource("BoxShape3D_ljsym")
