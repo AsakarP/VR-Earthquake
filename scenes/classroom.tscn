@@ -32,7 +32,14 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="XROrigin3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.079476, -0.38128594)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.20716274, -11.689668)
+
+[node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347]
+crouch_height = 0.5
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003759215]
+slide_on_ceiling = false
+head_behavior_mode = 0
 
 [node name="ClassroomModel" parent="." index="3" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
