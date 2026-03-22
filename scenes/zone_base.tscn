@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_gnkys"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_k13so"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_oy5cl"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_tsn8l"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_vuhx1"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_k13so"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_oy5cl"]
 
@@ -21,6 +23,15 @@ pose = &"grip"
 [node name="MovementDirect" parent="XROrigin3D/LeftHand" index="1" unique_id=282120670 instance=ExtResource("3_gnkys")]
 strafe = true
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="2" unique_id=290281284 instance=ExtResource("5_tsn8l")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" index="3" unique_id=2006082086 instance=ExtResource("6_vuhx1")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.02, -0.03535534, -0.10606602)
+show_laser = 2
+laser_length = 1
+collision_mask = 5243392
+
 [node name="RightHand" parent="XROrigin3D" index="2"]
 pose = &"grip"
 
@@ -30,5 +41,14 @@ pose = &"grip"
 turn_mode = 1
 
 [node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347 instance=ExtResource("7_oy5cl")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="3" unique_id=1563023617 instance=ExtResource("5_tsn8l")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" index="4" unique_id=1953331390 instance=ExtResource("6_vuhx1")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.02, -0.03535534, -0.10606602)
+show_laser = 2
+laser_length = 1
+collision_mask = 5243392
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003759215 instance=ExtResource("7_k13so")]

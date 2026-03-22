@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blpy7txiage7e"]
 
 [ext_resource type="ArrayMesh" uid="uid://i75s3r5ahey2" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCylinder10_BancaEstudiante_14_phong1_0.res" id="1_n68vo"]
+[ext_resource type="AudioStream" uid="uid://drdu3scam8bh" path="res://audio/Indoor_Earthquake.mp3" id="2_bre1p"]
 [ext_resource type="ArrayMesh" uid="uid://c6rjamclsveuy" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCylinder13_BancaEstudiante_14_phong1_0.res" id="2_ljsym"]
 [ext_resource type="ArrayMesh" uid="uid://b5rht66jt746x" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCube9_BancaEstudiante_14_phong1_0.res" id="3_e5f7n"]
 [ext_resource type="ArrayMesh" uid="uid://cfca4bic4fqwl" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCylinder12_BancaEstudiante_14_phong1_0.res" id="4_gewuo"]
@@ -238,7 +239,7 @@ size = Vector3(0.001, 1, 1.2519531)
 size = Vector3(0.0013544923, 1, 1.253418)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sp0b1"]
-size = Vector3(1, 0.01, 1.25)
+size = Vector3(1.0062256, 0.01, 1.3047485)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pm2tt"]
 size = Vector3(1, 0.007537842, 1.25)
@@ -323,7 +324,7 @@ height = 1.3372803
 radius = 0.9980469
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bre1p"]
-size = Vector3(2.0866852, 2.7821198, 10.0923)
+size = Vector3(2.0866852, 2.8597755, 10.0923)
 
 [node name="ClassroomModel" type="Node3D" unique_id=1944298536]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
@@ -333,11 +334,16 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.220446e-16, 0, 2.220446e-16, 1, 0, 0, 
 
 [node name="Room" type="Node3D" parent="Mesh" unique_id=1509456874]
 
-[node name="ClassroomStructure" type="AnimatableBody3D" parent="Mesh/Room" unique_id=633997066]
+[node name="ClassroomStructure" type="AnimatableBody3D" parent="Mesh/Room" unique_id=633997066 groups=["earthquake_controller"]]
 transform = Transform3D(95.999985, 0, 0, 0, 23.999996, 0, 0, 0, 47.999992, -35.972275, 11.999998, -17.999996)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("429_ljsym")
-max_shake_offset = Vector3(0.4, 0.2, 0.4)
-trauma = 2.0
+
+[node name="RumbleAudio" type="AudioStreamPlayer3D" parent="Mesh/Room/ClassroomStructure" unique_id=1263904142]
+transform = Transform3D(0.06944445, 0, 0, 0, 0.2777778, 0, 0, 0, 0.1388889, 0, 0, 0)
+stream = ExtResource("2_bre1p")
+max_distance = 20.0
 
 [node name="FrontWall" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=632486629]
 transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338, 0.37471125, -0.5, 0.375)
@@ -360,7 +366,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 5.
 mesh = ExtResource("429_hwkxr")
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=248416843]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.125)
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.0006713867, -0.49999985, -0.1462706)
 shape = SubResource("BoxShape3D_sp0b1")
 
 [node name="RoofMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1765067243]
@@ -965,176 +971,8 @@ mesh = ExtResource("510_y0utl")
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.4928296, 0.40783015, -0.118869305)
 shape = SubResource("BoxShape3D_1kltf")
 
-[node name="Lamps" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=579874352]
-transform = Transform3D(0.010416668, 0, 0, 0, 0.04166667, 0, 0, 0, 0.020833336, 0.37471125, -0.49999997, 0.37499997)
-
-[node name="Lamp1" type="Node3D" parent="Mesh/Room/ClassroomStructure/Lamps" unique_id=865576545]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="Base_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=2113775902]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
-mesh = ExtResource("460_hry6c")
-
-[node name="BaseFoco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=1931657921]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
-mesh = ExtResource("461_7rjtf")
-
-[node name="Tubo_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=204622301]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
-mesh = ExtResource("462_kt4qy")
-
-[node name="Tubo1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=2036502521]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 4.530633)
-mesh = ExtResource("464_bchm6")
-
-[node name="Foco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=194329881]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.75408554, -0.047977738, 0.5110379)
-mesh = ExtResource("463_f8keg")
-
-[node name="Foco1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=183003867]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.1288708, -0.047977738, 0.5110379)
-mesh = ExtResource("465_wux7x")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp1" unique_id=1143150446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.340504, 21.419012, -8.6589)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-
-[node name="Lamp3" type="Node3D" parent="Mesh/Room/ClassroomStructure/Lamps" unique_id=1941488791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.342394, -0.047977746, 0.511038)
-
-[node name="Base_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=417966746]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("472_qd6vm")
-
-[node name="BaseFoco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=1926921485]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("473_ukyj6")
-
-[node name="Tubo_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=232699184]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("474_ymusx")
-
-[node name="Tubo1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=106476808]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
-mesh = ExtResource("476_ua7x2")
-
-[node name="Foco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=447596724]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-mesh = ExtResource("475_radiy")
-
-[node name="Foco1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=1487062673]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521553, 0, 0)
-mesh = ExtResource("477_8he5f")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp3" unique_id=851241510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.618683, 21.41901, -9.19362)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-
-[node name="Lamp4" type="Node3D" parent="Mesh/Room/ClassroomStructure/Lamps" unique_id=986601454]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.342394, -0.047977746, -29.370884)
-
-[node name="Base_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=1550094201]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("478_dj680")
-
-[node name="BaseFoco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=445746916]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("479_2046p")
-
-[node name="Tubo_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=931965471]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("480_2vxa0")
-
-[node name="Tubo1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=1768265085]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
-mesh = ExtResource("482_di4he")
-
-[node name="Foco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=165191377]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-mesh = ExtResource("481_alfhh")
-
-[node name="Foco1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=891485981]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521553, 0, 0)
-mesh = ExtResource("483_r1yal")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp4" unique_id=1079001942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.61868, 21.41901, -9.60947)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-
-[node name="Lamp5" type="Node3D" parent="Mesh/Room/ClassroomStructure/Lamps" unique_id=106319311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.315372, -0.047977746, 0.511038)
-
-[node name="Base_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=1836122716]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("484_rp1tu")
-
-[node name="BaseFoco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=1211938691]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("485_8wns8")
-
-[node name="Tubo_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=450409460]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("486_pnox2")
-
-[node name="Tubo1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=78255597]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
-mesh = ExtResource("488_4gj36")
-
-[node name="Foco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=788875285]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-mesh = ExtResource("487_08wf3")
-
-[node name="Foco1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=225195503]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521744, 0, 0)
-mesh = ExtResource("489_j2kqf")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp5" unique_id=136451387]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.618683, 21.41901, -9.386162)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-
-[node name="Lamp6" type="Node3D" parent="Mesh/Room/ClassroomStructure/Lamps" unique_id=755861540]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.315372, -0.047977746, -29.370884)
-
-[node name="Base_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=189314560]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("490_yffu2")
-
-[node name="BaseFoco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=936795265]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("491_of1j5")
-
-[node name="Tubo_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=1890109760]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("492_jam3g")
-
-[node name="Tubo1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=181284826]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
-mesh = ExtResource("494_54rsa")
-
-[node name="Foco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=1242715004]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-mesh = ExtResource("493_y2mh8")
-
-[node name="Foco1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=558185637]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.62521744, 0, 0)
-mesh = ExtResource("495_uplk0")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/ClassroomStructure/Lamps/Lamp6" unique_id=1036458743]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.618683, 21.41901, -9.45702)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-
 [node name="FrontChalkboardMesh" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=542326455]
-transform = Transform3D(0.010416667, 0, 0, 0, 0.041666668, 0, 0, 0, 0.020833334, 0.37471125, -0.49999997, 0.37499997)
+transform = Transform3D(0.010416665, 0, 0, 0, 0.04166666, 0, 0, 0, 0.02083333, 0.37471125, -0.49999994, 0.37499997)
 
 [node name="polySurface18_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/FrontChalkboardMesh" unique_id=1222570875]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.096422285, 0, 0)
@@ -3035,42 +2873,240 @@ mesh = ExtResource("508_8okmu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1828613, 0)
 shape = SubResource("CylinderShape3D_cjspy")
 
-[node name="Lamp" type="RigidBody3D" parent="Mesh/Room" unique_id=1542516410 groups=["drop_objects"]]
+[node name="Lamps" type="Node3D" parent="Mesh/Room" unique_id=1023467009]
+
+[node name="Lamp1" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1521444896 groups=["drop_objects"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+freeze = true
 script = ExtResource("509_cjspy")
 
-[node name="Lamp2" type="Node3D" parent="Mesh/Room/Lamp" unique_id=891510737]
+[node name="LampMesh1" type="Node3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=865576545]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 7.947286e-07, -1.7646519e-22)
+
+[node name="Base_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1/LampMesh1" unique_id=2113775902]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
+mesh = ExtResource("460_hry6c")
+
+[node name="BaseFoco_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1/LampMesh1" unique_id=1931657921]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
+mesh = ExtResource("461_7rjtf")
+
+[node name="Tubo_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1/LampMesh1" unique_id=204622301]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 0.5110379)
+mesh = ExtResource("462_kt4qy")
+
+[node name="Tubo1_LockerLampara_0" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1/LampMesh1" unique_id=2036502521]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.7540856, -0.047977738, 4.530633)
+mesh = ExtResource("464_bchm6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=289259436]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -60.250156, 22.524988, -8.888488)
+shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=194329881]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.7540855, -0.047976937, 0.5110378)
+mesh = ExtResource("463_f8keg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=183003867]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.12887079, -0.047976937, 0.5110378)
+mesh = ExtResource("465_wux7x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp1" unique_id=1143150446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.345257, 21.315166, -8.658898)
+shadow_enabled = true
+
+[node name="Lamp2" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1542516410 groups=["drop_objects"]]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="LampMesh2" type="Node3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=891510737]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.75408566, -0.04797774, -29.370884)
 
-[node name="Base_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=1916822082]
+[node name="Base_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2/LampMesh2" unique_id=1916822082]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("466_y4g1k")
 
-[node name="BaseFoco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=590343101]
+[node name="BaseFoco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2/LampMesh2" unique_id=590343101]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("467_j80ox")
 
-[node name="Tubo_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=817040881]
+[node name="Tubo_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2/LampMesh2" unique_id=817040881]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = ExtResource("468_qpqyr")
 
-[node name="Tubo1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=1094542632]
+[node name="Tubo1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2/LampMesh2" unique_id=1094542632]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
 mesh = ExtResource("470_a3d3u")
 
-[node name="Foco_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=186955007]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=2068070123]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -60.250156, 22.524988, -38.75965)
+shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=186955007]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, -0.7540856, -0.04797774, -29.370884)
 mesh = ExtResource("469_8pvca")
 
-[node name="Foco1_LockerLampara_02" type="MeshInstance3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=758063642]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.6252149, 0, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=758063642]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.12887082, -0.04797774, -29.370884)
 mesh = ExtResource("471_03x7u")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamp/Lamp2" unique_id=22490787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.618675, 21.41901, -9.580318)
-visible = false
-light_energy = 0.5
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp2" unique_id=22490787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.37275, 21.37103, -38.951202)
 shadow_enabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamp" unique_id=2068070123]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -60.250156, 22.486164, -38.75966)
+[node name="Lamp3" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1862616 groups=["drop_objects"]]
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="LampMesh3" type="Node3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=1941488791]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, 0.5110379)
+
+[node name="Base_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3/LampMesh3" unique_id=417966746]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("472_qd6vm")
+
+[node name="BaseFoco_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3/LampMesh3" unique_id=1926921485]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("473_ukyj6")
+
+[node name="Tubo_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3/LampMesh3" unique_id=232699184]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("474_ymusx")
+
+[node name="Tubo1_LockerLampara_03" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3/LampMesh3" unique_id=106476808]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
+mesh = ExtResource("476_ua7x2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=1631949847]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -36.148422, 22.524988, -8.888717)
 shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=447596724]
+transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 23.34239, -0.04797694, 0.5110379)
+mesh = ExtResource("475_radiy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=1487062673]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 23.967606, -0.04797694, 0.5110379)
+mesh = ExtResource("477_8he5f")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp3" unique_id=851241510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.27628, 21.371029, -8.682579)
+shadow_enabled = true
+
+[node name="Lamp4" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=656379498 groups=["drop_objects"]]
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="LampMesh4" type="Node3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=986601454]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, -29.370884)
+
+[node name="Base_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4/LampMesh4" unique_id=1550094201]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("478_dj680")
+
+[node name="BaseFoco_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4/LampMesh4" unique_id=445746916]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("479_2046p")
+
+[node name="Tubo_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4/LampMesh4" unique_id=931965471]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("480_2vxa0")
+
+[node name="Tubo1_LockerLampara_04" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4/LampMesh4" unique_id=1768265085]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
+mesh = ExtResource("482_di4he")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=1948754418]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -36.148422, 22.524988, -38.749718)
+shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=165191377]
+transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 23.34239, -0.04797694, -29.370884)
+mesh = ExtResource("481_alfhh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=891485981]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 23.967606, -0.04797694, -29.370884)
+mesh = ExtResource("483_r1yal")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp4" unique_id=1079001942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.27627, 21.371029, -38.980354)
+shadow_enabled = true
+
+[node name="Lamp5" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1664099879 groups=["drop_objects"]]
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="LampMesh5" type="Node3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=106319311]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, 0.5110379)
+
+[node name="Base_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5/LampMesh5" unique_id=1836122716]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("484_rp1tu")
+
+[node name="BaseFoco_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5/LampMesh5" unique_id=1211938691]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("485_8wns8")
+
+[node name="Tubo_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5/LampMesh5" unique_id=450409460]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("486_pnox2")
+
+[node name="Tubo1_LockerLampara_05" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5/LampMesh5" unique_id=78255597]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019595)
+mesh = ExtResource("488_4gj36")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=1213329891]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -10.172649, 22.524988, -8.888714)
+shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=788875285]
+transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 49.31536, -0.04797694, 0.5110379)
+mesh = ExtResource("487_08wf3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=225195503]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 49.94058, -0.04797694, 0.5110379)
+mesh = ExtResource("489_j2kqf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp5" unique_id=136451387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3033085, 21.371029, -8.875121)
+shadow_enabled = true
+
+[node name="Lamp6" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=781564416 groups=["drop_objects"]]
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="LampMesh6" type="Node3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=755861540]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, -29.370884)
+
+[node name="Base_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6/LampMesh6" unique_id=189314560]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("490_yffu2")
+
+[node name="BaseFoco_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6/LampMesh6" unique_id=936795265]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("491_of1j5")
+
+[node name="Tubo_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6/LampMesh6" unique_id=1890109760]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("492_jam3g")
+
+[node name="Tubo1_LockerLampara_06" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6/LampMesh6" unique_id=181284826]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 4.019596)
+mesh = ExtResource("494_54rsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1642339709]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -10.172649, 22.524988, -38.75753)
+shape = SubResource("BoxShape3D_bre1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1242715004]
+transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 49.31536, -0.04797694, -29.370884)
+mesh = ExtResource("493_y2mh8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=558185637]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 49.94058, -0.04797694, -29.370884)
+mesh = ExtResource("495_uplk0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lamp6" unique_id=1036458743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3033085, 21.371029, -38.827904)
+shadow_enabled = true

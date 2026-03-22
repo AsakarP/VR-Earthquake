@@ -1,51 +1,96 @@
 extends AnimatableBody3D
 
-# Variables to tweak the earthquake
-@export var max_shake_offset := Vector3(0.5, 0.2, 0.5) # How far it moves (X, Y, Z)
-@export var shake_speed := 15.0 # How fast the noise generates
-@export var trauma := 0.0 # The current intensity of the earthquake
+@export_category("Earthquake Settings")
+@export var start_delay := 10.0 # How many seconds before the quake hits
+@export var magnitude := 1.0 # Overall intensity multiplier
+@export var total_duration := 20.0 # How long the quake lasts in seconds
+@export var s_wave_delay := 3.0 # Seconds before the heavy rolling hits
 
-var noise: FastNoiseLite
+@export_group("P-Wave (Vertical Jolt)")
+@export var p_wave_amp := 0.05
+@export var p_wave_freq := 30.0
+
+@export_group("S-Wave (Horizontal Rolling)")
+@export var s_wave_amp := 0.4
+@export var s_wave_freq := 6.0
+
+@onready var rumble_audio: AudioStreamPlayer3D = $RumbleAudio
+
 var time_passed := 0.0
+var is_quaking := false
 var initial_position: Vector3
 var has_quake_started := false
 
 func _ready() -> void:
-	# Save the starting position of the room
 	initial_position = global_position
 	
-	# Initialize noise generator
-	noise = FastNoiseLite.new()
-	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
-	noise.seed = randi() # Randomize the shake pattern every play
+	# Start countdown
+	var timer = get_tree().create_timer(start_delay)
+	
+	# Trigger EEWS UI
+	await get_tree().create_timer(start_delay / 2.0).timeout
+	
+	# Call UI Label
+	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
+	if eews_node:
+		eews_node.trigger_warning(magnitude)
+	
+	# Wait for main timer to finish
+	await timer.timeout
+	
+	# Start the earthquake
+	trigger_earthquake()
+
+# Starts earthquake
+func trigger_earthquake() -> void:
+	if not is_quaking:
+		is_quaking = true
+		time_passed = 0.0
+		has_quake_started = false
+		
+		# Start Rumbling audio
+		rumble_audio.play()
 
 func _physics_process(delta: float) -> void:
-	# Only calculate the math if the earthquake is actually happening
-	if trauma > 0.0:
-		# If quake started, objects on walls will fall
-		if not has_quake_started:
+	if is_quaking:
+		time_passed += delta
+		
+		# Trigger the wall-mounted objects (like the chalkboard) to fall
+		if not has_quake_started and time_passed > s_wave_delay:
 			get_tree().call_group("drop_objects", "drop_from_wall")
 			has_quake_started = true
+
+		# 1. The Envelope: Controls the build-up and decay of the quake (0.0 to 1.0)
+		var envelope := 0.0
+		if time_passed < 2.0:
+			envelope = time_passed / 2.0 # 2-second build-up
+		elif time_passed < total_duration - 5.0:
+			envelope = 1.0 # Full intensity
+		else:
+			envelope = max(0.0, (total_duration - time_passed) / 5.0) # 5-second decay at the end
+
+		if time_passed >= total_duration:
+			is_quaking = false
+			global_position = initial_position
 			
-		time_passed += delta * shake_speed
+			# Stop rumbling audio
+			rumble_audio.stop()
+			return
+
+		# 2. P-Wave Math: Fast, primarily vertical (Y-axis)
+		var p_wave_y = sin(time_passed * p_wave_freq) * p_wave_amp * magnitude * envelope
+
+		# 3. S-Wave Math: Slower, heavy horizontal rolling (X and Z axes)
+		var s_wave_x := 0.0
+		var s_wave_z := 0.0
 		
-		# Calculate the shake intensity
-		var shake = trauma * trauma
+		# S-Waves arrive later, so we fade them in after the delay
+		var s_wave_envelope = clamp((time_passed - s_wave_delay) / 2.0, 0.0, 1.0) 
 		
-		# Generate smooth noise values for each axis
-		# sample different coordinates in the noise to ensure X, Y, and Z act independently
-		var offset_x = max_shake_offset.x * shake * noise.get_noise_2d(time_passed, 0.0)
-		var offset_y = max_shake_offset.y * shake * noise.get_noise_2d(0.0, time_passed)
-		var offset_z = max_shake_offset.z * shake * noise.get_noise_2d(time_passed, time_passed)
-		
-		# Apply the new position
-		global_position = initial_position + Vector3(offset_x, offset_y, offset_z)
-		
-		# Slowly decrease trauma over time so the earthquake naturally stops
-		trauma = move_toward(trauma, 0.0, delta * 0.2) 
-	else:
-		# Snap back to the exact starting position when the quake is completely over
-		global_position = initial_position
-		time_passed = 0.0
-		# If planning for multiple earthquake
-		# has_quake_started = false
+		if time_passed > s_wave_delay:
+			# We add two sine waves with slightly offset frequencies to make it unpredictable
+			s_wave_x = (sin(time_passed * s_wave_freq) + sin(time_passed * s_wave_freq * 0.73)) * 0.5 * s_wave_amp * magnitude * envelope * s_wave_envelope
+			s_wave_z = (cos(time_passed * s_wave_freq * 0.8) + sin(time_passed * s_wave_freq * 1.1)) * 0.5 * s_wave_amp * magnitude * envelope * s_wave_envelope
+
+		# Apply the final mathematical position
+		global_position = initial_position + Vector3(s_wave_x, p_wave_y, s_wave_z)
