@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmw10gdjf7agu" path="res://godothd.png" id="2_h4vlk"]
 
 [node name="MainStaging" unique_id=1535577845 instance=ExtResource("1_k1qkh")]
-main_scene = "uid://b52lj1klf0oaj"
+main_scene = "uid://x6nhaql0h65s"
 
 [node name="LoadingScreen" parent="." index="2"]
 splash_screen = ExtResource("2_h4vlk")
