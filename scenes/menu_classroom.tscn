@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://upb2tn70dfoj"]
+
+[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/menu_classroom.gd" id="1_bcoxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlswk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MenuClassroom" type="Control" unique_id=1607977936]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcoxl")
+
+[node name="Panel" type="Panel" parent="." unique_id=64730529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1215275663]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.75
+offset_top = -99.0
+offset_right = 239.75
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1982881096]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5074521, 0.5604651, 0.64990616, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_dlswk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dlswk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dlswk")
+text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=1049427384]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -196.0
+offset_right = 57.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit To Menu?"
+
+[connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]

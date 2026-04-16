@@ -1,5 +1,8 @@
 extends AnimatableBody3D
 
+# Admin Mode
+@export var is_admin_mode := false
+
 @export_category("Earthquake Settings")
 @export var start_delay := 10.0 # How many seconds before the quake hits
 @export var magnitude := 1.0 # Overall intensity multiplier
@@ -15,6 +18,7 @@ extends AnimatableBody3D
 @export var s_wave_freq := 6.0
 
 @onready var rumble_audio: AudioStreamPlayer3D = $RumbleAudio
+@onready var exit_to_menu = get_node_or_null("../../../../Menus/ExitToMenu/ExitMenuViewport")
 
 var time_passed := 0.0
 var is_quaking := false
@@ -23,6 +27,15 @@ var has_quake_started := false
 
 func _ready() -> void:
 	initial_position = global_position
+	
+	# If in normal scene, start automatically.
+	# If in admin mode, script does nothing.
+	if not is_admin_mode:
+		begin_simulation(magnitude)
+
+func begin_simulation(custom_magnitude: float) -> void:
+	# Update the magnitude
+	magnitude = custom_magnitude
 	
 	# Start countdown
 	var timer = get_tree().create_timer(start_delay)
@@ -75,7 +88,12 @@ func _physics_process(delta: float) -> void:
 			
 			# Stop rumbling audio
 			rumble_audio.stop()
-			return
+			
+			if exit_to_menu:
+				exit_to_menu.visible = true
+				exit_to_menu.process_mode = Node.PROCESS_MODE_INHERIT
+				
+				return
 
 		# 2. P-Wave Math: Fast, primarily vertical (Y-axis)
 		var p_wave_y = sin(time_passed * p_wave_freq) * p_wave_amp * magnitude * envelope

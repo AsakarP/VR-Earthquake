@@ -236,7 +236,7 @@
 size = Vector3(0.001, 1, 1.2519531)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gewuo"]
-size = Vector3(0.0013544923, 1, 1.253418)
+size = Vector3(0.0054532927, 1, 1.253418)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sp0b1"]
 size = Vector3(1.0062256, 0.01, 1.3047485)
@@ -246,6 +246,9 @@ size = Vector3(1, 0.007537842, 1.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljsym"]
 size = Vector3(1, 1, 0.0022583008)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdp2d"]
+size = Vector3(1, 1, 0.042152405)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_flsw2"]
 size = Vector3(0.16388702, 0.04317856, 0.97265625)
@@ -358,7 +361,7 @@ transform = Transform3D(0.010416669, 0, 0, 0, 0.041666675, 0, 0, 0, 0.020833338,
 mesh = ExtResource("302_6fnk1")
 
 [node name="BackWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1979400067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4997537, 0, -0.12670898)
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.5019969, 0, -0.12670895)
 shape = SubResource("BoxShape3D_gewuo")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=1221757095]
@@ -906,8 +909,8 @@ transform = Transform3D(-1, 0, 0, 0, 1, -1.2246469e-16, 0, 1.2246469e-16, 1, -71
 mesh = ExtResource("424_dfomp")
 
 [node name="RightWallCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=403076057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
-shape = SubResource("BoxShape3D_ljsym")
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, 0, -0.7699466)
+shape = SubResource("BoxShape3D_hdp2d")
 
 [node name="PlatformBaseMesh" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=79939715]
 transform = Transform3D(0.010416667, 0, 0, 0, 0.041666668, 0, 0, 0, 0.020833334, 0.37471125, -0.49242947, 0.37499997)

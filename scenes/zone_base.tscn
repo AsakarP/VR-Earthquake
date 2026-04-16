@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_gnkys"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_lr52d"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_gnkys"]
+[ext_resource type="Script" uid="uid://bon1bmgydd0ts" path="res://scenes/fade.gd" id="3_vuhx1"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_k13so"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_oy5cl"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_tsn8l"]
@@ -11,9 +12,25 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_k13so"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_oy5cl"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnvy"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_tsn8l"]
+material = SubResource("StandardMaterial3D_mhnvy")
+size = Vector2(2, 2)
+
 [node name="ZoneBase" unique_id=315214593 instance=ExtResource("1_bdkev")]
 
 [node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" index="0" unique_id=611258494 instance=ExtResource("2_gnkys")]
+
+[node name="Fade" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D" index="1" unique_id=1849918434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+mesh = SubResource("QuadMesh_tsn8l")
+script = ExtResource("3_vuhx1")
 
 [node name="LeftHand" parent="XROrigin3D" index="1"]
 pose = &"grip"
