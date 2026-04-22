@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://doas0661h8534" path="res://scenes/admin_menu.gd" id="1_jng56"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jng56"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlswk"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 20
@@ -52,6 +56,15 @@ tick_count = 9
 ticks_on_borders = true
 ticks_position = 2
 
+[node name="Label" type="Label" parent="VBoxContainer/HSlider" unique_id=2107368697]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -36.0
+offset_right = 467.0
+offset_bottom = -13.0
+text = "1.0        2.0         3.0        4.0         5.0        6.0         7.0        8.0         9.0"
+label_settings = SubResource("LabelSettings_jng56")
+
 [node name="ConfirmButton" type="Button" parent="VBoxContainer" unique_id=1982881096]
 layout_mode = 2
 size_flags_vertical = 3
@@ -71,10 +84,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -196.0
-offset_right = 57.0
-offset_bottom = -173.0
+offset_left = -166.5
+offset_top = -235.5
+offset_right = 166.5
+offset_bottom = -147.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64

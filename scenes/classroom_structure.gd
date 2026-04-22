@@ -3,8 +3,10 @@ extends AnimatableBody3D
 # Admin Mode
 @export var is_admin_mode := false
 
+@export var baseline_magnitude := 5.0
+
 @export_category("Earthquake Settings")
-@export var start_delay := 10.0 # How many seconds before the quake hits
+@export var start_delay := 5.0 # How many seconds before the quake hits
 @export var magnitude := 1.0 # Overall intensity multiplier
 @export var total_duration := 20.0 # How long the quake lasts in seconds
 @export var s_wave_delay := 3.0 # Seconds before the heavy rolling hits
@@ -94,9 +96,15 @@ func _physics_process(delta: float) -> void:
 				exit_to_menu.process_mode = Node.PROCESS_MODE_INHERIT
 				
 				return
-
+		
+		# Converts linear slider to Exponential Curve
+		var raw_multiplier = pow(10, magnitude - baseline_magnitude)
+		
+		# Physics safety net (Clamp Multiplier)
+		var realistic_multiplier = clamp(raw_multiplier, 0.0001, 8.0)
+		
 		# 2. P-Wave Math: Fast, primarily vertical (Y-axis)
-		var p_wave_y = sin(time_passed * p_wave_freq) * p_wave_amp * magnitude * envelope
+		var p_wave_y = sin(time_passed * p_wave_freq) * p_wave_amp * realistic_multiplier * envelope
 
 		# 3. S-Wave Math: Slower, heavy horizontal rolling (X and Z axes)
 		var s_wave_x := 0.0
@@ -107,8 +115,8 @@ func _physics_process(delta: float) -> void:
 		
 		if time_passed > s_wave_delay:
 			# We add two sine waves with slightly offset frequencies to make it unpredictable
-			s_wave_x = (sin(time_passed * s_wave_freq) + sin(time_passed * s_wave_freq * 0.73)) * 0.5 * s_wave_amp * magnitude * envelope * s_wave_envelope
-			s_wave_z = (cos(time_passed * s_wave_freq * 0.8) + sin(time_passed * s_wave_freq * 1.1)) * 0.5 * s_wave_amp * magnitude * envelope * s_wave_envelope
+			s_wave_x = (sin(time_passed * s_wave_freq) + sin(time_passed * s_wave_freq * 0.73)) * 0.5 * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
+			s_wave_z = (cos(time_passed * s_wave_freq * 0.8) + sin(time_passed * s_wave_freq * 1.1)) * 0.5 * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
 
 		# Apply the final mathematical position
 		global_position = initial_position + Vector3(s_wave_x, p_wave_y, s_wave_z)

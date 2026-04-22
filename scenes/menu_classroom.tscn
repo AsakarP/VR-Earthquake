@@ -41,6 +41,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
+[node name="ResetButton" type="Button" parent="VBoxContainer" unique_id=1903858816]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5074521, 0.5604651, 0.64990616, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_dlswk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dlswk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dlswk")
+text = "Reset Room"
+
 [node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1982881096]
 layout_mode = 2
 size_flags_vertical = 3
@@ -51,7 +63,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dlswk")
-text = "Exit"
+text = "Exit to Main Menu"
 
 [node name="Label" type="Label" parent="." unique_id=1049427384]
 layout_mode = 1
@@ -67,6 +79,7 @@ offset_bottom = -173.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
-text = "Exit To Menu?"
+text = "Menu"
 
+[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]

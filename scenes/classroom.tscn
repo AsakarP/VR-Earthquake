@@ -86,3 +86,5 @@ viewport_size = Vector2(1280, 720)
 transparent = 1
 unshaded = true
 scene_properties_keys = PackedStringArray("menu_classroom.gd")
+
+[editable path="ClassroomModel"]
