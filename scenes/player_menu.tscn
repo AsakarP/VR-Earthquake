@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://upb2tn70dfoj"]
 
-[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/menu_classroom.gd" id="1_bcoxl"]
+[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/player_menu.gd" id="1_20rq3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlswk"]
 bg_color = Color(1, 1, 1, 1)
@@ -9,14 +9,14 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="MenuClassroom" type="Control" unique_id=1607977936]
+[node name="PlayeMenu" type="Control" unique_id=1607977936]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bcoxl")
+script = ExtResource("1_20rq3")
 
 [node name="Panel" type="Panel" parent="." unique_id=64730529]
 layout_mode = 1
@@ -51,7 +51,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dlswk")
-text = "Reset Room"
+text = "Reset"
 
 [node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1982881096]
 layout_mode = 2

@@ -32,3 +32,15 @@ func _process(_delta: float) -> void:
 	if camera != null:
 		if camera.global_position.y < fall_limit:
 			get_tree().reload_current_scene()
+
+func _on_left_hand_button_pressed(name: String) -> void:
+	if name == "grip_click":
+		var player_menu = get_tree().root.find_child("PlayerMenu", true, false)
+		
+		if player_menu:
+			if player_menu.visible == true:
+				player_menu.visible = false
+				player_menu.process_mode = Node.PROCESS_MODE_DISABLED
+			else:
+				player_menu.visible = true
+				player_menu.process_mode = Node.PROCESS_MODE_INHERIT

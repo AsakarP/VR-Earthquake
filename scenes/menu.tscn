@@ -91,7 +91,7 @@ mesh = SubResource("ArrayMesh_mhnvy")
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Environment/Walls" index="1" unique_id=1637503213]
 shape = SubResource("ConcavePolygonShape3D_4ytvr")
 
-[node name="Viewport2Din3D" parent="." index="4" unique_id=1994282040 instance=ExtResource("2_vjb58")]
+[node name="PlayMenu" parent="." index="4" unique_id=1994282040 instance=ExtResource("2_vjb58")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 1.6693902, -2.5033834)
 screen_size = Vector2(1280, 720)
 scene = ExtResource("3_con2f")

@@ -4,11 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cdg3ll04t4fuv" path="res://assets/HDRI/quadrangle_sunny_4k.exr" id="2_rp0b4"]
 [ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_aiydr"]
 [ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="4_7ht2x"]
-[ext_resource type="Script" uid="uid://didlphncoua8o" path="res://scenes/vr_reset_position.gd" id="4_aiydr"]
 [ext_resource type="AudioStream" uid="uid://fr4y25w2dxux" path="res://audio/Earthquake_Warning.mp3" id="5_2sc5d"]
 [ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="6_ya1g2"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_6onvc"]
-[ext_resource type="PackedScene" uid="uid://upb2tn70dfoj" path="res://scenes/menu_classroom.tscn" id="8_ghnyn"]
 [ext_resource type="PackedScene" uid="uid://duqf63fn7qu5d" path="res://scenes/admin_menu.tscn" id="9_rp0b4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
@@ -48,7 +46,6 @@ light_data = ExtResource("3_aiydr")
 [node name="XROrigin3D" parent="." index="3"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.20716274, -11.689668)
 current = true
-script = ExtResource("4_aiydr")
 
 [node name="EEWSUI" type="Label3D" parent="XROrigin3D/XRCamera3D" index="1" unique_id=899581210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -79,21 +76,7 @@ is_admin_mode = true
 
 [node name="Menus" type="Node3D" parent="." index="5" unique_id=2091995594]
 
-[node name="ExitToMenu" type="Node3D" parent="Menus" index="0" unique_id=1101583746]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.7878814, 1.4950252, -10.146198)
-
-[node name="ExitMenuViewport" parent="Menus/ExitToMenu" index="0" unique_id=1379510221 instance=ExtResource("7_6onvc")]
-process_mode = 4
-transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, -0.155, 0, -0.4)
-visible = false
-screen_size = Vector2(1280, 720)
-scene = ExtResource("8_ghnyn")
-viewport_size = Vector2(1280, 720)
-transparent = 1
-unshaded = true
-scene_properties_keys = PackedStringArray("menu_classroom.gd")
-
-[node name="AdminMenu" type="Node3D" parent="Menus" index="1" unique_id=1234372748]
+[node name="AdminMenu" type="Node3D" parent="Menus" index="0" unique_id=1234372748]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.0534396, -9.893911)
 
 [node name="AdminMenuViewport" parent="Menus/AdminMenu" index="0" unique_id=1624376179 instance=ExtResource("7_6onvc")]

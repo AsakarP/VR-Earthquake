@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="3_kkrti"]
 [ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_xkx8l"]
 [ext_resource type="AudioStream" uid="uid://fr4y25w2dxux" path="res://audio/Earthquake_Warning.mp3" id="4_xubko"]
-[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_rt84g"]
-[ext_resource type="PackedScene" uid="uid://upb2tn70dfoj" path="res://scenes/menu_classroom.tscn" id="8_cj0lk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
 panorama = ExtResource("2_x5cc4")
@@ -70,21 +68,5 @@ head_behavior_mode = 0
 
 [node name="ClassroomModel" parent="." index="4" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
-
-[node name="Menus" type="Node3D" parent="." index="5" unique_id=2091995594]
-
-[node name="ExitToMenu" type="Node3D" parent="Menus" index="0" unique_id=1101583746]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.7878814, 1.4950252, -10.146198)
-
-[node name="ExitMenuViewport" parent="Menus/ExitToMenu" index="0" unique_id=1379510221 instance=ExtResource("7_rt84g")]
-process_mode = 4
-transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, -0.155, 0, -0.4)
-visible = false
-screen_size = Vector2(1280, 720)
-scene = ExtResource("8_cj0lk")
-viewport_size = Vector2(1280, 720)
-transparent = 1
-unshaded = true
-scene_properties_keys = PackedStringArray("menu_classroom.gd")
 
 [editable path="ClassroomModel"]

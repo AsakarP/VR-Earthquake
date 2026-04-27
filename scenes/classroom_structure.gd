@@ -20,7 +20,6 @@ extends AnimatableBody3D
 @export var s_wave_freq := 6.0
 
 @onready var rumble_audio: AudioStreamPlayer3D = $RumbleAudio
-@onready var exit_to_menu = get_node_or_null("../../../../Menus/ExitToMenu/ExitMenuViewport")
 
 var time_passed := 0.0
 var is_quaking := false
@@ -90,12 +89,8 @@ func _physics_process(delta: float) -> void:
 			
 			# Stop rumbling audio
 			rumble_audio.stop()
-			
-			if exit_to_menu:
-				exit_to_menu.visible = true
-				exit_to_menu.process_mode = Node.PROCESS_MODE_INHERIT
 				
-				return
+			return
 		
 		# Converts linear slider to Exponential Curve
 		var raw_multiplier = pow(10, magnitude - baseline_magnitude)
