@@ -69,10 +69,11 @@ func _physics_process(delta: float) -> void:
 	if is_quaking:
 		time_passed += delta
 		
-		# Trigger the wall-mounted objects (like the chalkboard) to fall
-		if not has_quake_started and time_passed > s_wave_delay:
-			get_tree().call_group("drop_objects", "drop_from_wall")
-			has_quake_started = true
+		if magnitude >= 5:
+			# Trigger the wall-mounted objects (like the chalkboard) to fall
+			if not has_quake_started and time_passed > s_wave_delay:
+				get_tree().call_group("drop_objects", "drop_from_wall")
+				has_quake_started = true
 
 		# 1. The Envelope: Controls the build-up and decay of the quake (0.0 to 1.0)
 		var envelope := 0.0
