@@ -32,7 +32,11 @@ func _ready() -> void:
 	# If in normal scene, start automatically.
 	# If in admin mode, script does nothing.
 	if not is_admin_mode:
-		begin_simulation(magnitude)
+		# Generate random decimal 1.0 to 5.0
+		var rand_mag = randf_range(1.0, 5.0)
+		# Starts simulation
+		begin_simulation(rand_mag)
+		
 
 func begin_simulation(custom_magnitude: float) -> void:
 	# Update the magnitude
@@ -63,6 +67,15 @@ func trigger_earthquake() -> void:
 		has_quake_started = false
 		
 		# Start Rumbling audio
+		# Very low rumble sound
+		if magnitude < 3:
+			rumble_audio.volume_db = -50
+		# Low rumble sound
+		elif magnitude >= 3 and magnitude < 4:
+			rumble_audio.volume_db = -30
+		# Normal rumble sound
+		elif magnitude >= 4:
+			rumble_audio.volume_db = 0
 		rumble_audio.play()
 
 func _physics_process(delta: float) -> void:

@@ -64,7 +64,6 @@ crouch_height = 0.5
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003759215]
 slide_on_ceiling = false
-head_behavior_mode = 0
 
 [node name="ClassroomModel" parent="." index="4" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)

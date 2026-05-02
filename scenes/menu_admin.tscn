@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://doas0661h8534" path="res://scenes/menu_admin.gd" id="1_jng56"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyyii"]
-bg_color = Color(0, 0, 0, 0.49019608)
+bg_color = Color(0, 0, 0, 0.6862745)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -14,7 +14,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_iyyii"]
-font_size = 30
+font_size = 20
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 

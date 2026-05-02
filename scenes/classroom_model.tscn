@@ -11,6 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c0mgposx87mry" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCube8_BancaEstudiante_14_phong1_0.res" id="8_3qcmm"]
 [ext_resource type="ArrayMesh" uid="uid://uouuugbe2es0" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCube7_BancaEstudiante_14_phong1_0.res" id="9_flsw2"]
 [ext_resource type="ArrayMesh" uid="uid://31hl38guld8j" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_BancaEstudiante_14_pCube10_BancaEstudiante_14_phong1_0.res" id="10_j7pbl"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="154_xy8sr"]
 [ext_resource type="ArrayMesh" uid="uid://coq5otmh8op4a" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface26_StingrayPBS3_0.res" id="301_mvy4e"]
 [ext_resource type="ArrayMesh" uid="uid://b133t07273vp5" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface25_StingrayPBS3_0.res" id="302_6fnk1"]
 [ext_resource type="ArrayMesh" uid="uid://bljj7i3sj5jpr" path="res://assets/jp_classroom_meshes/Sketchfab_Scene_polySurface30_MurosLaterales_0.res" id="303_sf8yv"]
@@ -2589,109 +2590,106 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0,
 [node name="BackShelfBooks" type="Node3D" parent="Mesh/Room/Books&Pencils" unique_id=918733892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.93807, -0.13963075, -16.011963)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=169739004]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7087474, 0)
+[node name="PickableObject" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=1661974562 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube47_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D" unique_id=1951937254]
+[node name="pCube47_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject" unique_id=1951937254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7087474, 0)
 mesh = ExtResource("524_b554l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D" unique_id=271336762]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject" unique_id=271336762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7087474, 0)
 shape = SubResource("ConvexPolygonShape3D_bre1p")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=1153575914]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7087474, 0)
+[node name="PickableObject2" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=1654700057 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube48_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D2" unique_id=1992086220]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19762771, 1.6612177)
+[node name="pCube48_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject2" unique_id=1992086220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5111196, 1.6612186)
 mesh = ExtResource("525_tt4t5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D2" unique_id=1144286405]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19762771, 1.6612177)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject2" unique_id=1144286405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5111196, 1.6612186)
 shape = SubResource("ConvexPolygonShape3D_hdp2d")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=614483111]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.661006, 0)
+[node name="PickableObject3" parent="Mesh/Room/Books&Pencils/BackShelfBooks" unique_id=853534002 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube52_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D3" unique_id=1654807478]
-transform = Transform3D(0.9259997, 0, -0.37752414, 0, 1, 0, 0.37752414, 0, 0.9259997, 4.2608852, -7.261332, -33.6419)
+[node name="pCube52_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject3" unique_id=1654807478]
+transform = Transform3D(0.9259997, 0, -0.37752414, 0, 1, 0, 0.37752414, 0, 0.9259997, 4.2608852, 2.399673, -33.6419)
 mesh = ExtResource("529_uk7bl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/RigidBody3D3" unique_id=579830412]
-transform = Transform3D(0.9259997, 0, -0.37752414, 0, 1, 0, 0.37752414, 0, 0.9259997, 4.2608852, -7.261332, -33.6419)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/BackShelfBooks/PickableObject3" unique_id=579830412]
+transform = Transform3D(0.9259997, 0, -0.37752414, 0, 1, 0, 0.37752414, 0, 0.9259997, 4.2608852, 2.399673, -33.6419)
 shape = SubResource("ConvexPolygonShape3D_465xt")
 
 [node name="TableBooks" type="Node3D" parent="Mesh/Room/Books&Pencils" unique_id=1170092692]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -50.159, -1.52, -17.041)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=593901703]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8860803, 0)
+[node name="PickableObject" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=1413077058 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube50_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D" unique_id=1471502446]
-transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -15.470669, 0.8929627, -21.559372)
+[node name="pCube50_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject" unique_id=1471502446]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -15.470669, 2.7790427, -21.559372)
 mesh = ExtResource("527_4pwah")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D" unique_id=767325704]
-transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -15.470669, 0.8929627, -21.559372)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject" unique_id=767325704]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -15.470669, 2.7790427, -21.559372)
 shape = SubResource("ConvexPolygonShape3D_pgj34")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=731355435]
+[node name="PickableObject2" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=2054100402 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube49_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D2" unique_id=1347347115]
+[node name="pCube49_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject2" unique_id=1347347115]
 mesh = ExtResource("526_0l65j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D2" unique_id=958483889]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject2" unique_id=958483889]
 shape = SubResource("ConvexPolygonShape3D_phb5s")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=1937522348]
+[node name="PickableObject3" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=1854580115 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube53_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D3" unique_id=1545082266]
+[node name="pCube53_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject3" unique_id=1545082266]
 transform = Transform3D(0.9389524, 0, -0.34404746, 0, 1.0000002, 0, 0.34404746, 0, 0.9389524, 3.7226524, 0.011908412, -18.322056)
 mesh = ExtResource("530_vpy65")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D3" unique_id=1082407137]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject3" unique_id=1082407137]
 transform = Transform3D(0.9389524, 0, -0.34404746, 0, 1.0000002, 0, 0.34404746, 0, 0.9389524, 3.7226524, 0.011908412, -18.322056)
 shape = SubResource("ConvexPolygonShape3D_7nmpy")
 
-[node name="RigidBody3D4" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=146515044]
+[node name="PickableObject4" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=711478580 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube54_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D4" unique_id=1326018775]
+[node name="pCube54_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject4" unique_id=1326018775]
 transform = Transform3D(0.99839616, -0.036196828, -0.04353435, 0.031679124, 0.99445033, -0.10032612, 0.04692423, 0.09878608, 0.994002, 0.050430298, 1.7859242, -21.031822)
 mesh = ExtResource("531_m6dtc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D4" unique_id=1042572331]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject4" unique_id=1042572331]
 transform = Transform3D(0.99839616, -0.036196828, -0.04353435, 0.031679124, 0.99445033, -0.10032612, 0.04692423, 0.09878608, 0.994002, 0.050430298, 1.7859242, -21.031822)
 shape = SubResource("ConvexPolygonShape3D_ovkfy")
 
-[node name="RigidBody3D5" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=1368816889]
+[node name="PickableObject5" parent="Mesh/Room/Books&Pencils/TableBooks" unique_id=813252069 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube61_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D5" unique_id=845542870]
+[node name="pCube61_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject5" unique_id=845542870]
 transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, 16.954391, 0.046442747, -33.42328)
 mesh = ExtResource("538_fqs46")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/RigidBody3D5" unique_id=1532652507]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/TableBooks/PickableObject5" unique_id=1532652507]
 transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, 16.954391, 0.046442747, -33.42328)
 shape = SubResource("ConvexPolygonShape3D_cvdkn")
 
 [node name="FrontShelfBooks" type="Node3D" parent="Mesh/Room/Books&Pencils" unique_id=738505114]
 
-[node name="RigidBody3D5" type="RigidBody3D" parent="Mesh/Room/Books&Pencils/FrontShelfBooks" unique_id=2069600019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.98187, -1.2664242, 31.056068)
+[node name="PickableObject" parent="Mesh/Room/Books&Pencils/FrontShelfBooks" unique_id=1101623181 instance=ExtResource("154_xy8sr")]
 mass = 1.5
 
-[node name="pCube61_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/FrontShelfBooks/RigidBody3D5" unique_id=749671393]
-transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, 16.954391, 0.046442747, -33.42328)
+[node name="pCube61_lambert42_0" type="MeshInstance3D" parent="Mesh/Room/Books&Pencils/FrontShelfBooks/PickableObject" unique_id=749671393]
+transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, -69.02748, -1.2199813, -2.3672104)
 mesh = ExtResource("538_fqs46")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/FrontShelfBooks/RigidBody3D5" unique_id=1800525364]
-transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, 16.954391, 0.046442747, -33.42328)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Room/Books&Pencils/FrontShelfBooks/PickableObject" unique_id=1800525364]
+transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, -69.02748, -1.2199813, -2.3672104)
 shape = SubResource("ConvexPolygonShape3D_cvdkn")
 
 [node name="Chalkboards" type="Node3D" parent="Mesh/Room" unique_id=74415799]

@@ -86,5 +86,6 @@ laser_length = 1
 collision_mask = 5243392
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003759215 instance=ExtResource("7_k13so")]
+head_behavior_mode = 0
 
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D" method="_on_left_hand_button_pressed"]

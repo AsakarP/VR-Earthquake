@@ -35,4 +35,4 @@ func _on_exit_to_menu_button_pressed() -> void:
 	await fade_to_black()
 	
 	# 2. Load the main menu
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
