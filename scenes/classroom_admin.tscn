@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://fr4y25w2dxux" path="res://audio/Earthquake_Warning.mp3" id="5_2sc5d"]
 [ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="6_ya1g2"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_6onvc"]
-[ext_resource type="PackedScene" uid="uid://duqf63fn7qu5d" path="res://scenes/admin_menu.tscn" id="9_rp0b4"]
+[ext_resource type="PackedScene" uid="uid://duqf63fn7qu5d" path="res://scenes/menu_admin.tscn" id="9_rp0b4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
 panorama = ExtResource("2_rp0b4")
@@ -86,6 +86,6 @@ scene = ExtResource("9_rp0b4")
 viewport_size = Vector2(1280, 720)
 transparent = 1
 unshaded = true
-scene_properties_keys = PackedStringArray("admin_menu.gd")
+scene_properties_keys = PackedStringArray("menu_admin.gd")
 
 [editable path="ClassroomModel"]

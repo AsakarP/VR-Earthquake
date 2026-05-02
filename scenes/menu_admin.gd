@@ -2,6 +2,8 @@ extends Control
 
 # Grab references to your slider and the master earthquake node
 @onready var magnitude_slider = $VBoxContainer/HSlider
+# Magnitude slider value 
+@onready var slider_value: Label = $VBoxContainer/HSlider/SliderValue
 # Use the brute-force search we used earlier so it never crashes!
 @onready var classroom_structure = get_tree().root.find_child("ClassroomStructure", true, false)
 
@@ -22,3 +24,7 @@ func _on_confirm_button_pressed() -> void:
 			
 	else:
 		push_error("WARNING: Could not find the ClassroomStructure node!")
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	slider_value.text = "%.1f" % value

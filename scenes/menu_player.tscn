@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://upb2tn70dfoj"]
 
-[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/player_menu.gd" id="1_20rq3"]
+[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/menu_player.gd" id="1_eqesl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqesl"]
+bg_color = Color(0, 0, 0, 0.49019608)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlswk"]
 bg_color = Color(1, 1, 1, 1)
@@ -9,6 +16,11 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_20rq3"]
+font_size = 70
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
 [node name="PlayeMenu" type="Control" unique_id=1607977936]
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_20rq3")
+script = ExtResource("1_eqesl")
 
 [node name="Panel" type="Panel" parent="." unique_id=64730529]
 layout_mode = 1
@@ -25,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqesl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1215275663]
 layout_mode = 1
@@ -80,6 +93,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Menu"
+label_settings = SubResource("LabelSettings_20rq3")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]

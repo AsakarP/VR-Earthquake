@@ -2,12 +2,24 @@
 
 [ext_resource type="Script" uid="uid://yh8iti0bbxnk" path="res://scenes/menu_ui.gd" id="1_86ygs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86ygs"]
+bg_color = Color(0, 0, 0, 0.49019608)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlswk"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_86ygs"]
+font_size = 70
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MenuUI" type="Control" unique_id=1607977936]
 layout_mode = 3
@@ -26,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86ygs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1215275663]
 layout_mode = 1
@@ -93,6 +106,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "VR Earthquake"
+label_settings = SubResource("LabelSettings_86ygs")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/AdminButton" to="." method="_on_admin_button_pressed"]
