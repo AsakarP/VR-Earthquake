@@ -75,6 +75,7 @@ pose = &"grip"
 turn_mode = 1
 
 [node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347 instance=ExtResource("7_oy5cl")]
+crouch_button_action = "ax_button"
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="3" unique_id=1563023617 instance=ExtResource("5_tsn8l")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
@@ -89,3 +90,4 @@ collision_mask = 5243392
 head_behavior_mode = 0
 
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D" method="_on_left_hand_button_pressed"]
+[connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D" method="_on_right_hand_button_pressed"]

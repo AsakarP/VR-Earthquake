@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b7tct2yrd1tt3"]
+
+[ext_resource type="PackedScene" uid="uid://b52lj1klf0oaj" path="res://scenes/classroom.tscn" id="1_bd0rt"]
+
+[sub_resource type="Gradient" id="Gradient_bd0rt"]
+colors = PackedColorArray(0, 0, 0, 0.49019608, 0, 0, 0, 0.49019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eitfu"]
+gradient = SubResource("Gradient_bd0rt")
+width = 200
+height = 120
+
+[node name="ClassroomLearn" unique_id=315214593 instance=ExtResource("1_bd0rt")]
+
+[node name="DropPrompt" type="Node3D" parent="XROrigin3D/XRCamera3D" index="4" unique_id=1789036270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936612e-07, 0, -1.3653879)
+
+[node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/DropPrompt" index="0" unique_id=797732187]
+billboard = 1
+no_depth_test = true
+texture = SubResource("GradientTexture2D_eitfu")
+
+[node name="Drop" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel" index="0" unique_id=1898237857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.03)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+text = "Merunduk"
+font_size = 50
+outline_size = 10
+
+[node name="DropInstructions" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel/Drop" index="0" unique_id=1213527693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25736952, 0)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+modulate = Color(0.45882353, 0.84313726, 0.29411766, 1)
+text = "Pencet tombol \"A\" untuk merunduk."
+font_size = 30
+outline_size = 10
+
+[node name="DropDetails" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel/Drop" index="1" unique_id=1109162839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6476283, 0)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+modulate = Color(0.69803923, 1, 0.67058825, 1)
+text = "Guncangan yang hebat dapat membuat Anda terlempar ke seberang ruangan. Menjatuhkan diri menjaga pusat gravitasi Anda tetap rendah, mencegah Anda terjatuh, dan memungkinkan Anda merangkak dengan aman ke tempat berlindung."
+font_size = 20
+outline_size = 10
+autowrap_mode = 2
+
+[node name="ClassroomStructure" parent="ClassroomModel/Mesh/Room" parent_id_path=PackedInt32Array(1944298536, 1509456874) index="0" unique_id=633997066]
+script = null
+
+[editable path="ClassroomModel"]

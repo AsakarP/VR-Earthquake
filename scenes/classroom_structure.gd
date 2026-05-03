@@ -1,7 +1,7 @@
 extends AnimatableBody3D
 
 # Admin Mode
-@export var is_admin_mode := false
+@export var admin_mode := false
 
 @export var baseline_magnitude := 5.0
 
@@ -31,7 +31,7 @@ func _ready() -> void:
 	
 	# If in normal scene, start automatically.
 	# If in admin mode, script does nothing.
-	if not is_admin_mode:
+	if not admin_mode:
 		# Generate random decimal 1.0 to 5.0
 		var rand_mag = randf_range(1.0, 5.0)
 		# Starts simulation

@@ -44,3 +44,7 @@ func _on_left_hand_button_pressed(name: String) -> void:
 			else:
 				player_menu.visible = true
 				player_menu.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _on_right_hand_button_pressed(name: String) -> void:
+	print("Button: ", name)
