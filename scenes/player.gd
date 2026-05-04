@@ -47,4 +47,4 @@ func _on_left_hand_button_pressed(name: String) -> void:
 
 
 func _on_right_hand_button_pressed(name: String) -> void:
-	print("Button: ", name)
+	print(name)

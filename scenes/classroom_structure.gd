@@ -33,7 +33,7 @@ func _ready() -> void:
 	# If in admin mode, script does nothing.
 	if not admin_mode:
 		# Generate random decimal 1.0 to 5.0
-		var rand_mag = randf_range(1.0, 5.0)
+		var rand_mag = randf_range(4.6, 5.0)
 		# Starts simulation
 		begin_simulation(rand_mag)
 		
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	if is_quaking:
 		time_passed += delta
 		
-		if magnitude >= 5:
+		if magnitude >= 4.6:
 			# Trigger the wall-mounted objects (like the chalkboard) to fall
 			if not has_quake_started and time_passed > s_wave_delay:
 				get_tree().call_group("drop_objects", "drop_from_wall")

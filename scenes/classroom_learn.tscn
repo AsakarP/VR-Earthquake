@@ -1,26 +1,42 @@
 [gd_scene format=3 uid="uid://b7tct2yrd1tt3"]
 
 [ext_resource type="PackedScene" uid="uid://b52lj1klf0oaj" path="res://scenes/classroom.tscn" id="1_bd0rt"]
+[ext_resource type="Script" uid="uid://dghybvr6o6uw5" path="res://scenes/player_instructions.gd" id="2_eitfu"]
 
 [sub_resource type="Gradient" id="Gradient_bd0rt"]
-colors = PackedColorArray(0, 0, 0, 0.49019608, 0, 0, 0, 0.49019608)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eitfu"]
 gradient = SubResource("Gradient_bd0rt")
 width = 200
 height = 120
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eitfu"]
+size = Vector3(0.6734085, 0.6191673, 0.38131857)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eitfu"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.50980395)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5s88j"]
+material = SubResource("StandardMaterial3D_eitfu")
+size = Vector3(0.673, 0.619, 0.381)
+
 [node name="ClassroomLearn" unique_id=315214593 instance=ExtResource("1_bd0rt")]
 
-[node name="DropPrompt" type="Node3D" parent="XROrigin3D/XRCamera3D" index="4" unique_id=1789036270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936612e-07, 0, -1.3653879)
+[node name="PlayerInstructions" type="Node3D" parent="XROrigin3D/XRCamera3D" index="4" unique_id=958917615]
+script = ExtResource("2_eitfu")
 
-[node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/DropPrompt" index="0" unique_id=797732187]
+[node name="Prompts" type="Node3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions" index="0" unique_id=1789036270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936623e-07, 0, -1.3653879)
+
+[node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts" index="0" unique_id=797732187]
+modulate = Color(1, 1, 1, 0.5882353)
 billboard = 1
 no_depth_test = true
 texture = SubResource("GradientTexture2D_eitfu")
 
-[node name="Drop" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel" index="0" unique_id=1898237857]
+[node name="Title" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel" index="0" unique_id=1898237857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.03)
 pixel_size = 0.003
 billboard = 1
@@ -29,17 +45,18 @@ text = "Merunduk"
 font_size = 50
 outline_size = 10
 
-[node name="DropInstructions" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel/Drop" index="0" unique_id=1213527693]
+[node name="Instructions" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="0" unique_id=1213527693]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25736952, 0)
 pixel_size = 0.003
 billboard = 1
 no_depth_test = true
 modulate = Color(0.45882353, 0.84313726, 0.29411766, 1)
-text = "Pencet tombol \"A\" untuk merunduk."
-font_size = 30
+text = "Tekan tombol 'A' untuk merunduk."
+font_size = 27
 outline_size = 10
+autowrap_mode = 2
 
-[node name="DropDetails" type="Label3D" parent="XROrigin3D/XRCamera3D/DropPrompt/Panel/Drop" index="1" unique_id=1109162839]
+[node name="Details" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="1" unique_id=1109162839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6476283, 0)
 pixel_size = 0.003
 billboard = 1
@@ -50,7 +67,32 @@ font_size = 20
 outline_size = 10
 autowrap_mode = 2
 
+[node name="StartSimulation" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="2" unique_id=1855202768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9295683, 0)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 1, 0, 1)
+text = "(Tekan tombol 'B' jika Anda siap memulai simulasi gempa.)"
+font_size = 15
+outline_size = 10
+autowrap_mode = 2
+
 [node name="ClassroomStructure" parent="ClassroomModel/Mesh/Room" parent_id_path=PackedInt32Array(1944298536, 1509456874) index="0" unique_id=633997066]
 script = null
+
+[node name="UnderTable" type="Area3D" parent="." index="5" unique_id=1185699496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4944558, -10.323303)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderTable" index="0" unique_id=1649779896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000705719, 0.0062770844, -0.03835392)
+shape = SubResource("BoxShape3D_eitfu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnderTable/CollisionShape3D" index="0" unique_id=749025497]
+mesh = SubResource("BoxMesh_5s88j")
+
+[connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_right_hand_button_pressed"]
+[connection signal="body_entered" from="UnderTable" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_under_table_body_entered"]
 
 [editable path="ClassroomModel"]

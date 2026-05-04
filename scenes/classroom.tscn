@@ -47,12 +47,13 @@ current = true
 
 [node name="EEWSUI" type="Label3D" parent="XROrigin3D/XRCamera3D" index="1" unique_id=899581210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.003
 billboard = 1
 no_depth_test = true
 modulate = Color(1, 1, 1, 0)
 outline_modulate = Color(0, 0, 0, 0)
 text = "Test"
-font_size = 24
+font_size = 30
 script = ExtResource("3_kkrti")
 
 [node name="WarningAudio" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D/EEWSUI" index="0" unique_id=1626341366]
