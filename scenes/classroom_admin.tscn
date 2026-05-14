@@ -23,4 +23,6 @@ transparent = 1
 unshaded = true
 scene_properties_keys = PackedStringArray("menu_admin.gd")
 
+[connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D" method="_on_right_hand_button_pressed"]
+
 [editable path="ClassroomModel"]

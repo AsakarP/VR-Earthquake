@@ -45,6 +45,6 @@ func _on_left_hand_button_pressed(name: String) -> void:
 				player_menu.visible = true
 				player_menu.process_mode = Node.PROCESS_MODE_INHERIT
 
-
-func _on_right_hand_button_pressed(name: String) -> void:
-	print(name)
+func _on_player_head_body_entered(body: Node3D) -> void:
+	if body is RigidBody3D:
+		get_tree().reload_current_scene()
