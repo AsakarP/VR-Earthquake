@@ -79,7 +79,6 @@ modulate = Color(1, 1, 1, 0)
 outline_modulate = Color(0, 0, 0, 0)
 text = "Test"
 font_size = 30
-autowrap_mode = 2
 script = ExtResource("6_rt84g")
 
 [node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347]
@@ -92,6 +91,5 @@ slide_on_ceiling = false
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
 
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/PlayerHead" to="XROrigin3D" method="_on_player_head_body_entered"]
-[connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
 
 [editable path="ClassroomModel"]

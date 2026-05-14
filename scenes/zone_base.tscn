@@ -76,6 +76,7 @@ turn_mode = 1
 
 [node name="MovementCrouch" parent="XROrigin3D/RightHand" index="2" unique_id=450133347 instance=ExtResource("7_oy5cl")]
 crouch_button_action = "ax_button"
+crouch_type = 1
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="3" unique_id=1563023617 instance=ExtResource("5_tsn8l")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)

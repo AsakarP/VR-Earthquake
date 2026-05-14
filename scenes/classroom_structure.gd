@@ -103,6 +103,13 @@ func _physics_process(delta: float) -> void:
 			
 			# Stop rumbling audio
 			rumble_audio.stop()
+			
+			# Call Results UI and Player node
+			var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
+			var player_node = get_node_or_null("../../../../XROrigin3D")
+			if results_node and player_node:
+				print("results and player node got")
+				results_node.show_results(player_node.hit_history, player_node.obj_count)	
 				
 			return
 		

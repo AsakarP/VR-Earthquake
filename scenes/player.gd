@@ -3,6 +3,9 @@ extends XROrigin3D
 @onready var camera = $XRCamera3D 
 @export var fall_limit := -3.0 
 
+var hit_history: Array[String] = []
+var obj_count := 0
+
 func _ready() -> void:
 	# 1. Save the exact global spawn point the moment the scene loads
 	# before the VR headset has a chance to move anything!
@@ -47,4 +50,7 @@ func _on_left_hand_button_pressed(name: String) -> void:
 
 func _on_player_head_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D:
-		get_tree().reload_current_scene()
+		var obj_par = body.get_parent()
+		var obj_name = obj_par.name
+		obj_count += 1
+		hit_history.append(obj_name)

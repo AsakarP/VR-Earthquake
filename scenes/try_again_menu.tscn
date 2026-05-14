@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://upb2tn70dfoj"]
+[gd_scene format=3 uid="uid://coevf5lofec46"]
 
-[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/menu_player.gd" id="1_eqesl"]
+[ext_resource type="Script" uid="uid://bilq823u1swia" path="res://scenes/menu_player.gd" id="1_s1iob"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqesl"]
 bg_color = Color(0, 0, 0, 0.49019608)
@@ -21,14 +21,14 @@ font_size = 70
 outline_size = 20
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PlayerMenu" type="Control" unique_id=1607977936]
+[node name="TryAgainMenu" type="Control" unique_id=1607977936]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_eqesl")
+script = ExtResource("1_s1iob")
 
 [node name="Panel" type="Panel" parent="." unique_id=64730529]
 layout_mode = 1
@@ -90,7 +90,7 @@ offset_right = 97.0
 offset_bottom = 202.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-text = "Menu"
+text = "Kamu terkena benda!"
 label_settings = SubResource("LabelSettings_20rq3")
 horizontal_alignment = 1
 
