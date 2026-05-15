@@ -5,6 +5,12 @@ extends XROrigin3D
 
 var hit_history: Array[String] = []
 var obj_count := 0
+var entered_safe := false
+var entered_hazard := false
+var entered_zone := ""
+
+var reaction_time := 0.0
+var is_timing := false
 
 func _ready() -> void:
 	# 1. Save the exact global spawn point the moment the scene loads
@@ -31,13 +37,23 @@ func _ready() -> void:
 		global_position.z += offset_z
 
 # The Fall Boundary (Kill Z) remains the same
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if is_timing:
+		reaction_time += delta
+		
 	if camera != null:
 		if camera.global_position.y < fall_limit:
 			get_tree().reload_current_scene()
 
-func _on_left_hand_button_pressed(name: String) -> void:
-	if name == "grip_click":
+func start_reaction_timer() -> void:
+	is_timing = true
+	reaction_time = 0.0
+	entered_safe = false
+	entered_hazard = false
+	entered_zone = ""
+
+func _on_left_hand_button_pressed(node_name: String) -> void:
+	if node_name == "grip_click":
 		var player_menu = get_tree().root.find_child("PlayerMenu", true, false)
 		
 		if player_menu:
@@ -50,7 +66,30 @@ func _on_left_hand_button_pressed(name: String) -> void:
 
 func _on_player_head_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D:
-		var obj_par = body.get_parent()
-		var obj_name = obj_par.name
+		var obj_name = body.name
 		obj_count += 1
 		hit_history.append(obj_name)
+
+func _on_under_table_body_entered(body: Node3D) -> void:
+	if body is XRToolsPlayerBody:
+		if not entered_safe:
+			entered_safe = true
+			entered_zone = "Under Table"
+			is_timing = false
+			print("SUCCESS: Player reached cover in ", reaction_time, " seconds.")
+
+func _on_near_window_right_body_entered(body: Node3D) -> void:
+	if body is XRToolsPlayerBody:
+		if not entered_hazard:
+			entered_hazard = true
+			entered_zone = "Near Window Right"
+			is_timing = false
+			print("DANGER: Player entered hazard zone in ", reaction_time, " seconds.")
+
+func _on_near_window_left_body_entered(body: Node3D) -> void:
+	if body is XRToolsPlayerBody:
+		if not entered_hazard:
+			entered_hazard = true
+			entered_zone = "Near Window Left"
+			is_timing = false
+			print("DANGER: Player entered hazard zone in ", reaction_time, " seconds.")

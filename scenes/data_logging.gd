@@ -1,0 +1,60 @@
+extends Node
+
+const CSV_PATH = "user://simulation_results.csv"
+const TRACKER_PATH = "user://subject_tracker.txt"
+
+var current_subject_number := 1
+
+func _ready() -> void:
+	if FileAccess.file_exists(TRACKER_PATH):
+		var file = FileAccess.open(TRACKER_PATH, FileAccess.READ)
+		current_subject_number = file.get_as_text().to_int()
+		file.close()
+
+func get_player_id() -> String:
+	return "Subject_%03d" % current_subject_number
+
+# --- UPDATED: Added entered_safe and entered_hazard booleans ---
+func save_session_data(hit_count: int, hit_objects: Array[String], time_survived: float, reaction_time: float, entered_zone: String, entered_safe: bool, entered_hazard: bool) -> void:
+	var file: FileAccess
+	var is_new_file = not FileAccess.file_exists(CSV_PATH)
+	
+	if is_new_file:
+		file = FileAccess.open(CSV_PATH, FileAccess.WRITE)
+		# --- UPDATED: Added the two new boolean headers ---
+		file.store_line("Player ID,Hit Count,Objects Hit,Time Survived,Reaction Time,Zone Entered,Reached Safety,Entered Hazard")
+	else:
+		file = FileAccess.open(CSV_PATH, FileAccess.READ_WRITE)
+		file.seek_end() 
+
+	if file:
+		var object_string := '""'
+		if hit_objects.size() > 0:
+			object_string = '"%s"' % ", ".join(hit_objects)
+			
+		var player_id = get_player_id()
+		
+		# --- UPDATED: Added two extra %s placeholders and converted the booleans to strings ---
+		var data_row = "%s,%d,%s,%.2f,%.2f,%s,%s,%s" % [
+			player_id, 
+			hit_count, 
+			object_string, 
+			time_survived, 
+			reaction_time, 
+			entered_zone, 
+			str(entered_safe),     # Converts true/false to "true"/"false" text
+			str(entered_hazard)    # Converts true/false to "true"/"false" text
+		]
+		
+		file.store_line(data_row)
+		file.close()
+		print("SUCCESS: Data saved for ", player_id)
+		print("Row Data: ", data_row)
+	else:
+		printerr("ERROR: Could not open the CSV file to save data.")
+
+func advance_to_next_subject() -> void:
+	current_subject_number += 1
+	var file = FileAccess.open(TRACKER_PATH, FileAccess.WRITE)
+	file.store_string(str(current_subject_number))
+	file.close()

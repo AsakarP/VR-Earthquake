@@ -28,6 +28,15 @@ glow_strength = 1.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_xubko"]
 radius = 0.25657472
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt84g"]
+size = Vector3(0.6734085, 0.6191673, 0.38131857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cj0lk"]
+size = Vector3(0.4617157, 2.8436584, 14.195679)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlgmb"]
+size = Vector3(0.48454285, 2.8436584, 14.195679)
+
 [node name="Classroom" unique_id=315214593 instance=ExtResource("1_w75qy")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=846349689]
@@ -91,7 +100,40 @@ slide_on_ceiling = false
 [node name="ClassroomModel" parent="." index="4" unique_id=1944298536 instance=ExtResource("2_8nrr8")]
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
 
+[node name="Zones" type="Node3D" parent="." index="5" unique_id=2077923958]
+
+[node name="SafeZone" type="Node3D" parent="Zones" index="0" unique_id=2086687704]
+
+[node name="UnderTable" type="Area3D" parent="Zones/SafeZone" index="0" unique_id=606788393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4944558, -10.323303)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/SafeZone/UnderTable" index="0" unique_id=1421319756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000705719, 0.0062770844, -0.03835392)
+shape = SubResource("BoxShape3D_rt84g")
+
+[node name="HazardZone" type="Node3D" parent="Zones" index="1" unique_id=325316244]
+
+[node name="NearWindowRight" type="Area3D" parent="Zones/HazardZone" index="0" unique_id=1721130596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.066703, 1.460356, -5.19276)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/HazardZone/NearWindowRight" index="0" unique_id=698296478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017311096, 0, 0)
+shape = SubResource("BoxShape3D_cj0lk")
+
+[node name="NearWindowLeft" type="Area3D" parent="Zones/HazardZone" index="1" unique_id=993060766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4596615, 1.460356, -5.19276)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/HazardZone/NearWindowLeft" index="0" unique_id=1565238750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015830994, 0, 0)
+shape = SubResource("BoxShape3D_rlgmb")
+
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/PlayerHead" to="XROrigin3D" method="_on_player_head_body_entered"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
+[connection signal="body_entered" from="Zones/SafeZone/UnderTable" to="XROrigin3D" method="_on_under_table_body_entered"]
+[connection signal="body_entered" from="Zones/HazardZone/NearWindowRight" to="XROrigin3D" method="_on_near_window_right_body_entered"]
+[connection signal="body_entered" from="Zones/HazardZone/NearWindowLeft" to="XROrigin3D" method="_on_near_window_left_body_entered"]
 
 [editable path="ClassroomModel"]

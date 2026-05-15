@@ -7,7 +7,6 @@ func _ready() -> void:
 	outline_modulate.a = 0.0
 
 func show_results(objects: Array[String], count: int) -> void:
-	print("Show results function called")
 	var obj_list = ", ".join(objects)
 	# Update the text dynamically
 	if count != 0:

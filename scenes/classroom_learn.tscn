@@ -1,7 +1,57 @@
 [gd_scene format=3 uid="uid://b7tct2yrd1tt3"]
 
-[ext_resource type="PackedScene" uid="uid://b52lj1klf0oaj" path="res://scenes/classroom.tscn" id="1_bd0rt"]
+[ext_resource type="Script" uid="uid://177gygw2xqqu" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_b56w7"]
 [ext_resource type="Script" uid="uid://dghybvr6o6uw5" path="res://scenes/player_instructions.gd" id="2_eitfu"]
+[ext_resource type="Texture2D" uid="uid://cdg3ll04t4fuv" path="res://assets/HDRI/quadrangle_sunny_4k.exr" id="2_vriiy"]
+[ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_lg8uh"]
+[ext_resource type="Script" uid="uid://duoeqxs5aexl0" path="res://scenes/player.gd" id="4_xyn8v"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="5_o4258"]
+[ext_resource type="Script" uid="uid://bon1bmgydd0ts" path="res://scenes/fade.gd" id="6_swf02"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_w855q"]
+[ext_resource type="PackedScene" uid="uid://upb2tn70dfoj" path="res://scenes/menu_player.tscn" id="8_idawj"]
+[ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="10_3arpk"]
+[ext_resource type="AudioStream" uid="uid://fr4y25w2dxux" path="res://audio/Earthquake_Warning.mp3" id="11_o15wh"]
+[ext_resource type="Script" uid="uid://dge1kye5h7ity" path="res://scenes/results.gd" id="12_0fi72"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="13_huvt3"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="14_6mfxv"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="15_7onaw"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="16_lldqw"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="17_q5iu0"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="18_w0fa5"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="19_l6jtn"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="20_mqwjr"]
+[ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="21_k34ot"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
+panorama = ExtResource("2_vriiy")
+
+[sub_resource type="Sky" id="Sky_xubko"]
+sky_material = SubResource("PanoramaSkyMaterial_kkrti")
+
+[sub_resource type="Environment" id="Environment_kkrti"]
+background_mode = 2
+sky = SubResource("Sky_xubko")
+sky_rotation = Vector3(0, -1.5707964, 0)
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 1.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnvy"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_tsn8l"]
+material = SubResource("StandardMaterial3D_mhnvy")
+size = Vector2(2, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xubko"]
+radius = 0.25657472
 
 [sub_resource type="Gradient" id="Gradient_bd0rt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -14,29 +64,79 @@ height = 120
 [sub_resource type="BoxShape3D" id="BoxShape3D_eitfu"]
 size = Vector3(0.6734085, 0.6191673, 0.38131857)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eitfu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b56w7"]
 transparency = 1
 albedo_color = Color(0, 1, 1, 0.50980395)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5s88j"]
-material = SubResource("StandardMaterial3D_eitfu")
+material = SubResource("StandardMaterial3D_b56w7")
 size = Vector3(0.673, 0.619, 0.381)
 
-[node name="ClassroomLearn" unique_id=315214593 instance=ExtResource("1_bd0rt")]
+[node name="ClassroomLearn" type="Node3D" unique_id=315214593]
+script = ExtResource("1_b56w7")
 
-[node name="PlayerInstructions" type="Node3D" parent="XROrigin3D/XRCamera3D" index="4" unique_id=958917615]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=846349689]
+transform = Transform3D(-0.58212286, 0.704166, -0.40655038, 0, 0.49999997, 0.86602545, 0.8131008, 0.5041332, -0.2910614, -5.1225247, 9.181911, -4.887951)
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=155467814]
+environment = SubResource("Environment_kkrti")
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=1576522767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7937851, -5.1324778)
+interior = true
+light_data = ExtResource("3_lg8uh")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=750135509]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.20716274, -11.689668)
+current = true
+script = ExtResource("4_xyn8v")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=412211287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+far = 300.0
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" unique_id=611258494 instance=ExtResource("5_o4258")]
+
+[node name="Fade" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D" unique_id=1849918434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+mesh = SubResource("QuadMesh_tsn8l")
+script = ExtResource("6_swf02")
+
+[node name="PlayerMenu" parent="XROrigin3D/XRCamera3D" unique_id=1511438864 instance=ExtResource("7_w855q")]
+process_mode = 4
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, -1.1271791)
+visible = false
+screen_size = Vector2(1280, 720)
+scene = ExtResource("8_idawj")
+viewport_size = Vector2(1280, 720)
+transparent = 1
+unshaded = true
+scene_properties_keys = PackedStringArray("menu_player.gd")
+
+[node name="PlayerHead" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=1436310377]
+process_mode = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/PlayerHead" unique_id=1184200710]
+shape = SubResource("SphereShape3D_xubko")
+
+[node name="PlayerInstructions" type="Node3D" parent="XROrigin3D/XRCamera3D" unique_id=958917615]
 script = ExtResource("2_eitfu")
 
-[node name="Prompts" type="Node3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions" index="0" unique_id=1789036270]
+[node name="Prompts" type="Node3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions" unique_id=1789036270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936623e-07, 0, -1.3653879)
 
-[node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts" index="0" unique_id=797732187]
+[node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts" unique_id=797732187]
 modulate = Color(1, 1, 1, 0.5882353)
 billboard = 1
 no_depth_test = true
 texture = SubResource("GradientTexture2D_eitfu")
 
-[node name="Title" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel" index="0" unique_id=1898237857]
+[node name="Title" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel" unique_id=1898237857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.03)
 pixel_size = 0.003
 billboard = 1
@@ -45,7 +145,7 @@ text = "Merunduk"
 font_size = 50
 outline_size = 10
 
-[node name="Instructions" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="0" unique_id=1213527693]
+[node name="Instructions" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" unique_id=1213527693]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25736952, 0)
 pixel_size = 0.003
 billboard = 1
@@ -56,7 +156,7 @@ font_size = 27
 outline_size = 10
 autowrap_mode = 2
 
-[node name="Details" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="1" unique_id=1109162839]
+[node name="Details" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" unique_id=1109162839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6476283, 0)
 pixel_size = 0.003
 billboard = 1
@@ -67,7 +167,7 @@ font_size = 20
 outline_size = 10
 autowrap_mode = 2
 
-[node name="StartSimulation" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" index="2" unique_id=1855202768]
+[node name="StartSimulation" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" unique_id=1855202768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9295683, 0)
 pixel_size = 0.003
 billboard = 1
@@ -78,20 +178,102 @@ font_size = 15
 outline_size = 10
 autowrap_mode = 2
 
+[node name="EEWSUI" type="Label3D" parent="XROrigin3D/XRCamera3D" unique_id=899581210]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1368684e-13, 0, -1)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 1, 1, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Test"
+font_size = 30
+script = ExtResource("10_3arpk")
+
+[node name="WarningAudio" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1626341366]
+stream = ExtResource("11_o15wh")
+volume_db = -15.0
+
+[node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" unique_id=569586222]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.003
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 1, 1, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Test"
+font_size = 30
+autowrap_mode = 2
+script = ExtResource("12_0fi72")
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D" unique_id=1107270710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" unique_id=1702823453 instance=ExtResource("13_huvt3")]
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" unique_id=282120670 instance=ExtResource("14_6mfxv")]
+strafe = true
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" unique_id=290281284 instance=ExtResource("15_7onaw")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" unique_id=2006082086 instance=ExtResource("16_lldqw")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.02, -0.03535534, -0.10606602)
+show_laser = 2
+laser_length = 1
+collision_mask = 5243392
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D" unique_id=2142390736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+pose = &"grip"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" unique_id=1221045642 instance=ExtResource("17_q5iu0")]
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand" unique_id=605455832 instance=ExtResource("18_w0fa5")]
+turn_mode = 1
+
+[node name="MovementCrouch" parent="XROrigin3D/RightHand" unique_id=450133347 instance=ExtResource("19_l6jtn")]
+crouch_height = 0.5
+crouch_button_action = "ax_button"
+crouch_type = 1
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" unique_id=1563023617 instance=ExtResource("15_7onaw")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" unique_id=1953331390 instance=ExtResource("16_lldqw")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.02, -0.03535534, -0.10606602)
+show_laser = 2
+laser_length = 1
+collision_mask = 5243392
+
+[node name="PlayerBody" parent="XROrigin3D" unique_id=1003759215 instance=ExtResource("20_mqwjr")]
+slide_on_ceiling = false
+head_behavior_mode = 0
+
+[node name="ClassroomModel" parent="." unique_id=1944298536 instance=ExtResource("21_k34ot")]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
+
 [node name="ClassroomStructure" parent="ClassroomModel/Mesh/Room" parent_id_path=PackedInt32Array(1944298536, 1509456874) index="0" unique_id=633997066]
 script = null
 
-[node name="UnderTable" type="Area3D" parent="." index="5" unique_id=1185699496]
+[node name="UnderTable" type="Area3D" parent="." unique_id=1185699496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4944558, -10.323303)
 collision_mask = 524289
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderTable" index="0" unique_id=1649779896]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderTable" unique_id=1649779896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000705719, 0.0062770844, -0.03835392)
 shape = SubResource("BoxShape3D_eitfu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="UnderTable/CollisionShape3D" index="0" unique_id=749025497]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnderTable/CollisionShape3D" unique_id=749025497]
 mesh = SubResource("BoxMesh_5s88j")
 
+[connection signal="body_entered" from="XROrigin3D/XRCamera3D/PlayerHead" to="XROrigin3D" method="_on_player_head_body_entered"]
+[connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D" method="_on_left_hand_button_pressed"]
+[connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_right_hand_button_pressed"]
 [connection signal="body_entered" from="UnderTable" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_under_table_body_entered"]
 

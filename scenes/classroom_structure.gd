@@ -20,6 +20,7 @@ extends AnimatableBody3D
 @export var s_wave_freq := 6.0
 
 @onready var rumble_audio: AudioStreamPlayer3D = $RumbleAudio
+@onready var dust_particles: GPUParticles3D = $DustParticles
 
 var time_passed := 0.0
 var is_quaking := false
@@ -53,6 +54,10 @@ func begin_simulation(custom_magnitude: float) -> void:
 	if eews_node:
 		eews_node.trigger_warning(magnitude)
 	
+	var player_node = get_node_or_null("../../../../XROrigin3D")
+	if player_node:
+		player_node.start_reaction_timer()
+	
 	# Wait for main timer to finish
 	await timer.timeout
 	
@@ -66,6 +71,8 @@ func trigger_earthquake() -> void:
 		time_passed = 0.0
 		has_quake_started = false
 		
+		# Start dust particle
+		dust_particles.emitting = true
 		# Start Rumbling audio
 		# Very low rumble sound
 		if magnitude < 3:
@@ -104,12 +111,25 @@ func _physics_process(delta: float) -> void:
 			# Stop rumbling audio
 			rumble_audio.stop()
 			
+			# Stop dust particles
+			dust_particles.emitting = false
+			
 			# Call Results UI and Player node
 			var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
 			var player_node = get_node_or_null("../../../../XROrigin3D")
 			if results_node and player_node:
-				print("results and player node got")
-				results_node.show_results(player_node.hit_history, player_node.obj_count)	
+				# Log to CSV
+				DataLogging.save_session_data(
+					player_node.obj_count,
+					player_node.hit_history,
+					time_passed,
+					player_node.reaction_time,
+					player_node.entered_zone,
+					player_node.entered_safe,
+					player_node.entered_hazard
+				)
+				# Show to VR UI
+				results_node.show_results(player_node.hit_history, player_node.obj_count)
 				
 			return
 		

@@ -31,6 +31,7 @@ func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_exit_to_menu_button_pressed() -> void:
+	DataLogging.advance_to_next_subject()
 	# 1. Wait for the screen to go black
 	await fade_to_black()
 	
