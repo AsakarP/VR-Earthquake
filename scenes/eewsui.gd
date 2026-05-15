@@ -10,7 +10,7 @@ func _ready() -> void:
 # This function will be called by your earthquake controller
 func trigger_warning(magnitude: float) -> void:
 	# Update the text dynamically
-	text = "⚠\nEarthquake\nEstimated Magnitude: %.1f" % magnitude
+	text = "⚠\nGempa Bumi\nPerkiraan Besarnya: %.1f" % magnitude
 	
 	# Play warning alarm
 	warning_audio.play()

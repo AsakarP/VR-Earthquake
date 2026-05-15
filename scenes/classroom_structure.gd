@@ -6,7 +6,7 @@ extends AnimatableBody3D
 @export var baseline_magnitude := 5.0
 
 @export_category("Earthquake Settings")
-@export var start_delay := 5.0 # How many seconds before the quake hits
+@export var start_delay := 10.0 # How many seconds before the quake hits
 @export var magnitude := 1.0 # Overall intensity multiplier
 @export var total_duration := 20.0 # How long the quake lasts in seconds
 @export var s_wave_delay := 3.0 # Seconds before the heavy rolling hits
