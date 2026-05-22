@@ -43,22 +43,26 @@ func begin_simulation(custom_magnitude: float) -> void:
 	# Update the magnitude
 	magnitude = custom_magnitude
 	
-	# Start countdown
+	# Start the main master countdown for the earthquake
 	var timer = get_tree().create_timer(start_delay)
 	
-	# Trigger EEWS UI
-	await get_tree().create_timer(start_delay / 2.0).timeout
+	# Calculate exactly how many seconds the EEWS warning will be on screen
+	var countdown_seconds = start_delay / 2.0
+	
+	# Wait for the first half of the delay before sounding the alarm
+	await get_tree().create_timer(countdown_seconds).timeout
 	
 	# Call UI Label
 	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
 	if eews_node:
-		eews_node.trigger_warning(magnitude)
+		# --- UPDATED: Pass BOTH the magnitude AND the countdown_seconds! ---
+		eews_node.trigger_warning(magnitude, countdown_seconds)
 	
 	var player_node = get_node_or_null("../../../../XROrigin3D")
 	if player_node:
 		player_node.start_reaction_timer()
 	
-	# Wait for main timer to finish
+	# Wait for main timer to finish the remaining time
 	await timer.timeout
 	
 	# Start the earthquake

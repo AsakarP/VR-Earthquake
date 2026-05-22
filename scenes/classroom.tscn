@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdg3ll04t4fuv" path="res://assets/HDRI/quadrangle_sunny_4k.exr" id="2_x5cc4"]
 [ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="3_kkrti"]
 [ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_xkx8l"]
-[ext_resource type="AudioStream" uid="uid://fr4y25w2dxux" path="res://audio/Earthquake_Warning.mp3" id="4_xubko"]
+[ext_resource type="AudioStream" uid="uid://bt2t84ibbr8io" path="res://audio/Emergency_Alert_Sound.mp3" id="5_rt84g"]
 [ext_resource type="Script" uid="uid://dge1kye5h7ity" path="res://scenes/results.gd" id="6_rt84g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
@@ -76,7 +76,7 @@ font_size = 30
 script = ExtResource("3_kkrti")
 
 [node name="WarningAudio" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D/EEWSUI" index="0" unique_id=1626341366]
-stream = ExtResource("4_xubko")
+stream = ExtResource("5_rt84g")
 volume_db = -15.0
 
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
