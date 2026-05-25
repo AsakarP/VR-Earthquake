@@ -52,6 +52,7 @@ size = Vector2(2, 2)
 radius = 0.25657472
 
 [sub_resource type="Gradient" id="Gradient_bd0rt"]
+offsets = PackedFloat32Array(0.0040983604, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eitfu"]
@@ -63,12 +64,25 @@ height = 120
 size = Vector3(0.6734085, 0.6191673, 0.38131857)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b56w7"]
+render_priority = -1
 transparency = 1
 albedo_color = Color(0, 1, 1, 0.50980395)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5s88j"]
 material = SubResource("StandardMaterial3D_b56w7")
 size = Vector3(0.673, 0.619, 0.381)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vfgh"]
+size = Vector3(1, 2.1536865, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vfgh"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.47058824)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b56w7"]
+material = SubResource("StandardMaterial3D_1vfgh")
+size = Vector3(1, 2.154, 1)
 
 [node name="ClassroomLearn" type="Node3D" unique_id=315214593]
 script = ExtResource("1_b56w7")
@@ -129,7 +143,7 @@ script = ExtResource("2_eitfu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936623e-07, 0, -1.3653879)
 
 [node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts" unique_id=797732187]
-modulate = Color(1, 1, 1, 0.5882353)
+modulate = Color(1, 1, 1, 0.7058824)
 billboard = 1
 no_depth_test = true
 texture = SubResource("GradientTexture2D_eitfu")
@@ -139,6 +153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.03)
 pixel_size = 0.003
 billboard = 1
 no_depth_test = true
+render_priority = 1
 text = "Merunduk"
 font_size = 50
 outline_size = 10
@@ -148,6 +163,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25736952, 0)
 pixel_size = 0.003
 billboard = 1
 no_depth_test = true
+render_priority = 1
+outline_render_priority = 0
 modulate = Color(0.45882353, 0.84313726, 0.29411766, 1)
 text = "Tekan tombol 'A' untuk merunduk."
 font_size = 27
@@ -159,19 +176,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6476283, 0)
 pixel_size = 0.003
 billboard = 1
 no_depth_test = true
+render_priority = 1
+outline_render_priority = 0
 modulate = Color(0.69803923, 1, 0.67058825, 1)
 text = "Guncangan yang hebat dapat membuat Anda terlempar ke seberang ruangan. Menjatuhkan diri menjaga pusat gravitasi Anda tetap rendah, mencegah Anda terjatuh, dan memungkinkan Anda merangkak dengan aman ke tempat berlindung."
 font_size = 20
 outline_size = 10
 autowrap_mode = 2
 
-[node name="StartSimulation" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" unique_id=1855202768]
+[node name="MoreInst" type="Label3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts/Panel/Title" unique_id=1855202768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9295683, 0)
 pixel_size = 0.003
 billboard = 1
 no_depth_test = true
+render_priority = 1
+outline_render_priority = 0
 modulate = Color(1, 1, 0, 1)
-text = "(Tekan tombol 'B' jika Anda siap memulai simulasi gempa.)"
+text = "(Tekan tombol 'B' untuk lanjut.)"
 font_size = 15
 outline_size = 10
 autowrap_mode = 2
@@ -253,10 +274,21 @@ shape = SubResource("BoxShape3D_eitfu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UnderTable/CollisionShape3D" unique_id=749025497]
 mesh = SubResource("BoxMesh_5s88j")
 
+[node name="ExitDoors" type="Area3D" parent="." unique_id=1280761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3434625, 1.1288656, -11.00471)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDoors" unique_id=2096093820]
+shape = SubResource("BoxShape3D_1vfgh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ExitDoors/CollisionShape3D" unique_id=1562556882]
+mesh = SubResource("BoxMesh_b56w7")
+
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/PlayerHead" to="XROrigin3D" method="_on_player_head_body_entered"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D" method="_on_left_hand_button_pressed"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_right_hand_button_pressed"]
 [connection signal="body_entered" from="UnderTable" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_under_table_body_entered"]
+[connection signal="body_entered" from="ExitDoors" to="XROrigin3D/XRCamera3D/PlayerInstructions" method="_on_exit_doors_body_entered"]
 
 [editable path="ClassroomModel"]

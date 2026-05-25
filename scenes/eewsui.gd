@@ -1,6 +1,7 @@
 extends Label3D
 
 @onready var warning_audio: AudioStreamPlayer = $WarningAudio
+@onready var phone_sprite: Sprite3D = $PhoneSprite
 
 var is_counting_down := false
 var time_left := 0.0
@@ -10,6 +11,7 @@ func _ready() -> void:
 	# Ensure it starts completely invisible
 	modulate.a = 0.0
 	outline_modulate.a = 0.0
+	phone_sprite.modulate.a = 0.0
 
 # This runs every frame to update the text!
 func _process(delta: float) -> void:
@@ -37,9 +39,11 @@ func trigger_warning(magnitude: float, countdown_seconds: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 0.5)
 	tween.parallel().tween_property(self, "outline_modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(phone_sprite, "modulate:a", 1.0, 0.5)
 
 # A dedicated function to hide the UI when time is up
 func hide_warning() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
 	tween.parallel().tween_property(self, "outline_modulate:a", 0.0, 1.0)
+	tween.parallel().tween_property(phone_sprite, "modulate:a", 0.0, 1.0)

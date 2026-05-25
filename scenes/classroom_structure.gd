@@ -26,6 +26,7 @@ var time_passed := 0.0
 var is_quaking := false
 var initial_position: Vector3
 var has_quake_started := false
+var is_evacuation_ready := true
 
 func _ready() -> void:
 	initial_position = global_position
@@ -117,6 +118,11 @@ func _physics_process(delta: float) -> void:
 			
 			# Stop dust particles
 			dust_particles.emitting = false
+			
+			var structure_node = get_node_or_null("../../../../Zones") 
+			
+			if structure_node and structure_node.has_method("call_exit_area"):
+				structure_node.call_exit_area()
 			
 			# Call Results UI and Player node
 			var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")

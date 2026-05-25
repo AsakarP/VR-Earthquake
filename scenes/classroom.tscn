@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="3_kkrti"]
 [ext_resource type="LightmapGIData" uid="uid://cumorouc6fx2h" path="res://scenes/classroom.lmbake" id="3_xkx8l"]
 [ext_resource type="AudioStream" uid="uid://bt2t84ibbr8io" path="res://audio/Emergency_Alert_Sound.mp3" id="5_rt84g"]
+[ext_resource type="Texture2D" uid="uid://d02xsbhbgracv" path="res://images/phone_transparent.png" id="6_cj0lk"]
 [ext_resource type="Script" uid="uid://dge1kye5h7ity" path="res://scenes/results.gd" id="6_rt84g"]
+[ext_resource type="Script" uid="uid://dx33gytrjvjyd" path="res://scenes/zones.gd" id="9_rlgmb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
 panorama = ExtResource("2_x5cc4")
@@ -35,7 +37,19 @@ size = Vector3(0.6734085, 0.6191673, 0.38131857)
 size = Vector3(0.4617157, 2.8436584, 14.195679)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rlgmb"]
-size = Vector3(0.48454285, 2.8436584, 14.195679)
+size = Vector3(0.48454285, 2.8436584, 10.620941)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l51k1"]
+size = Vector3(1, 2.1536865, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmryt"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.47058824)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kt5ds"]
+material = SubResource("StandardMaterial3D_bmryt")
+size = Vector3(1, 2.154, 1)
 
 [node name="Classroom" unique_id=315214593 instance=ExtResource("1_w75qy")]
 
@@ -65,13 +79,17 @@ collision_mask = 7
 shape = SubResource("SphereShape3D_xubko")
 
 [node name="EEWSUI" type="Label3D" parent="XROrigin3D/XRCamera3D" index="4" unique_id=899581210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1368684e-13, 0, -1)
-pixel_size = 0.003
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+pixel_size = 0.001
+offset = Vector2(0, 70)
 billboard = 1
 no_depth_test = true
-modulate = Color(1, 1, 1, 0)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Test"
+render_priority = 1
+outline_render_priority = 0
+text = "⚠
+Gempa Bumi
+Perkiraan Besarnya: 1.0
+Tiba dalam: 5:00 detik"
 font_size = 30
 script = ExtResource("3_kkrti")
 
@@ -79,14 +97,20 @@ script = ExtResource("3_kkrti")
 stream = ExtResource("5_rt84g")
 volume_db = -15.0
 
+[node name="PhoneSprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" index="1" unique_id=1934753008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+pixel_size = 0.001
+no_depth_test = true
+texture = ExtResource("6_cj0lk")
+
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-pixel_size = 0.003
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
+pixel_size = 0.002
 billboard = 1
 no_depth_test = true
-modulate = Color(1, 1, 1, 0)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Test"
+text = "Kepala Anda terkena oleh:
+Jumlah Benturan:
+"
 font_size = 30
 autowrap_mode = 2
 script = ExtResource("6_rt84g")
@@ -101,6 +125,7 @@ slide_on_ceiling = false
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -3.4, 0, 0.2)
 
 [node name="Zones" type="Node3D" parent="." index="5" unique_id=2077923958]
+script = ExtResource("9_rlgmb")
 
 [node name="SafeZone" type="Node3D" parent="Zones" index="0" unique_id=2086687704]
 
@@ -127,13 +152,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4596615, 1.460356, -5.19276
 collision_mask = 524289
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/HazardZone/NearWindowLeft" index="0" unique_id=1565238750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015830994, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015830994, 0, 1.7873688)
 shape = SubResource("BoxShape3D_rlgmb")
+
+[node name="ExitDoors" type="Area3D" parent="Zones" index="2" unique_id=658314866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3434625, 1.1288656, -11.00471)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/ExitDoors" index="0" unique_id=1294641241]
+shape = SubResource("BoxShape3D_l51k1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Zones/ExitDoors/CollisionShape3D" index="0" unique_id=1641848248]
+mesh = SubResource("BoxMesh_kt5ds")
 
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/PlayerHead" to="XROrigin3D" method="_on_player_head_body_entered"]
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
 [connection signal="body_entered" from="Zones/SafeZone/UnderTable" to="XROrigin3D" method="_on_under_table_body_entered"]
 [connection signal="body_entered" from="Zones/HazardZone/NearWindowRight" to="XROrigin3D" method="_on_near_window_right_body_entered"]
 [connection signal="body_entered" from="Zones/HazardZone/NearWindowLeft" to="XROrigin3D" method="_on_near_window_left_body_entered"]
+[connection signal="body_entered" from="Zones/ExitDoors" to="Zones" method="_on_exit_doors_body_entered"]
 
 [editable path="ClassroomModel"]

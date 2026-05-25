@@ -10,11 +10,9 @@ func show_results(objects: Array[String], count: int) -> void:
 	var obj_list = ", ".join(objects)
 	# Update the text dynamically
 	if count != 0:
-		text = "Kepala Anda terkena oleh: %s \nJumlah Benturan: %d 
-		\nUntuk memulai ulang atau keluar,\ntekan tombol Grip kiri." % [obj_list, count]
+		text = "Kepala Anda terkena oleh: %s \nJumlah Benturan: %d" % [obj_list, count]
 	else:
-		text = "Anda sama sekali tidak terbentur objek!
-		\nUntuk memulai ulang atau keluar,\ntekan tombol Grip kiri."
+		text = "Anda sama sekali tidak terbentur objek!"
 	
 	var tween = create_tween()
 	# Tween the alpha (a) channel of the modulate property to 1.0 (fully visible) over 0.5 seconds

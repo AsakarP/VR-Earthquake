@@ -5,9 +5,11 @@ extends Node3D
 @onready var title: Label3D = $Prompts/Panel/Title
 @onready var instructions: Label3D = $Prompts/Panel/Title/Instructions
 @onready var details: Label3D = $Prompts/Panel/Title/Details
-@onready var start_simulation: Label3D = $Prompts/Panel/Title/StartSimulation
+@onready var more_inst: Label3D = $Prompts/Panel/Title/MoreInst
 
+# Areas
 @onready var under_table: Area3D = $"../../../UnderTable"
+@onready var exit_doors: Area3D = $"../../../ExitDoors"
 
 # Keeps track of where we are in the tutorial
 var current_step := 0
@@ -18,20 +20,20 @@ var is_animating := false
 var title_new := ""
 var instructions_new := ""
 var details_new := ""
-var start_simulation_new := ""
+var more_inst_new := ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set starting text
-	panel.modulate.a = 0.5
+	panel.modulate.a = 0.6
 	title.modulate.a = 1.0
 	title.outline_modulate.a = 1.0
 	instructions.modulate.a = 1.0
 	instructions.outline_modulate.a = 1.0
 	details.modulate.a = 1.0
 	details.outline_modulate.a = 1.0
-	start_simulation.modulate.a = 0.0
-	start_simulation.outline_modulate.a = 0.0
+	more_inst.modulate.a = 0.0
+	more_inst.outline_modulate.a = 0.0
 	title.text = "Merunduk"
 	instructions.text = "Tekan tombol 'A' untuk merunduk."
 	details.text = "Guncangan yang hebat dapat membuat Anda terlempar ke seberang ruangan. \
@@ -44,9 +46,11 @@ func _ready() -> void:
 	
 	under_table.visible = false
 	under_table.process_mode = Node.PROCESS_MODE_DISABLED
+	exit_doors.visible = false
+	exit_doors.process_mode = Node.PROCESS_MODE_DISABLED
 
 # Text fade helper
-func fade_to_new_text(new_title: String, new_instructions: String, new_details: String, new_start_simulation: String) -> void:
+func fade_to_new_text(new_title: String, new_instructions: String, new_details: String, new_more_inst: String) -> void:
 	is_animating = true
 	# Fade the text out
 	var fade_out = create_tween()
@@ -57,27 +61,27 @@ func fade_to_new_text(new_title: String, new_instructions: String, new_details: 
 	fade_out.parallel().tween_property(instructions, "outline_modulate:a", 0.0, 0.5)
 	fade_out.parallel().tween_property(details, "modulate:a", 0.0, 0.5)
 	fade_out.parallel().tween_property(details, "outline_modulate:a", 0.0, 0.5)
-	fade_out.parallel().tween_property(start_simulation, "modulate:a", 0.0, 0.5)
-	fade_out.parallel().tween_property(start_simulation, "outline_modulate:a", 0.0, 0.5)
+	fade_out.parallel().tween_property(more_inst, "modulate:a", 0.0, 0.5)
+	fade_out.parallel().tween_property(more_inst, "outline_modulate:a", 0.0, 0.5)
 	await fade_out.finished
 	
 	# Change the text while text is invisible
 	title.text = new_title
 	instructions.text = new_instructions
 	details.text = new_details
-	start_simulation.text = new_start_simulation
+	more_inst.text = new_more_inst
 	
 	# Fade the text back in
 	var fade_in = create_tween()
-	fade_in.tween_property(panel, "modulate:a", 0.5, 0.5)
+	fade_in.tween_property(panel, "modulate:a", 0.6, 0.5)
 	fade_in.parallel().tween_property(title, "modulate:a", 1.0, 0.5)
 	fade_in.parallel().tween_property(title, "outline_modulate:a", 1.0, 0.5)
 	fade_in.parallel().tween_property(instructions, "modulate:a", 1.0, 0.5)
 	fade_in.parallel().tween_property(instructions, "outline_modulate:a", 1.0, 0.5)
 	fade_in.parallel().tween_property(details, "modulate:a", 1.0, 0.5)
 	fade_in.parallel().tween_property(details, "outline_modulate:a", 1.0, 0.5)
-	fade_in.parallel().tween_property(start_simulation, "modulate:a", 1.0, 0.5)
-	fade_in.parallel().tween_property(start_simulation, "outline_modulate:a", 1.0, 0.5)
+	fade_in.parallel().tween_property(more_inst, "modulate:a", 1.0, 0.5)
+	fade_in.parallel().tween_property(more_inst, "outline_modulate:a", 1.0, 0.5)
 	await fade_in.finished
 	
 	is_animating = false # Unlock the script so the player can proceed
@@ -119,12 +123,21 @@ func _on_right_hand_button_pressed(button_name: String) -> void:
 		melainkan benda jatuh dan pecahan kaca. Di kelas ini, jauhi jendela, \
 		papan tulis, dan rak tinggi. Bertahan sepenuhnya di bawah meja."
 		
-		fade_to_new_text(title_new, instructions_new, details_new, start_simulation_new)
+		fade_to_new_text(title_new, instructions_new, details_new, more_inst_new)
 	
+	# If "B" button pressed (show evacuation)
 	if button_name == "by_button" and current_step == 2:
-		await fade_to_black()
+		current_step = 3
+		title_new = "Evakuasi"
+		instructions_new = "Tetap tenang. Berjalanlah dengan teratur menuju pintu keluar."
+		details_new = "Setelah guncangan benar-benar berhenti, segera tinggalkan kelas. \
+		Jangan berlari, jangan panik, dan tinggalkan barang bawaan yang berat."
+		more_inst_new = "(Tekan tombol 'A' untuk berdiri.)"
 		
-		get_tree().change_scene_to_file("res://scenes/classroom.tscn")
+		fade_to_new_text(title_new, instructions_new, details_new, more_inst_new)
+		
+		exit_doors.visible = true
+		exit_doors.process_mode = Node.PROCESS_MODE_INHERIT
 	
 func _on_under_table_body_entered(body: Node3D) -> void:
 	if is_animating:
@@ -138,11 +151,24 @@ func _on_under_table_body_entered(body: Node3D) -> void:
 			details_new = "Gempa bumi akan membuat tempat berlindung Anda terguncang di sekitar ruangan. \
 			Pegang kaki meja dengan satu tangan, lindungi leher Anda dengan tangan lainnya, \
 			dan bersiaplah terhadap guncangan gempa."
-			start_simulation_new = "(Tekan tombol 'B' jika Anda siap memulai simulasi gempa.)"
+			more_inst_new = "(Tekan tombol 'B' untuk lanjut.)"
 			
-			fade_to_new_text(title_new, instructions_new, details_new, start_simulation_new)
+			fade_to_new_text(title_new, instructions_new, details_new, more_inst_new)
 			
 			current_step = 2
 		
 		under_table.visible = false
 		under_table.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _on_exit_doors_body_entered(body: Node3D) -> void:
+	if is_animating:
+		return
+	# Check if player entered under the table
+	if body.name == "PlayerBody":
+		# Only trigger if on step "Berlindung"
+		if current_step == 3:
+			# 1. Wait for the screen to go black
+			await fade_to_black()
+			
+			# 2. Load the scene
+			get_tree().change_scene_to_file("res://scenes/classroom.tscn")
