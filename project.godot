@@ -14,7 +14,7 @@ config/name="VR Earthquake"
 config/tags=PackedStringArray("simulation", "virtual_reality")
 run/main_scene="uid://c17ou847i44c1"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://0mbumrioks5i"
 
 [autoload]
 

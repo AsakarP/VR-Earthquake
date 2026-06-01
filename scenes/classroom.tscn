@@ -99,13 +99,14 @@ volume_db = -15.0
 
 [node name="PhoneSprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" index="1" unique_id=1934753008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
 pixel_size = 0.001
 no_depth_test = true
 texture = ExtResource("6_cj0lk")
 
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
-pixel_size = 0.002
+pixel_size = 0.001
 billboard = 1
 no_depth_test = true
 text = "Kepala Anda terkena oleh:

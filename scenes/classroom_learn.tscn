@@ -137,10 +137,10 @@ collision_mask = 7
 shape = SubResource("SphereShape3D_xubko")
 
 [node name="PlayerInstructions" type="Node3D" parent="XROrigin3D/XRCamera3D" unique_id=958917615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7)
 script = ExtResource("2_eitfu")
 
 [node name="Prompts" type="Node3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions" unique_id=1789036270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1936623e-07, 0, -1.3653879)
 
 [node name="Panel" type="Sprite3D" parent="XROrigin3D/XRCamera3D/PlayerInstructions/Prompts" unique_id=797732187]
 modulate = Color(1, 1, 1, 0.7058824)
