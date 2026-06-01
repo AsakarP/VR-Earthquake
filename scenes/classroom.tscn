@@ -39,6 +39,9 @@ size = Vector3(0.4617157, 2.8436584, 14.195679)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rlgmb"]
 size = Vector3(0.48454285, 2.8436584, 10.620941)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt5ds"]
+size = Vector3(6.177582, 1.7849121, 8.050224)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l51k1"]
 size = Vector3(1, 2.1536865, 1)
 
@@ -106,7 +109,7 @@ texture = ExtResource("6_cj0lk")
 
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
-pixel_size = 0.001
+pixel_size = 0.0013
 billboard = 1
 no_depth_test = true
 text = "Kepala Anda terkena oleh:
@@ -156,6 +159,14 @@ collision_mask = 524289
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015830994, 0, 1.7873688)
 shape = SubResource("BoxShape3D_rlgmb")
 
+[node name="UnderCeilingLights" type="Area3D" parent="Zones/HazardZone" index="2" unique_id=1214122328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449451, -5.2336497)
+collision_mask = 524289
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/HazardZone/UnderCeilingLights" index="0" unique_id=762906310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11265564, -0.39245605, 0.09826183)
+shape = SubResource("BoxShape3D_kt5ds")
+
 [node name="ExitDoors" type="Area3D" parent="Zones" index="2" unique_id=658314866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3434625, 1.1288656, -11.00471)
 collision_mask = 524289
@@ -171,6 +182,7 @@ mesh = SubResource("BoxMesh_kt5ds")
 [connection signal="body_entered" from="Zones/SafeZone/UnderTable" to="XROrigin3D" method="_on_under_table_body_entered"]
 [connection signal="body_entered" from="Zones/HazardZone/NearWindowRight" to="XROrigin3D" method="_on_near_window_right_body_entered"]
 [connection signal="body_entered" from="Zones/HazardZone/NearWindowLeft" to="XROrigin3D" method="_on_near_window_left_body_entered"]
+[connection signal="body_entered" from="Zones/HazardZone/UnderCeilingLights" to="XROrigin3D" method="_on_under_ceiling_lights_body_entered"]
 [connection signal="body_entered" from="Zones/ExitDoors" to="Zones" method="_on_exit_doors_body_entered"]
 
 [editable path="ClassroomModel"]

@@ -32,15 +32,19 @@ func save_session_data(hit_count: int, hit_objects: Array[String], time_survived
 		if hit_objects.size() > 0:
 			object_string = '"%s"' % ", ".join(hit_objects)
 			
+		var reaction_string := ""
+		if entered_zone != "":
+			reaction_string = "%.2f" % reaction_time # Format as decimal only if they chose a zone
+			
 		var player_id = get_player_id()
 		
 		# --- UPDATED: Added two extra %s placeholders and converted the booleans to strings ---
-		var data_row = "%s,%d,%s,%.2f,%.2f,%s,%s,%s" % [
+		var data_row = "%s,%d,%s,%.2f,%s,%s,%s,%s" % [
 			player_id, 
 			hit_count, 
 			object_string, 
 			time_survived, 
-			reaction_time, 
+			reaction_string, 
 			entered_zone, 
 			str(entered_safe),     # Converts true/false to "true"/"false" text
 			str(entered_hazard)    # Converts true/false to "true"/"false" text

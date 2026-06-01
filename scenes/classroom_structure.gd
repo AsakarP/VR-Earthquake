@@ -27,6 +27,8 @@ var is_quaking := false
 var initial_position: Vector3
 var has_quake_started := false
 var is_evacuation_ready := true
+var exact_time_survived := 0.0
+var player_was_hit := false
 
 func _ready() -> void:
 	initial_position = global_position
@@ -35,7 +37,7 @@ func _ready() -> void:
 	# If in admin mode, script does nothing.
 	if not admin_mode:
 		# Generate random decimal 1.0 to 5.0
-		var rand_mag = randf_range(4.6, 5.0)
+		var rand_mag = randf_range(4.0, 4.9)
 		# Starts simulation
 		begin_simulation(rand_mag)
 		
@@ -89,16 +91,50 @@ func trigger_earthquake() -> void:
 		elif magnitude >= 4:
 			rumble_audio.volume_db = 0
 		rumble_audio.play()
+		
+# This will be called by your player.gd script!
+func end_simulation_early() -> void:
+	if is_quaking and not player_was_hit:
+		print("PLAYER WAS HIT! Ending simulation early.")
+		player_was_hit = true
+		
+		# Lock in the exact time they survived
+		exact_time_survived = time_passed
+		
+		# Stop the physical shaking immediately
+		is_quaking = false
+		global_position = initial_position
+		
+		rumble_audio.stop()
+		dust_particles.emitting = false
+		
+		# Immediately call the results UI and log the data
+		var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
+		var player_node = get_node_or_null("../../../../XROrigin3D")
+		
+		if results_node and player_node:
+			DataLogging.save_session_data(
+				player_node.obj_count,
+				player_node.hit_history,
+				exact_time_survived, # Use the locked-in time!
+				player_node.reaction_time,
+				player_node.entered_zone,
+				player_node.entered_safe,
+				player_node.entered_hazard
+			)
+			results_node.show_results(player_node.hit_history, player_node.obj_count)
 
 func _physics_process(delta: float) -> void:
 	if is_quaking:
 		time_passed += delta
 		
-		if magnitude >= 4.6:
-			# Trigger the wall-mounted objects (like the chalkboard) to fall
-			if not has_quake_started and time_passed > s_wave_delay:
-				get_tree().call_group("drop_objects", "drop_from_wall")
-				has_quake_started = true
+		# Trigger the S-Wave damage phase
+		if not has_quake_started and time_passed > s_wave_delay:
+			
+			# Call the new function and pass the magnitude variable right into it!
+			get_tree().call_group("drop_objects", "check_earthquake_stress", magnitude)
+			
+			has_quake_started = true
 
 		# 1. The Envelope: Controls the build-up and decay of the quake (0.0 to 1.0)
 		var envelope := 0.0
@@ -109,36 +145,32 @@ func _physics_process(delta: float) -> void:
 		else:
 			envelope = max(0.0, (total_duration - time_passed) / 5.0) # 5-second decay at the end
 
-		if time_passed >= total_duration:
+		if time_passed >= total_duration and not player_was_hit:
 			is_quaking = false
 			global_position = initial_position
 			
-			# Stop rumbling audio
-			rumble_audio.stop()
+			exact_time_survived = time_passed # They survived the whole time!
 			
-			# Stop dust particles
+			rumble_audio.stop()
 			dust_particles.emitting = false
 			
+			# Trigger evacuation ONLY if they survived!
 			var structure_node = get_node_or_null("../../../../Zones") 
-			
 			if structure_node and structure_node.has_method("call_exit_area"):
 				structure_node.call_exit_area()
 			
-			# Call Results UI and Player node
 			var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
 			var player_node = get_node_or_null("../../../../XROrigin3D")
 			if results_node and player_node:
-				# Log to CSV
 				DataLogging.save_session_data(
 					player_node.obj_count,
 					player_node.hit_history,
-					time_passed,
+					exact_time_survived, # Use the locked-in time!
 					player_node.reaction_time,
 					player_node.entered_zone,
 					player_node.entered_safe,
 					player_node.entered_hazard
 				)
-				# Show to VR UI
 				results_node.show_results(player_node.hit_history, player_node.obj_count)
 				
 			return

@@ -69,6 +69,10 @@ func _on_player_head_body_entered(body: Node3D) -> void:
 		var obj_name = body.name
 		obj_count += 1
 		hit_history.append(obj_name)
+		
+		var earthquake_node = get_node_or_null("../ClassroomModel/Mesh/Room/ClassroomStructure") 
+		if earthquake_node and earthquake_node.has_method("end_simulation_early"):
+			earthquake_node.end_simulation_early()
 
 func _on_under_table_body_entered(body: Node3D) -> void:
 	if body is XRToolsPlayerBody:
@@ -91,5 +95,13 @@ func _on_near_window_left_body_entered(body: Node3D) -> void:
 		if not entered_hazard:
 			entered_hazard = true
 			entered_zone = "Near Window Left"
+			is_timing = false
+			print("DANGER: Player entered hazard zone in ", reaction_time, " seconds.")
+
+func _on_under_ceiling_lights_body_entered(body: Node3D) -> void:
+	if body is XRToolsPlayerBody:
+		if not entered_hazard:
+			entered_hazard = true
+			entered_zone = "Under Ceiling Lights"
 			is_timing = false
 			print("DANGER: Player entered hazard zone in ", reaction_time, " seconds.")

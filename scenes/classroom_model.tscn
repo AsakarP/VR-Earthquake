@@ -315,12 +315,6 @@ points = PackedVector3Array(-6.4584374, 7.9034543, 15.376643, -6.4590096, 7.9004
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7nmpy"]
 points = PackedVector3Array(-6.9995093, 7.9016504, 13.753967, -7.0005603, 7.899524, 14.943396, -7.0012608, 7.899838, 14.861656, -7.005465, 7.9099216, 14.861656, -6.9995093, 8.000806, 13.753967, -5.2220182, 7.9016504, 13.753967, -7.0007353, 7.9088383, 14.971043, -7.0012608, 7.905052, 14.95818, -7.005465, 7.9099216, 14.94027, -5.2209673, 7.899524, 14.943396, -7.005465, 7.9915323, 14.861656, -7.0012608, 8.002619, 14.861656, -7.0005603, 8.002953, 14.943396, -5.2220182, 8.000806, 13.753967, -5.215887, 7.9099216, 14.861656, -5.2202663, 7.899838, 14.861656, -7.000385, 7.926171, 14.981861, -7.005465, 7.9284286, 14.965633, -5.220792, 7.9088383, 14.971043, -5.215887, 7.9099216, 14.94027, -5.2202663, 7.905052, 14.95818, -7.005465, 7.9915323, 14.94027, -7.0012608, 7.9974146, 14.95818, -7.0007353, 7.9935575, 14.971163, -5.2209673, 8.002953, 14.943396, -5.2202663, 8.002619, 14.861656, -5.215887, 7.9915323, 14.861656, -7.000385, 7.975648, 14.981861, -5.2211423, 7.926171, 14.981861, -7.005465, 7.973218, 14.965633, -5.215887, 7.9284186, 14.965633, -5.220792, 7.9935575, 14.971163, -5.2202663, 7.9974146, 14.95818, -5.215887, 7.9915323, 14.94027, -5.2211423, 7.975648, 14.981861, -5.215887, 7.973218, 14.965633)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ybnca"]
-size = Vector3(1.0885391, 10.0181465, 40.024544)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cjspy"]
-size = Vector3(1.9209595, 8.565369, 17.192078)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_b53u1"]
 size = Vector3(3.7376556, 6.459717, 3.486267)
 
@@ -329,6 +323,12 @@ size = Vector3(5.027542, 9.994247, 48.2968)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n68vo"]
 size = Vector3(3.5914917, 16.158098, 4.2209167)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybnca"]
+size = Vector3(1.0885391, 10.0181465, 40.024544)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjspy"]
+size = Vector3(1.9209595, 8.565369, 17.192078)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cjspy"]
 height = 1.3372803
@@ -989,17 +989,6 @@ mesh = ExtResource("510_y0utl")
 [node name="SpeakerCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1155381690]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.4928296, 0.40783015, -0.118869305)
 shape = SubResource("BoxShape3D_1kltf")
-
-[node name="FrontChalkboardMesh" type="Node3D" parent="Mesh/Room/ClassroomStructure" unique_id=542326455]
-transform = Transform3D(0.010416665, 0, 0, 0, 0.04166666, 0, 0, 0, 0.02083333, 0.37471125, -0.49999994, 0.37499997)
-
-[node name="polySurface18_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/FrontChalkboardMesh" unique_id=1222570875]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.096422285, 0, 0)
-mesh = ExtResource("433_q3ups")
-
-[node name="polySurface17_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure/FrontChalkboardMesh" unique_id=830401694]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = ExtResource("434_i4f4m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1254192991]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.41218558, -0.48524353, -0.09609297)
@@ -2705,38 +2694,6 @@ mesh = ExtResource("538_fqs46")
 transform = Transform3D(0.7922294, 0, -0.61022365, 0, 1.0000002, 0, 0.61022365, 0, 0.7922294, -69.02748, -1.2199813, -2.3672104)
 shape = SubResource("ConvexPolygonShape3D_cvdkn")
 
-[node name="Chalkboard" type="Node3D" parent="Mesh/Room" unique_id=74415799]
-
-[node name="FrontChalkboard" type="RigidBody3D" parent="Mesh/Room/Chalkboard" unique_id=1675985754 groups=["drop_objects"]]
-process_mode = 4
-visible = false
-freeze = true
-script = ExtResource("509_cjspy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Chalkboard/FrontChalkboard" unique_id=2077965137]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -83.24704, 13.003144, -23.99312)
-shape = SubResource("BoxShape3D_ybnca")
-
-[node name="Papan Tulis Kecil" type="RigidBody3D" parent="Mesh/Room/Chalkboard" unique_id=315826618 groups=["drop_objects"]]
-mass = 4.5
-freeze = true
-script = ExtResource("509_cjspy")
-
-[node name="BackChalkboardMesh" type="Node3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil" unique_id=1046932235]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="polySurface141_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil/BackChalkboardMesh" unique_id=1872589417]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.407357, 0, 15.94794)
-mesh = ExtResource("441_tj0yl")
-
-[node name="polySurface142_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil/BackChalkboardMesh" unique_id=878264145]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.407357, 0, 15.94794)
-mesh = ExtResource("442_ii4e0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil" unique_id=1038625312]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 10.980712, 14.601991, -22.385265)
-shape = SubResource("BoxShape3D_cjspy")
-
 [node name="Bookshelves" type="Node3D" parent="Mesh/Room" unique_id=520652719]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14550331, 2.7614915)
 
@@ -2822,6 +2779,7 @@ transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 9.
 shape = SubResource("BoxShape3D_3qcmm")
 
 [node name="Lockers" type="Node3D" parent="Mesh/Room" unique_id=1431820473]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Loker 1" type="RigidBody3D" parent="Mesh/Room/Lockers" unique_id=618611250]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -2914,6 +2872,58 @@ mesh = ExtResource("507_71wj6")
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 10.19013, 8.225773, -45.95742)
 shape = SubResource("BoxShape3D_n68vo")
 
+[node name="Chalkboard" type="Node3D" parent="Mesh/Room" unique_id=74415799]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Papan Tulis Besar" type="RigidBody3D" parent="Mesh/Room/Chalkboard" unique_id=1675985754 groups=["drop_objects"]]
+mass = 20.0
+freeze = true
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.0
+
+[node name="FrontChalkboardMesh" type="Node3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar" unique_id=542326455]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.5894573e-06, -3.529304e-22)
+
+[node name="polySurface18_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar/FrontChalkboardMesh" unique_id=1222570875]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.096422285, 0, 0)
+mesh = ExtResource("433_q3ups")
+
+[node name="polySurface17_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar/FrontChalkboardMesh" unique_id=830401694]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = ExtResource("434_i4f4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar" unique_id=2077965137]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -83.24704, 13.003144, -23.99312)
+shape = SubResource("BoxShape3D_ybnca")
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar" unique_id=995004559]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
+[node name="Papan Tulis Kecil" type="RigidBody3D" parent="Mesh/Room/Chalkboard" unique_id=315826618 groups=["drop_objects"]]
+mass = 4.5
+freeze = true
+script = ExtResource("509_cjspy")
+
+[node name="BackChalkboardMesh" type="Node3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil" unique_id=1046932235]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="polySurface141_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil/BackChalkboardMesh" unique_id=1872589417]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.407357, 0, 15.94794)
+mesh = ExtResource("441_tj0yl")
+
+[node name="polySurface142_Pizarrones1_0" type="MeshInstance3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil/BackChalkboardMesh" unique_id=878264145]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.407357, 0, 15.94794)
+mesh = ExtResource("442_ii4e0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil" unique_id=1038625312]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 10.980712, 14.601991, -22.385265)
+shape = SubResource("BoxShape3D_cjspy")
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Chalkboard/Papan Tulis Kecil" unique_id=1190251711]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Clock" type="Node3D" parent="Mesh/Room" unique_id=651502529]
 transform = Transform3D(3.138351e-16, -0.35048768, 0, 1.4133877, 7.78239e-17, 0, 0, 0, 1.4133877, -82.269424, 19.94626, -27.436483)
 
@@ -2921,6 +2931,7 @@ transform = Transform3D(3.138351e-16, -0.35048768, 0, 1.4133877, 7.78239e-17, 0,
 mass = 1.2
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.0
 
 [node name="pCylinder8_StingrayPBS9_0" type="MeshInstance3D" parent="Mesh/Room/Clock/Jam" unique_id=846487523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6115875, 0)
@@ -2930,6 +2941,10 @@ mesh = ExtResource("508_8okmu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1828613, 0)
 shape = SubResource("CylinderShape3D_cjspy")
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Clock/Jam" unique_id=1969159722]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lamps" type="Node3D" parent="Mesh/Room" unique_id=1023467009]
 
 [node name="Lampu 1" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1521444896 groups=["drop_objects"]]
@@ -2937,6 +2952,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0,
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh1" type="Node3D" parent="Mesh/Room/Lamps/Lampu 1" unique_id=865576545]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 7.947286e-07, -1.7646519e-22)
@@ -2973,11 +2989,16 @@ mesh = ExtResource("465_wux7x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.345257, 21.315166, -8.658898)
 shadow_enabled = true
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 1" unique_id=199681702]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lampu 2" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1542516410 groups=["drop_objects"]]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh2" type="Node3D" parent="Mesh/Room/Lamps/Lampu 2" unique_id=891510737]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.75408566, -0.04797774, -29.370884)
@@ -3014,10 +3035,15 @@ mesh = ExtResource("471_03x7u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.37275, 21.37103, -38.951202)
 shadow_enabled = true
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 2" unique_id=1971444284]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lampu 3" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1862616 groups=["drop_objects"]]
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh3" type="Node3D" parent="Mesh/Room/Lamps/Lampu 3" unique_id=1941488791]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, 0.5110379)
@@ -3054,10 +3080,15 @@ mesh = ExtResource("477_8he5f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.27628, 21.371029, -8.682579)
 shadow_enabled = true
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 3" unique_id=1845085728]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lampu 4" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=656379498 groups=["drop_objects"]]
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh4" type="Node3D" parent="Mesh/Room/Lamps/Lampu 4" unique_id=986601454]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, -29.370884)
@@ -3094,10 +3125,15 @@ mesh = ExtResource("483_r1yal")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.27627, 21.371029, -38.980354)
 shadow_enabled = true
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 4" unique_id=1051278187]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lampu 5" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=1664099879 groups=["drop_objects"]]
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh5" type="Node3D" parent="Mesh/Room/Lamps/Lampu 5" unique_id=106319311]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, 0.5110379)
@@ -3134,10 +3170,15 @@ mesh = ExtResource("489_j2kqf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3033085, 21.371029, -8.875121)
 shadow_enabled = true
 
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 5" unique_id=1451481523]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
+
 [node name="Lampu 6" type="RigidBody3D" parent="Mesh/Room/Lamps" unique_id=781564416 groups=["drop_objects"]]
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.7
 
 [node name="LampMesh6" type="Node3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=755861540]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, -29.370884)
@@ -3173,3 +3214,7 @@ mesh = ExtResource("495_uplk0")
 [node name="OmniLight3D" type="OmniLight3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=1036458743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3033085, 21.371029, -38.827904)
 shadow_enabled = true
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=1150961765]
+node_a = NodePath("../../../ClassroomStructure")
+node_b = NodePath("..")
