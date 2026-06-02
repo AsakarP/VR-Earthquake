@@ -12,6 +12,8 @@ var entered_zone := ""
 var reaction_time := 0.0
 var is_timing := false
 
+var is_menu_locked := false
+
 func _ready() -> void:
 	# 1. Save the exact global spawn point the moment the scene loads
 	# before the VR headset has a chance to move anything!
@@ -52,8 +54,16 @@ func start_reaction_timer() -> void:
 	entered_hazard = false
 	entered_zone = ""
 
+func lock_menu() -> void:
+	is_menu_locked = true
+	
+func unlock_menu() -> void:
+	is_menu_locked = false
+
 func _on_left_hand_button_pressed(node_name: String) -> void:
 	if node_name == "grip_click":
+		if is_menu_locked:
+			return
 		var player_menu = get_tree().root.find_child("PlayerMenu", true, false)
 		
 		if player_menu:
@@ -66,6 +76,8 @@ func _on_left_hand_button_pressed(node_name: String) -> void:
 
 func _on_player_head_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D:
+		if body.freeze == true:
+			return
 		var obj_name = body.name
 		obj_count += 1
 		hit_history.append(obj_name)

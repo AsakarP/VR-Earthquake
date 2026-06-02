@@ -11,6 +11,8 @@ func _ready() -> void:
 	# 2. Hardcode the absolute paths directly for the headset
 	csv_path = "/storage/emulated/0/Download/simulation_results.csv"
 	tracker_path = "/storage/emulated/0/Download/subject_tracker.txt"
+	#csv_path = "user://simulation_results.csv"
+	#tracker_path = "user://subject_tracker.txt"
 	
 	if FileAccess.file_exists(tracker_path):
 		var file = FileAccess.open(tracker_path, FileAccess.READ)
@@ -32,13 +34,16 @@ func save_session_data(magnitude: float, hit_count: int, hit_objects: Array[Stri
 		file.seek_end() 
 
 	if file:
-		var object_string := '""'
+		var object_string := "None"
 		if hit_objects.size() > 0:
 			object_string = '"%s"' % ", ".join(hit_objects)
 			
-		var reaction_string := ""
+		var reaction_string := "None"
+		var zone_string := "None"
+		
 		if entered_zone != "":
 			reaction_string = "%.2f" % reaction_time # Format as decimal only if they chose a zone
+			zone_string = entered_zone
 			
 		var player_id = get_player_id()
 		
@@ -50,7 +55,7 @@ func save_session_data(magnitude: float, hit_count: int, hit_objects: Array[Stri
 			object_string,
 			time_survived,
 			reaction_string,
-			entered_zone,
+			zone_string,
 			str(entered_safe),
 			str(entered_hazard)
 		]

@@ -46,6 +46,12 @@ func begin_simulation(custom_magnitude: float) -> void:
 	# Update the magnitude
 	magnitude = custom_magnitude
 	
+	var player_node = get_node_or_null("../../../../XROrigin3D")
+	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
+	
+	if player_node and player_node.has_method("lock_menu"):
+		player_node.lock_menu()
+	
 	# Start the main master countdown for the earthquake
 	var timer = get_tree().create_timer(start_delay)
 	
@@ -56,12 +62,10 @@ func begin_simulation(custom_magnitude: float) -> void:
 	await get_tree().create_timer(countdown_seconds).timeout
 	
 	# Call UI Label
-	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
 	if eews_node:
 		# --- UPDATED: Pass BOTH the magnitude AND the countdown_seconds! ---
 		eews_node.trigger_warning(magnitude, countdown_seconds)
 	
-	var player_node = get_node_or_null("../../../../XROrigin3D")
 	if player_node:
 		player_node.start_reaction_timer()
 	
@@ -119,7 +123,8 @@ func _physics_process(delta: float) -> void:
 			envelope = 1.0 # Full intensity
 		else:
 			envelope = max(0.0, (total_duration - time_passed) / 5.0) # 5-second decay at the end
-
+		
+		# Shaking Stops
 		if time_passed >= total_duration:
 			is_quaking = false
 			global_position = initial_position
@@ -139,6 +144,7 @@ func _physics_process(delta: float) -> void:
 			var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
 			var player_node = get_node_or_null("../../../../XROrigin3D")
 			if results_node and player_node:
+				player_node.unlock_menu()
 				DataLogging.save_session_data(
 					magnitude,
 					player_node.obj_count,
