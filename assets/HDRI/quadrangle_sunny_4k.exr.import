@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdg3ll04t4fuv"
 path.bptc="res://.godot/imported/quadrangle_sunny_4k.exr-b9c9f9bb94524275b8473729fc8c8d00.bptc.ctex"
+path.astc="res://.godot/imported/quadrangle_sunny_4k.exr-b9c9f9bb94524275b8473729fc8c8d00.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/HDRI/quadrangle_sunny_4k.exr"
-dest_files=["res://.godot/imported/quadrangle_sunny_4k.exr-b9c9f9bb94524275b8473729fc8c8d00.bptc.ctex"]
+dest_files=["res://.godot/imported/quadrangle_sunny_4k.exr-b9c9f9bb94524275b8473729fc8c8d00.bptc.ctex", "res://.godot/imported/quadrangle_sunny_4k.exr-b9c9f9bb94524275b8473729fc8c8d00.astc.ctex"]
 
 [params]
 

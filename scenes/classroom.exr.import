@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://d3uf201tsn2lk"
 path.bptc="res://.godot/imported/classroom.exr-030db49455b52b33e9d09ed5a0e6abf2.bptc.ctexarray"
+path.astc="res://.godot/imported/classroom.exr-030db49455b52b33e9d09ed5a0e6abf2.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/classroom.exr"
-dest_files=["res://.godot/imported/classroom.exr-030db49455b52b33e9d09ed5a0e6abf2.bptc.ctexarray"]
+dest_files=["res://.godot/imported/classroom.exr-030db49455b52b33e9d09ed5a0e6abf2.bptc.ctexarray", "res://.godot/imported/classroom.exr-030db49455b52b33e9d09ed5a0e6abf2.astc.ctexarray"]
 
 [params]
 

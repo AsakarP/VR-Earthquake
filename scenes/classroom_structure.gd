@@ -95,34 +95,9 @@ func trigger_earthquake() -> void:
 # This will be called by your player.gd script!
 func end_simulation_early() -> void:
 	if is_quaking and not player_was_hit:
-		print("PLAYER WAS HIT! Ending simulation early.")
+		print("PLAYER WAS HIT! Recording timestamp: ", time_passed)
 		player_was_hit = true
-		
-		# Lock in the exact time they survived
-		exact_time_survived = time_passed
-		
-		# Stop the physical shaking immediately
-		is_quaking = false
-		global_position = initial_position
-		
-		rumble_audio.stop()
-		dust_particles.emitting = false
-		
-		# Immediately call the results UI and log the data
-		var results_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/Results")
-		var player_node = get_node_or_null("../../../../XROrigin3D")
-		
-		if results_node and player_node:
-			DataLogging.save_session_data(
-				player_node.obj_count,
-				player_node.hit_history,
-				exact_time_survived, # Use the locked-in time!
-				player_node.reaction_time,
-				player_node.entered_zone,
-				player_node.entered_safe,
-				player_node.entered_hazard
-			)
-			results_node.show_results(player_node.hit_history, player_node.obj_count)
+		exact_time_survived = time_passed # Lock in the exact moment they got hit
 
 func _physics_process(delta: float) -> void:
 	if is_quaking:
@@ -145,16 +120,18 @@ func _physics_process(delta: float) -> void:
 		else:
 			envelope = max(0.0, (total_duration - time_passed) / 5.0) # 5-second decay at the end
 
-		if time_passed >= total_duration and not player_was_hit:
+		if time_passed >= total_duration:
 			is_quaking = false
 			global_position = initial_position
-			
-			exact_time_survived = time_passed # They survived the whole time!
 			
 			rumble_audio.stop()
 			dust_particles.emitting = false
 			
-			# Trigger evacuation ONLY if they survived!
+			# If they were never hit throughout the whole simulation, give them full survival time
+			if not player_was_hit:
+				exact_time_survived = total_duration
+			
+			# Trigger evacuation
 			var structure_node = get_node_or_null("../../../../Zones") 
 			if structure_node and structure_node.has_method("call_exit_area"):
 				structure_node.call_exit_area()
@@ -163,6 +140,7 @@ func _physics_process(delta: float) -> void:
 			var player_node = get_node_or_null("../../../../XROrigin3D")
 			if results_node and player_node:
 				DataLogging.save_session_data(
+					magnitude,
 					player_node.obj_count,
 					player_node.hit_history,
 					exact_time_survived, # Use the locked-in time!

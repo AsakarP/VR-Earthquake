@@ -1,30 +1,34 @@
 extends Node
 
-const CSV_PATH = "user://simulation_results.csv"
-const TRACKER_PATH = "user://subject_tracker.txt"
-
+var csv_path := ""
+var tracker_path := ""
 var current_subject_number := 1
 
 func _ready() -> void:
-	if FileAccess.file_exists(TRACKER_PATH):
-		var file = FileAccess.open(TRACKER_PATH, FileAccess.READ)
+	if OS.get_name() == "Android":
+		OS.request_permissions()
+
+	# 2. Hardcode the absolute paths directly for the headset
+	csv_path = "/storage/emulated/0/Download/simulation_results.csv"
+	tracker_path = "/storage/emulated/0/Download/subject_tracker.txt"
+	
+	if FileAccess.file_exists(tracker_path):
+		var file = FileAccess.open(tracker_path, FileAccess.READ)
 		current_subject_number = file.get_as_text().to_int()
 		file.close()
 
 func get_player_id() -> String:
 	return "Subject_%03d" % current_subject_number
 
-# --- UPDATED: Added entered_safe and entered_hazard booleans ---
-func save_session_data(hit_count: int, hit_objects: Array[String], time_survived: float, reaction_time: float, entered_zone: String, entered_safe: bool, entered_hazard: bool) -> void:
+func save_session_data(magnitude: float, hit_count: int, hit_objects: Array[String], time_survived: float, reaction_time: float, entered_zone: String, entered_safe: bool, entered_hazard: bool) -> void:
 	var file: FileAccess
-	var is_new_file = not FileAccess.file_exists(CSV_PATH)
-	
+	var is_new_file = not FileAccess.file_exists(csv_path)
+		
 	if is_new_file:
-		file = FileAccess.open(CSV_PATH, FileAccess.WRITE)
-		# --- UPDATED: Added the two new boolean headers ---
-		file.store_line("Player ID,Hit Count,Objects Hit,Time Survived,Reaction Time,Zone Entered,Reached Safety,Entered Hazard")
+		file = FileAccess.open(csv_path, FileAccess.WRITE)
+		file.store_line("Player ID,Magnitude,Hit Count,Objects Hit,Time Survived,Reaction Time,Zone Entered,Reached Safety,Entered Hazard")
 	else:
-		file = FileAccess.open(CSV_PATH, FileAccess.READ_WRITE)
+		file = FileAccess.open(csv_path, FileAccess.READ_WRITE)
 		file.seek_end() 
 
 	if file:
@@ -39,15 +43,16 @@ func save_session_data(hit_count: int, hit_objects: Array[String], time_survived
 		var player_id = get_player_id()
 		
 		# --- UPDATED: Added two extra %s placeholders and converted the booleans to strings ---
-		var data_row = "%s,%d,%s,%.2f,%s,%s,%s,%s" % [
-			player_id, 
-			hit_count, 
-			object_string, 
-			time_survived, 
-			reaction_string, 
-			entered_zone, 
-			str(entered_safe),     # Converts true/false to "true"/"false" text
-			str(entered_hazard)    # Converts true/false to "true"/"false" text
+		var data_row = "%s,%.1f,%d,%s,%.2f,%s,%s,%s,%s" % [
+			player_id,
+			magnitude,
+			hit_count,
+			object_string,
+			time_survived,
+			reaction_string,
+			entered_zone,
+			str(entered_safe),
+			str(entered_hazard)
 		]
 		
 		file.store_line(data_row)
@@ -59,6 +64,6 @@ func save_session_data(hit_count: int, hit_objects: Array[String], time_survived
 
 func advance_to_next_subject() -> void:
 	current_subject_number += 1
-	var file = FileAccess.open(TRACKER_PATH, FileAccess.WRITE)
+	var file = FileAccess.open(tracker_path, FileAccess.WRITE)
 	file.store_string(str(current_subject_number))
 	file.close()
