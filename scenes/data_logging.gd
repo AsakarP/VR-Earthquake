@@ -9,10 +9,10 @@ func _ready() -> void:
 		OS.request_permissions()
 
 	# 2. Hardcode the absolute paths directly for the headset
-	csv_path = "/storage/emulated/0/Download/simulation_results.csv"
-	tracker_path = "/storage/emulated/0/Download/subject_tracker.txt"
-	#csv_path = "user://simulation_results.csv"
-	#tracker_path = "user://subject_tracker.txt"
+	#csv_path = "/storage/emulated/0/Download/simulation_results.csv"
+	#tracker_path = "/storage/emulated/0/Download/subject_tracker.txt"
+	csv_path = "user://simulation_results.csv"
+	tracker_path = "user://subject_tracker.txt"
 	
 	if FileAccess.file_exists(tracker_path):
 		var file = FileAccess.open(tracker_path, FileAccess.READ)
