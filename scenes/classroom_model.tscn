@@ -272,6 +272,40 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_xy8sr")
 size = Vector2(0.02, 0.02)
 
+[sub_resource type="Gradient" id="Gradient_bllpp"]
+colors = PackedColorArray(0.646029, 0.646029, 0.646029, 1, 0.64705884, 0.64705884, 0.64705884, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trjbm"]
+gradient = SubResource("Gradient_bllpp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjip2"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.1, 0.5)
+gravity = Vector3(0, 0.5, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_trjbm")
+
+[sub_resource type="Gradient" id="Gradient_kae48"]
+colors = PackedColorArray(0.446777, 0.44677705, 0.44677705, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l7rbx"]
+gradient = SubResource("Gradient_kae48")
+fill = 1
+fill_from = Vector2(0.491453, 0.52136755)
+fill_to = Vector2(0.8076923, 0.7393162)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we16d"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_l7rbx")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lxrqs"]
+material = SubResource("StandardMaterial3D_we16d")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvdkn"]
 cull_mode = 2
 albedo_texture = ExtResource("4_phb5s")
@@ -616,6 +650,12 @@ amount = 200
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_xy8sr")
 draw_pass_1 = SubResource("QuadMesh_ciwqg")
+
+[node name="GroundDustParticles" type="GPUParticles3D" parent="Mesh/Room/ClassroomStructure" unique_id=2019831108]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -0.39068574, -0.09815776)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_yjip2")
+draw_pass_1 = SubResource("QuadMesh_lxrqs")
 
 [node name="RumbleAudio" type="AudioStreamPlayer3D" parent="Mesh/Room/ClassroomStructure" unique_id=1263904142]
 transform = Transform3D(0.06944445, 0, 0, 0, 0.2777778, 0, 0, 0, 0.1388889, 0, 0, 0)

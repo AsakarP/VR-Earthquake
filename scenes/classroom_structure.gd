@@ -21,6 +21,7 @@ extends AnimatableBody3D
 
 @onready var rumble_audio: AudioStreamPlayer3D = $RumbleAudio
 @onready var dust_particles: GPUParticles3D = $DustParticles
+@onready var ground_dust_particles: GPUParticles3D = $GroundDustParticles
 
 var time_passed := 0.0
 var is_quaking := false
@@ -84,6 +85,7 @@ func trigger_earthquake() -> void:
 		
 		# Start dust particle
 		dust_particles.emitting = true
+		ground_dust_particles.emitting = true
 		# Start Rumbling audio
 		# Very low rumble sound
 		if magnitude < 3:
@@ -131,6 +133,7 @@ func _physics_process(delta: float) -> void:
 			
 			rumble_audio.stop()
 			dust_particles.emitting = false
+			ground_dust_particles.emitting = false
 			
 			# If they were never hit throughout the whole simulation, give them full survival time
 			if not player_was_hit:
@@ -155,6 +158,9 @@ func _physics_process(delta: float) -> void:
 					player_node.entered_safe,
 					player_node.entered_hazard
 				)
+				
+				DataLogging.advance_to_next_subject()
+				
 				results_node.show_results(player_node.hit_history, player_node.obj_count)
 				
 			return
