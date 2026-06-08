@@ -1,6 +1,8 @@
+# Skrip Ruangan Kelas (Pengendali Gempa)
 extends AnimatableBody3D
 
-# Admin Mode
+# Mode Admin
+# Jika true, simulasi tidak akan mulai secara otomatis.
 @export var admin_mode := false
 
 @export var baseline_magnitude := 5.0
