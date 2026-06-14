@@ -305,6 +305,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_lxrqs"]
 material = SubResource("StandardMaterial3D_we16d")
+size = Vector2(0.3, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvdkn"]
 cull_mode = 2
@@ -501,6 +502,15 @@ size = Vector3(0.038208008, 0.33031464, 0.011009216)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kltf"]
 size = Vector3(0.014225006, 0.059822083, 0.05034256)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bllpp"]
+points = PackedVector3Array(-0.01, -0.025, -0.485, 0.01, -0.025, -0.485, -0.01, -0.025, 0.485, -0.01, 0.025, -0.485, 0.01, -0.025, 0.485, -0.01, 0.025, 0.485)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_trjbm"]
+points = PackedVector3Array(-0.015, -0.025, -0.08, 0.0150000015, -0.025, -0.08, -0.015, -0.025, 0.08, -0.015, 0.025, -0.08, 0.0150000015, -0.025, 0.08, -0.015, 0.025, 0.08)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yjip2"]
+points = PackedVector3Array(-0.015, -0.025, -0.08, 0.0150000015, -0.025, -0.08, -0.015, -0.025, 0.08, -0.015, 0.025, -0.08, 0.0150000015, -0.025, 0.08, -0.015, 0.025, 0.08)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uetkp"]
 albedo_texture = ExtResource("170_cvdkn")
 roughness_texture = ExtResource("172_hqtye")
@@ -619,6 +629,19 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyox3"]
+albedo_texture = ExtResource("13_bllpp")
+roughness_texture = ExtResource("15_yjip2")
+normal_enabled = true
+normal_texture = ExtResource("14_trjbm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bllpp"]
+material = SubResource("StandardMaterial3D_gyox3")
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kae48"]
+points = PackedVector3Array(-10, -0.05, -10, -10, 0.05, -10, 10, -0.05, -10, -10, -0.05, 10, -10, 0.05, 10, 10, 0.05, -10, 10, -0.05, 10, 10, 0.05, 10)
+
 [node name="ClassroomModel" type="Node3D" unique_id=1944298536]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
@@ -643,7 +666,6 @@ draw_pass_1 = SubResource("QuadMesh_ciwqg")
 
 [node name="GroundDustParticles" type="GPUParticles3D" parent="Mesh/Room/ClassroomStructure" unique_id=2019831108]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -0.39068574, -0.09815776)
-emitting = false
 process_material = SubResource("ParticleProcessMaterial_yjip2")
 draw_pass_1 = SubResource("QuadMesh_lxrqs")
 
@@ -1415,6 +1437,18 @@ mesh = ExtResource("510_y0utl")
 [node name="SpeakerCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1155381690]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.4928296, 0.40783015, -0.118869305)
 shape = SubResource("BoxShape3D_1kltf")
+
+[node name="RampCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1046929559]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.3265871, -0.47521573, -0.0954299)
+shape = SubResource("ConvexPolygonShape3D_bllpp")
+
+[node name="RampCollision2" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=572806360]
+transform = Transform3D(-4.371136e-08, 0, -0.9999997, 0, 0.9999997, 0, 0.9999997, 0, -4.371136e-08, -0.41618744, -0.47521532, 0.40464547)
+shape = SubResource("ConvexPolygonShape3D_trjbm")
+
+[node name="RampCollision3" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1589455346]
+transform = Transform3D(-4.371136e-08, 0, 0.9999997, 0, 0.9999997, 0, -0.9999997, 0, -4.371136e-08, -0.41618744, -0.47521517, -0.59683895)
+shape = SubResource("ConvexPolygonShape3D_yjip2")
 
 [node name="Table&Chairs" type="Node3D" parent="Mesh/Room" unique_id=432572119]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.18, 0)
@@ -3778,3 +3812,78 @@ shadow_enabled = true
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=1150961765]
 node_a = NodePath("../../../ClassroomStructure")
 node_b = NodePath("..")
+
+[node name="Ceiling" type="Node3D" parent="Mesh/Room" unique_id=272642036]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -36.08134, 22.248707, -22.860033)
+
+[node name="Plafon 1" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=585110222 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.370564, 1.70047, 14.028327)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 4.9
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 1" unique_id=17827505]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 1" unique_id=630245665]
+shape = SubResource("ConvexPolygonShape3D_kae48")
+
+[node name="Plafon 2" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=658761682 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.920378, 1.70047, 14.028327)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 2" unique_id=1912160435]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 2" unique_id=972744056]
+shape = SubResource("ConvexPolygonShape3D_kae48")
+
+[node name="Plafon 3" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=700506575 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.070801, 1.70047, 14.028327)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 3" unique_id=255628897]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 3" unique_id=231404345]
+shape = SubResource("ConvexPolygonShape3D_kae48")
+
+[node name="Plafon 4" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1433663829 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.070801, 1.70047, -15.511702)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 4" unique_id=1114000700]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 4" unique_id=579352285]
+shape = SubResource("ConvexPolygonShape3D_kae48")
+
+[node name="Plafon 5" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1898830596 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92, 1.7, -15.512)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 5" unique_id=1632543261]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 5" unique_id=1848332447]
+shape = SubResource("ConvexPolygonShape3D_kae48")
+
+[node name="Plafon 6" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1788482066 groups=["drop_objects"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.371, 1.7, -15.512)
+mass = 110.0
+script = ExtResource("509_cjspy")
+break_magnitude_threshold = 5.4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 6" unique_id=754373146]
+mesh = SubResource("BoxMesh_bllpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/Ceiling/Plafon 6" unique_id=118734604]
+shape = SubResource("ConvexPolygonShape3D_kae48")
