@@ -666,6 +666,7 @@ draw_pass_1 = SubResource("QuadMesh_ciwqg")
 
 [node name="GroundDustParticles" type="GPUParticles3D" parent="Mesh/Room/ClassroomStructure" unique_id=2019831108]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -0.39068574, -0.09815776)
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_yjip2")
 draw_pass_1 = SubResource("QuadMesh_lxrqs")
 
@@ -3819,6 +3820,7 @@ transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -3
 [node name="Plafon 1" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=585110222 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.370564, 1.70047, 14.028327)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 4.9
 
@@ -3831,6 +3833,7 @@ shape = SubResource("ConvexPolygonShape3D_kae48")
 [node name="Plafon 2" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=658761682 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.920378, 1.70047, 14.028327)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 5.1
 
@@ -3843,6 +3846,7 @@ shape = SubResource("ConvexPolygonShape3D_kae48")
 [node name="Plafon 3" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=700506575 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.070801, 1.70047, 14.028327)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 5.3
 
@@ -3855,6 +3859,7 @@ shape = SubResource("ConvexPolygonShape3D_kae48")
 [node name="Plafon 4" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1433663829 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.070801, 1.70047, -15.511702)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 5.2
 
@@ -3867,6 +3872,7 @@ shape = SubResource("ConvexPolygonShape3D_kae48")
 [node name="Plafon 5" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1898830596 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92, 1.7, -15.512)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 5.0
 
@@ -3879,6 +3885,7 @@ shape = SubResource("ConvexPolygonShape3D_kae48")
 [node name="Plafon 6" type="RigidBody3D" parent="Mesh/Room/Ceiling" unique_id=1788482066 groups=["drop_objects"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.371, 1.7, -15.512)
 mass = 110.0
+freeze = true
 script = ExtResource("509_cjspy")
 break_magnitude_threshold = 5.4
 

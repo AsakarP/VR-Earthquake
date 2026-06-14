@@ -6,6 +6,9 @@
 
 [node name="ClassroomAdmin" unique_id=315214593 instance=ExtResource("1_8h0gk")]
 
+[node name="Results" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1368684e-13, 0.36154723, -0.9499998)
+
 [node name="ClassroomStructure" parent="ClassroomModel/Mesh/Room" parent_id_path=PackedInt32Array(1944298536, 1509456874) index="0" unique_id=633997066]
 admin_mode = true
 

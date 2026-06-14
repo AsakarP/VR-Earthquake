@@ -159,7 +159,19 @@ func _physics_process(delta: float) -> void:
 				
 				# Memunculkan hasil jika pengguna terkena objek
 				results_node.show_results(player_node.hit_history, player_node.obj_count)
+			
+			# Memunculkan menu reset/exit hanya jika dalam mode admin
+			if admin_mode:
+				var player_menu = get_tree().root.find_child("PlayerMenu", true, false)
 				
+				if player_menu:
+					if player_menu.visible == true:
+						player_menu.visible = false
+						player_menu.process_mode = Node.PROCESS_MODE_DISABLED
+					else:
+						player_menu.visible = true
+						player_menu.process_mode = Node.PROCESS_MODE_INHERIT
+						
 			return
 		
 		# Perhitungan Fisika
