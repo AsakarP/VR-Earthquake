@@ -501,16 +501,6 @@ size = Vector3(0.038208008, 0.33031464, 0.011009216)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kltf"]
 size = Vector3(0.014225006, 0.059822083, 0.05034256)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_465xt"]
-size = Vector3(0.1759162, 0.029510498, 1.0236773)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyox3"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xo5he"]
-material = SubResource("StandardMaterial3D_gyox3")
-size = Vector3(1, 0.1, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uetkp"]
 albedo_texture = ExtResource("170_cvdkn")
 roughness_texture = ExtResource("172_hqtye")
@@ -1425,14 +1415,6 @@ mesh = ExtResource("510_y0utl")
 [node name="SpeakerCollision" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1155381690]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.4928296, 0.40783015, -0.118869305)
 shape = SubResource("BoxShape3D_1kltf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Room/ClassroomStructure" unique_id=1254192991]
-transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -0.41218558, -0.48524353, -0.09609297)
-shape = SubResource("BoxShape3D_465xt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/ClassroomStructure" unique_id=455066025]
-transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, 0.56460834, -0.5704006)
-mesh = SubResource("BoxMesh_xo5he")
 
 [node name="Table&Chairs" type="Node3D" parent="Mesh/Room" unique_id=432572119]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.18, 0)
