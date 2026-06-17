@@ -2,6 +2,7 @@ extends Label3D
 
 @onready var warning_audio: AudioStreamPlayer = $WarningAudio
 @onready var phone_sprite: Sprite3D = $PhoneSprite
+@onready var warning_sprite: Sprite3D = $WarningSprite
 
 var is_counting_down := false
 var time_left := 0.0
@@ -12,6 +13,7 @@ func _ready() -> void:
 	modulate.a = 0.0
 	outline_modulate.a = 0.0
 	phone_sprite.modulate.a = 0.0
+	warning_sprite.modulate.a = 0.0
 
 # This runs every frame to update the text!
 func _process(delta: float) -> void:
@@ -21,7 +23,7 @@ func _process(delta: float) -> void:
 		if time_left > 0:
 			# Update the text with the live countdown.
 			# ceil() rounds the decimal up (so 2.1 seconds shows as "3")
-			text = "⚠\nGempa Bumi\nPerkiraan Besarnya: %.1f\n\nTiba dalam: %d detik" % [current_magnitude, int(ceil(time_left))]
+			text = "Gempa Bumi\nPerkiraan Besarnya: %.1f\n\nTiba dalam: %d detik" % [current_magnitude, int(ceil(time_left))]
 		else:
 			# Time is up! Stop counting and fade out.
 			is_counting_down = false
@@ -40,6 +42,7 @@ func trigger_warning(magnitude: float, countdown_seconds: float) -> void:
 	tween.tween_property(self, "modulate:a", 1.0, 0.5)
 	tween.parallel().tween_property(self, "outline_modulate:a", 1.0, 0.5)
 	tween.parallel().tween_property(phone_sprite, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(warning_sprite, "modulate:a", 1.0, 0.5)
 
 # A dedicated function to hide the UI when time is up
 func hide_warning() -> void:
@@ -47,3 +50,4 @@ func hide_warning() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
 	tween.parallel().tween_property(self, "outline_modulate:a", 0.0, 1.0)
 	tween.parallel().tween_property(phone_sprite, "modulate:a", 0.0, 1.0)
+	tween.parallel().tween_property(warning_sprite, "modulate:a", 0.0, 1.0)

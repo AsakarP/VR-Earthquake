@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bt2t84ibbr8io" path="res://audio/Emergency_Alert_Sound.mp3" id="5_rt84g"]
 [ext_resource type="Texture2D" uid="uid://d02xsbhbgracv" path="res://images/phone_transparent.png" id="6_cj0lk"]
 [ext_resource type="Script" uid="uid://dge1kye5h7ity" path="res://scenes/results.gd" id="6_rt84g"]
+[ext_resource type="Texture2D" uid="uid://b838oq2kb3vi1" path="res://images/warning.png" id="7_l51k1"]
 [ext_resource type="Script" uid="uid://dx33gytrjvjyd" path="res://scenes/zones.gd" id="9_rlgmb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kkrti"]
@@ -90,8 +91,7 @@ billboard = 1
 no_depth_test = true
 render_priority = 1
 outline_render_priority = 0
-text = "⚠
-Gempa Bumi
+text = "Gempa Bumi
 Perkiraan Besarnya: 1.0
 Tiba dalam: 5:00 detik"
 font_size = 30
@@ -107,6 +107,12 @@ modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
 pixel_size = 0.001
 no_depth_test = true
 texture = ExtResource("6_cj0lk")
+
+[node name="WarningSprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" index="2" unique_id=1529472155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16488194, 0)
+pixel_size = 0.001
+billboard = 1
+texture = ExtResource("7_l51k1")
 
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" index="5" unique_id=569586222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
