@@ -6,12 +6,12 @@ extends AnimatableBody3D
 @export var admin_mode := false
 
 # Besaran referensi dimana pengali guncangan fisik sama persis dengan 1.0
-@export var baseline_magnitude := 5.0
+@export var baseline_intensity := 5.0
 
 # Waktu & Intensitas Gempa
 @export_category("Earthquake Settings")
 @export var start_delay := 10.0 # Detik sebelum guncangan fisik mulai
-@export var magnitude := 1.0 # Intensitas magnitudo yang disimulasikan
+@export var intensity := 1.0 # Intensitas magnitudo yang disimulasikan
 @export var total_duration := 20.0 # Total detik bertahan hidup yang diperlukan
 @export var s_wave_delay := 3.0 # Tundaan sebelum s-wave tiba
 
@@ -48,8 +48,8 @@ func _ready() -> void:
 		begin_simulation(rand_mag)
 
 # Fungsi memulai simulasi
-func begin_simulation(custom_magnitude: float) -> void:
-	magnitude = custom_magnitude
+func begin_simulation(custom_intensity: float) -> void:
+	intensity = custom_intensity
 	
 	var player_node = get_node_or_null("../../../../XROrigin3D")
 	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
@@ -65,7 +65,7 @@ func begin_simulation(custom_magnitude: float) -> void:
 	await get_tree().create_timer(countdown_seconds).timeout
 	
 	if eews_node:
-		eews_node.trigger_warning(magnitude, countdown_seconds)
+		eews_node.trigger_warning(intensity, countdown_seconds)
 	
 	# Mulai melacak waktu reaksi pengguna saat alarm berbunyi
 	if player_node:
@@ -86,11 +86,11 @@ func trigger_earthquake() -> void:
 		ground_dust_particles.emitting = true
 		
 		# Menyesuaikan volume gemuruh berdasarkan besarnya gempa
-		if magnitude < 3:
+		if intensity < 3:
 			rumble_audio.volume_db = -50
-		elif magnitude >= 3 and magnitude < 4:
+		elif intensity >= 3 and intensity < 4:
 			rumble_audio.volume_db = -30
-		elif magnitude >= 4:
+		elif intensity >= 4:
 			rumble_audio.volume_db = 0
 		rumble_audio.play()
 		
@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Datangnya s-wave, memicu logika yang mematahkan joints dan menjatuhkan objek
 		if not has_quake_started and time_passed > s_wave_delay:
-			get_tree().call_group("drop_objects", "check_earthquake_stress", magnitude)
+			get_tree().call_group("drop_objects", "check_earthquake_stress", intensity)
 			has_quake_started = true
 
 		# Memudarkan goyangan masuk dan keluar dengan lancar
@@ -144,7 +144,7 @@ func _physics_process(delta: float) -> void:
 				
 				# Menulis variabel uji coba ke file CSV Android lokal
 				DataLogging.save_session_data(
-					magnitude,
+					intensity,
 					player_node.obj_count,
 					player_node.hit_history,
 					exact_time_survived,
@@ -176,7 +176,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Perhitungan Fisika
 		# Penskalaan Logaritmik: Mengubah besaran linier menjadi gaya eksponensial
-		var raw_multiplier = pow(10, magnitude - baseline_magnitude)
+		var raw_multiplier = pow(10, intensity - baseline_intensity)
 		
 		# Jepit pengganda fisika untuk mencegah ruangan merusak game engine
 		var realistic_multiplier = clamp(raw_multiplier, 0.0001, 8.0)

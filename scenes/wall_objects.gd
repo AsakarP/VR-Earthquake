@@ -2,17 +2,17 @@ extends RigidBody3D
 
 # You can change this number in the Inspector for different objects!
 # E.g., a heavy TV might need 6.0, but a small picture frame only needs 4.0
-@export var break_magnitude_threshold := 4.5 
+@export var break_intensity_threshold := 4.5 
 
 @onready var light_node = get_node_or_null("OmniLight3D")
 @onready var tube_mesh1 = get_node_or_null("MeshInstance3D")
 @onready var tube_mesh2 = get_node_or_null("MeshInstance3D2")
 @onready var wall_joint = get_node_or_null("Generic6DOFJoint3D")
 
-# The earthquake script will pass its magnitude into this function
-func check_earthquake_stress(current_magnitude: float) -> void:
+# The earthquake script will pass its intensity into this function
+func check_earthquake_stress(current_intensity: float) -> void:
 	# If the quake is strong enough, snap the joint!
-	if current_magnitude >= break_magnitude_threshold:
+	if current_intensity >= break_intensity_threshold:
 		snap_and_fall()
 
 func snap_and_fall() -> void:

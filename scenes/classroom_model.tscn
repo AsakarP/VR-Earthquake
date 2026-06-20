@@ -3438,7 +3438,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0,
 mass = 20.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.0
 
 [node name="FrontChalkboardMesh" type="Node3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar" unique_id=542326455]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.5894573e-06, -3.529304e-22)
@@ -3492,7 +3491,6 @@ transform = Transform3D(3.138351e-16, -0.35048768, 0, 1.4133877, 7.78239e-17, 0,
 mass = 1.2
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.0
 
 [node name="pCylinder8_StingrayPBS9_0" type="MeshInstance3D" parent="Mesh/Room/Clock/Jam" unique_id=846487523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6115875, 0)
@@ -3564,7 +3562,6 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0,
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.6
 
 [node name="LampMesh2" type="Node3D" parent="Mesh/Room/Lamps/Lampu 2" unique_id=891510737]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.75408566, -0.04797774, -29.370884)
@@ -3615,7 +3612,6 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.7
 
 [node name="LampMesh3" type="Node3D" parent="Mesh/Room/Lamps/Lampu 3" unique_id=1941488791]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, 0.5110379)
@@ -3716,7 +3712,6 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.6
 
 [node name="LampMesh5" type="Node3D" parent="Mesh/Room/Lamps/Lampu 5" unique_id=106319311]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, 0.5110379)
@@ -3767,7 +3762,6 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.7
 
 [node name="LampMesh6" type="Node3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=755861540]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, -29.370884)
@@ -3822,7 +3816,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.37
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 4.9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 1" unique_id=17827505]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3835,7 +3828,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 2" unique_id=1912160435]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3848,7 +3840,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.0
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 3" unique_id=255628897]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3861,7 +3852,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.0
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 4" unique_id=1114000700]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3874,7 +3864,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 5" unique_id=1632543261]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3887,7 +3876,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.37
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
-break_magnitude_threshold = 5.4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 6" unique_id=754373146]
 mesh = SubResource("BoxMesh_bllpp")

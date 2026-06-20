@@ -23,13 +23,13 @@ func _ready() -> void:
 func get_player_id() -> String:
 	return "Subject_%03d" % current_subject_number
 
-func save_session_data(magnitude: float, hit_count: int, hit_objects: Array[String], time_survived: float, reaction_time: float, entered_zone: String, entered_safe: bool, entered_hazard: bool) -> void:
+func save_session_data(intensity: float, hit_count: int, hit_objects: Array[String], time_survived: float, reaction_time: float, entered_zone: String, entered_safe: bool, entered_hazard: bool) -> void:
 	var file: FileAccess
 	var is_new_file = not FileAccess.file_exists(csv_path)
 		
 	if is_new_file:
 		file = FileAccess.open(csv_path, FileAccess.WRITE)
-		file.store_line("Player ID,Magnitude,Hit Count,Objects Hit,Time Survived,Reaction Time,Zone Entered,Reached Safety,Entered Hazard")
+		file.store_line("Player ID,Intensity,Hit Count,Objects Hit,Time Survived,Reaction Time,Zone Entered,Reached Safety,Entered Hazard")
 	else:
 		file = FileAccess.open(csv_path, FileAccess.READ_WRITE)
 		file.seek_end() 
@@ -51,7 +51,7 @@ func save_session_data(magnitude: float, hit_count: int, hit_objects: Array[Stri
 		# --- UPDATED: Added two extra %s placeholders and converted the booleans to strings ---
 		var data_row = "%s,%.1f,%d,%s,%.2f,%s,%s,%s,%s" % [
 			player_id,
-			magnitude,
+			intensity,
 			hit_count,
 			object_string,
 			time_survived,

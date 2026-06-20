@@ -6,7 +6,7 @@ extends Label3D
 
 var is_counting_down := false
 var time_left := 0.0
-var current_magnitude := 0.0
+var current_intensity := 0.0
 
 func _ready() -> void:
 	# Ensure it starts completely invisible
@@ -23,15 +23,15 @@ func _process(delta: float) -> void:
 		if time_left > 0:
 			# Update the text with the live countdown.
 			# ceil() rounds the decimal up (so 2.1 seconds shows as "3")
-			text = "Gempa Bumi\nPerkiraan Besarnya: %.1f\n\nTiba dalam: %d detik" % [current_magnitude, int(ceil(time_left))]
+			text = "Gempa Bumi\nPerkiraan Besarnya: %.1f\n\nTiba dalam: %d detik" % [current_intensity, int(ceil(time_left))]
 		else:
 			# Time is up! Stop counting and fade out.
 			is_counting_down = false
 			hide_warning()
 
 # This function will be called by your earthquake controller
-func trigger_warning(magnitude: float, countdown_seconds: float) -> void:
-	current_magnitude = magnitude
+func trigger_warning(intensity: float, countdown_seconds: float) -> void:
+	current_intensity = intensity
 	time_left = countdown_seconds
 	is_counting_down = true
 	
