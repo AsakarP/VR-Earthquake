@@ -11,7 +11,7 @@ extends AnimatableBody3D
 # Waktu & Intensitas Gempa
 @export_category("Earthquake Settings")
 @export var start_delay := 10.0 # Detik sebelum guncangan fisik mulai
-@export var intensity := 1.0 # Intensitas magnitudo yang disimulasikan
+@export var intensity := 1.0 # Intensitas yang disimulasikan
 @export var total_duration := 20.0 # Total detik bertahan hidup yang diperlukan
 @export var s_wave_delay := 3.0 # Tundaan sebelum s-wave tiba
 
@@ -44,8 +44,8 @@ func _ready() -> void:
 	
 	# Memulai secara automatis pada mode normal
 	if not admin_mode:
-		var rand_mag = randf_range(4.0, 4.9)
-		begin_simulation(rand_mag)
+		var rand_int = randf_range(4.0, 4.9)
+		begin_simulation(rand_int)
 
 # Fungsi memulai simulasi
 func begin_simulation(custom_intensity: float) -> void:
@@ -80,6 +80,14 @@ func trigger_earthquake() -> void:
 		is_quaking = true
 		time_passed = 0.0
 		has_quake_started = false
+		
+		# Perhitungan debu dinamis
+		var raw_multiplier = pow(10, intensity - baseline_intensity)
+		var visual_multiplier = clamp(raw_multiplier, 0.1, 3.0)
+		var base_dust_amount := 40
+		var final_dust_amount = clampi(int(base_dust_amount * visual_multiplier), 5, 150)
+		dust_particles.amount = final_dust_amount
+		ground_dust_particles.amount = final_dust_amount
 		
 		# Aktifkan efek visual debu
 		dust_particles.emitting = true

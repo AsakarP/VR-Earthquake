@@ -262,7 +262,7 @@ scale_max = 0.14999999
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy8sr"]
 transparency = 1
-albedo_color = Color(0.19434929, 0.19434926, 0.19434926, 0.5882353)
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -273,7 +273,8 @@ material = SubResource("StandardMaterial3D_xy8sr")
 size = Vector2(0.02, 0.02)
 
 [sub_resource type="Gradient" id="Gradient_bllpp"]
-colors = PackedColorArray(0.646029, 0.646029, 0.646029, 1, 0.64705884, 0.64705884, 0.64705884, 0)
+offsets = PackedFloat32Array(0, 0.49473685, 1)
+colors = PackedColorArray(0.64705884, 0.64705884, 0.64705884, 0, 0.64705884, 0.64705884, 0.64705884, 1, 0.64705884, 0.64705884, 0.64705884, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_trjbm"]
 gradient = SubResource("Gradient_bllpp")
@@ -291,12 +292,14 @@ colors = PackedColorArray(0.446777, 0.44677705, 0.44677705, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l7rbx"]
 gradient = SubResource("Gradient_kae48")
 fill = 1
-fill_from = Vector2(0.491453, 0.52136755)
-fill_to = Vector2(0.8076923, 0.7393162)
+fill_from = Vector2(0.4957265, 0.525641)
+fill_to = Vector2(0.8247863, 0.85470086)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we16d"]
 transparency = 1
 shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.21568628)
 albedo_texture = SubResource("GradientTexture2D_l7rbx")
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -305,7 +308,6 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_lxrqs"]
 material = SubResource("StandardMaterial3D_we16d")
-size = Vector2(0.3, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvdkn"]
 cull_mode = 2
@@ -667,6 +669,7 @@ draw_pass_1 = SubResource("QuadMesh_ciwqg")
 [node name="GroundDustParticles" type="GPUParticles3D" parent="Mesh/Room/ClassroomStructure" unique_id=2019831108]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -0.39068574, -0.09815776)
 emitting = false
+lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_yjip2")
 draw_pass_1 = SubResource("QuadMesh_lxrqs")
 
@@ -3438,6 +3441,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0,
 mass = 20.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.0
 
 [node name="FrontChalkboardMesh" type="Node3D" parent="Mesh/Room/Chalkboard/Papan Tulis Besar" unique_id=542326455]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.5894573e-06, -3.529304e-22)
@@ -3491,6 +3495,7 @@ transform = Transform3D(3.138351e-16, -0.35048768, 0, 1.4133877, 7.78239e-17, 0,
 mass = 1.2
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 4.0
 
 [node name="pCylinder8_StingrayPBS9_0" type="MeshInstance3D" parent="Mesh/Room/Clock/Jam" unique_id=846487523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6115875, 0)
@@ -3511,6 +3516,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0,
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 4.6
 
 [node name="LampMesh1" type="Node3D" parent="Mesh/Room/Lamps/Lampu 1" unique_id=865576545]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 7.947286e-07, -1.7646519e-22)
@@ -3562,6 +3568,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0,
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 4.9
 
 [node name="LampMesh2" type="Node3D" parent="Mesh/Room/Lamps/Lampu 2" unique_id=891510737]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.75408566, -0.04797774, -29.370884)
@@ -3612,6 +3619,7 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 4.7
 
 [node name="LampMesh3" type="Node3D" parent="Mesh/Room/Lamps/Lampu 3" unique_id=1941488791]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, 0.5110379)
@@ -3662,6 +3670,7 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.0
 
 [node name="LampMesh4" type="Node3D" parent="Mesh/Room/Lamps/Lampu 4" unique_id=986601454]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 23.34239, -0.047976945, -29.370884)
@@ -3712,6 +3721,7 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 4.8
 
 [node name="LampMesh5" type="Node3D" parent="Mesh/Room/Lamps/Lampu 5" unique_id=106319311]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, 0.5110379)
@@ -3762,6 +3772,7 @@ node_b = NodePath("..")
 mass = 2.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.1
 
 [node name="LampMesh6" type="Node3D" parent="Mesh/Room/Lamps/Lampu 6" unique_id=755861540]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 49.315365, -0.047976945, -29.370884)
@@ -3816,6 +3827,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.37
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 1" unique_id=17827505]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3828,6 +3840,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 2" unique_id=1912160435]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3840,6 +3853,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.0
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 3" unique_id=255628897]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3852,6 +3866,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -12.0
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 4" unique_id=1114000700]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3864,6 +3879,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 12.92
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 5" unique_id=1632543261]
 mesh = SubResource("BoxMesh_bllpp")
@@ -3876,6 +3892,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 37.37
 mass = 110.0
 freeze = true
 script = ExtResource("509_cjspy")
+break_intensity_threshold = 5.7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Room/Ceiling/Plafon 6" unique_id=754373146]
 mesh = SubResource("BoxMesh_bllpp")
