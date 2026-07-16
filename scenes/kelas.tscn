@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://hhpimkd33qvt"]
+
+[ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="1_7plcu"]
+[ext_resource type="ArrayMesh" uid="uid://covtoepijgb56" path="res://assets/school_models/Ruangan/Ruangan.obj" id="2_dlnlg"]
+[ext_resource type="ArrayMesh" uid="uid://c8o01rm6xaaj0" path="res://assets/school_models/Kursi/Kursi.obj" id="3_wjox7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(54.60487, 1.0785828, 61.45428)
+
+[node name="ClassroomModel" unique_id=1944298536 instance=ExtResource("1_7plcu")]
+
+[node name="Mesh" parent="." index="0" unique_id=1894090007]
+visible = false
+
+[node name="Kelas" type="Node3D" parent="." index="1" unique_id=2119025612]
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Kelas" index="0" unique_id=1073787799]
+
+[node name="Ruangan" type="MeshInstance3D" parent="Kelas/AnimatableBody3D" index="0" unique_id=1613439614]
+transform = Transform3D(6.650425, -0.465043, -2.0327677e-08, 0, -2.9140915e-07, 6.666665, -0.465043, -6.650425, -2.906993e-07, -1.953, 7, 0)
+mesh = ExtResource("2_dlnlg")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Kelas/AnimatableBody3D" index="1" unique_id=1220806270]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 18.483461, 0.41233808, 12.678787)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Objects" type="Node3D" parent="." index="2" unique_id=1213932869]
+
+[node name="Kursi" type="MeshInstance3D" parent="Objects" index="0" unique_id=1134199022]
+transform = Transform3D(-2.9140912e-07, 0, 6.666665, 0, 6.666665, 0, -6.666665, 0, -2.9140912e-07, 2, 0.952, 2)
+mesh = ExtResource("3_wjox7")
