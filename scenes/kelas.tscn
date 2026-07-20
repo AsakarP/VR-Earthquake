@@ -3,9 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://blpy7txiage7e" path="res://scenes/classroom_model.tscn" id="1_7plcu"]
 [ext_resource type="ArrayMesh" uid="uid://covtoepijgb56" path="res://assets/school_models/Ruangan/Ruangan.obj" id="2_dlnlg"]
 [ext_resource type="ArrayMesh" uid="uid://c8o01rm6xaaj0" path="res://assets/school_models/Kursi/Kursi.obj" id="3_wjox7"]
+[ext_resource type="ArrayMesh" uid="uid://c7iyq3rl4bl7i" path="res://assets/school_models/Meja/Meja.obj" id="4_gkfhr"]
+[ext_resource type="ArrayMesh" uid="uid://00udpoxyi4yh" path="res://assets/school_models/Table/Table.obj" id="5_sljxn"]
+[ext_resource type="ArrayMesh" uid="uid://c2pdkq8sg4djk" path="res://assets/school_models/Teacher_chair/Teacher_chair.obj" id="6_rn2s5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(54.60487, 1.0785828, 61.45428)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.4244995, 0.78222656, 0.4375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+size = Vector3(0.44869232, 0.75963545, 0.59747314)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0u6y"]
+size = Vector3(7.9387016, 4.9599924, 2.9129944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3gngh"]
+size = Vector3(2.8552551, 5.7335205, 3.4161835)
 
 [node name="ClassroomModel" unique_id=1944298536 instance=ExtResource("1_7plcu")]
 
@@ -26,6 +41,529 @@ shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="Objects" type="Node3D" parent="." index="2" unique_id=1213932869]
 
-[node name="Kursi" type="MeshInstance3D" parent="Objects" index="0" unique_id=1134199022]
-transform = Transform3D(-2.9140912e-07, 0, 6.666665, 0, 6.666665, 0, -6.666665, 0, -2.9140912e-07, 2, 0.952, 2)
+[node name="MejaKursiMurid" type="Node3D" parent="Objects" index="0" unique_id=1229841975]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="MejaKursi1" type="Node3D" parent="Objects/MejaKursiMurid" index="0" unique_id=918183031]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 2, 0.95199996, 5)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi1" index="0" unique_id=918863341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi1/KursiRigidBody" index="0" unique_id=1134199022]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
 mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi1/KursiRigidBody" index="1" unique_id=719796524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi1" index="1" unique_id=1027800495]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi1/MejaRigidBody" index="0" unique_id=215802032]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi1/MejaRigidBody" index="1" unique_id=1588037373]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi2" type="Node3D" parent="Objects/MejaKursiMurid" index="1" unique_id=535522899]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 10, 0.952, 5)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi2" index="0" unique_id=1787685567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi2/KursiRigidBody" index="0" unique_id=490258495]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi2/KursiRigidBody" index="1" unique_id=1612260496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi2" index="1" unique_id=357334087]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi2/MejaRigidBody" index="0" unique_id=1594054491]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi2/MejaRigidBody" index="1" unique_id=356820138]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi3" type="Node3D" parent="Objects/MejaKursiMurid" index="2" unique_id=2099677592]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 18, 0.952, 5)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi3" index="0" unique_id=31727564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi3/KursiRigidBody" index="0" unique_id=147519547]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi3/KursiRigidBody" index="1" unique_id=2031676631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi3" index="1" unique_id=1159070837]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi3/MejaRigidBody" index="0" unique_id=435197997]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi3/MejaRigidBody" index="1" unique_id=512796054]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi4" type="Node3D" parent="Objects/MejaKursiMurid" index="3" unique_id=271408149]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 26, 0.952, 5)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi4" index="0" unique_id=1095326812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi4/KursiRigidBody" index="0" unique_id=32728805]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi4/KursiRigidBody" index="1" unique_id=367883837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi4" index="1" unique_id=1307777670]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi4/MejaRigidBody" index="0" unique_id=533440786]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi4/MejaRigidBody" index="1" unique_id=579734562]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi5" type="Node3D" parent="Objects/MejaKursiMurid" index="4" unique_id=516904599]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 34, 0.952, 5)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi5" index="0" unique_id=1376229862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi5/KursiRigidBody" index="0" unique_id=430214908]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi5/KursiRigidBody" index="1" unique_id=274638666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi5" index="1" unique_id=1708845784]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi5/MejaRigidBody" index="0" unique_id=1985873900]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi5/MejaRigidBody" index="1" unique_id=1256493084]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi6" type="Node3D" parent="Objects/MejaKursiMurid" index="5" unique_id=374284371]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 34, 0.952, 13)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi6" index="0" unique_id=2145629912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi6/KursiRigidBody" index="0" unique_id=2102172036]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi6/KursiRigidBody" index="1" unique_id=171657670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi6" index="1" unique_id=387605373]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi6/MejaRigidBody" index="0" unique_id=158993658]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi6/MejaRigidBody" index="1" unique_id=1747598745]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi7" type="Node3D" parent="Objects/MejaKursiMurid" index="6" unique_id=1192909064]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 26, 0.952, 13)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi7" index="0" unique_id=308331371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi7/KursiRigidBody" index="0" unique_id=1064513605]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi7/KursiRigidBody" index="1" unique_id=1317302164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi7" index="1" unique_id=1221869308]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi7/MejaRigidBody" index="0" unique_id=653663499]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi7/MejaRigidBody" index="1" unique_id=1929884756]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi8" type="Node3D" parent="Objects/MejaKursiMurid" index="7" unique_id=2033243298]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 18, 0.952, 13)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi8" index="0" unique_id=1970478428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi8/KursiRigidBody" index="0" unique_id=293800297]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi8/KursiRigidBody" index="1" unique_id=1810685989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi8" index="1" unique_id=35634929]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi8/MejaRigidBody" index="0" unique_id=1439944370]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi8/MejaRigidBody" index="1" unique_id=1529887848]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi9" type="Node3D" parent="Objects/MejaKursiMurid" index="8" unique_id=1188286078]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 10, 0.952, 13)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi9" index="0" unique_id=1546132612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi9/KursiRigidBody" index="0" unique_id=399832642]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi9/KursiRigidBody" index="1" unique_id=1734347242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi9" index="1" unique_id=1494814848]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi9/MejaRigidBody" index="0" unique_id=722461333]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi9/MejaRigidBody" index="1" unique_id=48270887]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi10" type="Node3D" parent="Objects/MejaKursiMurid" index="9" unique_id=1937725487]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 2, 0.952, 13)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi10" index="0" unique_id=226575599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi10/KursiRigidBody" index="0" unique_id=1543822669]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi10/KursiRigidBody" index="1" unique_id=1100511118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi10" index="1" unique_id=145564941]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi10/MejaRigidBody" index="0" unique_id=188953564]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi10/MejaRigidBody" index="1" unique_id=1759346250]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi11" type="Node3D" parent="Objects/MejaKursiMurid" index="10" unique_id=319879864]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 2, 0.952, 21)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi11" index="0" unique_id=222400498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi11/KursiRigidBody" index="0" unique_id=1871990173]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi11/KursiRigidBody" index="1" unique_id=1795346713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi11" index="1" unique_id=539954837]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi11/MejaRigidBody" index="0" unique_id=1856727794]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi11/MejaRigidBody" index="1" unique_id=706488966]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi12" type="Node3D" parent="Objects/MejaKursiMurid" index="11" unique_id=1218957949]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 10, 0.952, 21)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi12" index="0" unique_id=1160667614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi12/KursiRigidBody" index="0" unique_id=2063126153]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi12/KursiRigidBody" index="1" unique_id=1468368653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi12" index="1" unique_id=411547107]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi12/MejaRigidBody" index="0" unique_id=376418520]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi12/MejaRigidBody" index="1" unique_id=993727726]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi13" type="Node3D" parent="Objects/MejaKursiMurid" index="12" unique_id=252615932]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 18, 0.952, 21)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi13" index="0" unique_id=362120157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi13/KursiRigidBody" index="0" unique_id=719969549]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi13/KursiRigidBody" index="1" unique_id=1477917612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi13" index="1" unique_id=2065798871]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi13/MejaRigidBody" index="0" unique_id=266554427]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi13/MejaRigidBody" index="1" unique_id=2002211543]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi14" type="Node3D" parent="Objects/MejaKursiMurid" index="13" unique_id=392735597]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 26, 0.952, 21)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi14" index="0" unique_id=180723722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi14/KursiRigidBody" index="0" unique_id=2099516673]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi14/KursiRigidBody" index="1" unique_id=1412694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi14" index="1" unique_id=1300342281]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi14/MejaRigidBody" index="0" unique_id=2117755616]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi14/MejaRigidBody" index="1" unique_id=1123729518]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi15" type="Node3D" parent="Objects/MejaKursiMurid" index="14" unique_id=1420462513]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 34, 0.952, 21)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi15" index="0" unique_id=1693355950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi15/KursiRigidBody" index="0" unique_id=797689197]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi15/KursiRigidBody" index="1" unique_id=1636724826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi15" index="1" unique_id=1350055873]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi15/MejaRigidBody" index="0" unique_id=1044584248]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi15/MejaRigidBody" index="1" unique_id=4932457]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi16" type="Node3D" parent="Objects/MejaKursiMurid" index="15" unique_id=1085285078]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 34, 0.952, 29)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi16" index="0" unique_id=1150081661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi16/KursiRigidBody" index="0" unique_id=1048565426]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi16/KursiRigidBody" index="1" unique_id=1738706524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi16" index="1" unique_id=1043218194]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi16/MejaRigidBody" index="0" unique_id=1007631685]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi16/MejaRigidBody" index="1" unique_id=1695549380]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi17" type="Node3D" parent="Objects/MejaKursiMurid" index="16" unique_id=1497306749]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 26, 0.952, 29)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi17" index="0" unique_id=1331749944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi17/KursiRigidBody" index="0" unique_id=990679408]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi17/KursiRigidBody" index="1" unique_id=1673363221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi17" index="1" unique_id=1145130667]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi17/MejaRigidBody" index="0" unique_id=1519976620]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi17/MejaRigidBody" index="1" unique_id=307087822]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi18" type="Node3D" parent="Objects/MejaKursiMurid" index="17" unique_id=1521120905]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 18, 0.952, 29)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi18" index="0" unique_id=808343074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi18/KursiRigidBody" index="0" unique_id=466155795]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi18/KursiRigidBody" index="1" unique_id=128025080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi18" index="1" unique_id=1124867487]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi18/MejaRigidBody" index="0" unique_id=1330601715]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi18/MejaRigidBody" index="1" unique_id=2088974926]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi19" type="Node3D" parent="Objects/MejaKursiMurid" index="18" unique_id=1181020264]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 10, 0.952, 29)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi19" index="0" unique_id=1566547172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi19/KursiRigidBody" index="0" unique_id=2085233010]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi19/KursiRigidBody" index="1" unique_id=1599215660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi19" index="1" unique_id=1862184943]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi19/MejaRigidBody" index="0" unique_id=840063566]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi19/MejaRigidBody" index="1" unique_id=1841469176]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursi20" type="Node3D" parent="Objects/MejaKursiMurid" index="19" unique_id=1882895637]
+transform = Transform3D(-2.9140915e-07, 0, 6.6666656, 0, 6.6666656, 0, -6.6666656, 0, -2.9140915e-07, 2, 0.952, 29)
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi20" index="0" unique_id=1914313007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04887545, 1.4901161e-08, -0.019072145)
+
+[node name="KursiMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi20/KursiRigidBody" index="0" unique_id=79956148]
+transform = Transform3D(0.9998477, 0, -0.017452406, 0, 1, 0, 0.017452406, 0, 0.9998477, 0, 0, 0)
+mesh = ExtResource("3_wjox7")
+
+[node name="KursiCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi20/KursiRigidBody" index="1" unique_id=872239314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019838214, 0.3930664, -0.0009765327)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiMurid/MejaKursi20" index="1" unique_id=417286003]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.51852286, -5.5655837e-05, -0.013347)
+
+[node name="MejaMesh" type="MeshInstance3D" parent="Objects/MejaKursiMurid/MejaKursi20/MejaRigidBody" index="0" unique_id=711314468]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -2.9802322e-08, 0, 0)
+mesh = ExtResource("4_gkfhr")
+
+[node name="MejaCollision" type="CollisionShape3D" parent="Objects/MejaKursiMurid/MejaKursi20/MejaRigidBody" index="1" unique_id=682373208]
+transform = Transform3D(1, 0, -1.971756e-12, 0, 1, 0, 1.971756e-12, 0, 1, 0.0035972446, 0.3814056, 0.0005799234)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MejaKursiGuru" type="Node3D" parent="Objects" index="1" unique_id=1851532785]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 29.765537, 0.9789334, -9.493644)
+
+[node name="MejaRigidBody" type="RigidBody3D" parent="Objects/MejaKursiGuru" index="0" unique_id=1206899905]
+
+[node name="Table" type="MeshInstance3D" parent="Objects/MejaKursiGuru/MejaRigidBody" index="0" unique_id=1324936177]
+transform = Transform3D(6.666666, 0, 0, 0, 0.2326633, 6.6626053, 0, -6.6626053, 0.2326633, 0, 0, 0)
+mesh = ExtResource("5_sljxn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/MejaKursiGuru/MejaRigidBody" index="1" unique_id=1169758586]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0.0064372234, 2.44972, 0.1310277)
+shape = SubResource("BoxShape3D_d0u6y")
+
+[node name="KursiRigidBody" type="RigidBody3D" parent="Objects/MejaKursiGuru" index="1" unique_id=1163453991]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, -3.627861)
+
+[node name="TeacherChair" type="MeshInstance3D" parent="Objects/MejaKursiGuru/KursiRigidBody" index="0" unique_id=362431415]
+transform = Transform3D(6.666667, 0, 0, 0, 0.4650434, 6.6504273, 0, -6.6504273, 0.4650434, 0, -0.16502821, 0)
+mesh = ExtResource("6_rn2s5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/MejaKursiGuru/KursiRigidBody" index="1" unique_id=1366892115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016918182, 2.8387125, 0.30422878)
+shape = SubResource("BoxShape3D_3gngh")
