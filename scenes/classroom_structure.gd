@@ -51,8 +51,8 @@ func _ready() -> void:
 func begin_simulation(custom_intensity: float) -> void:
 	intensity = custom_intensity
 	
-	var player_node = get_node_or_null("../../../../XROrigin3D")
-	var eews_node = get_node_or_null("../../../../XROrigin3D/XRCamera3D/EEWSUI")
+	var player_node = get_node_or_null("../../XROrigin3D")
+	var eews_node = get_node_or_null("../../XROrigin3D/XRCamera3D/EEWSUI")
 	
 	# Mencegah pengguna keluar melalui menu selama simulasi berlangsung
 	if player_node and player_node.has_method("lock_menu"):

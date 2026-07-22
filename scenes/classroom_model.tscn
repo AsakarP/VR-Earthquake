@@ -260,7 +260,7 @@ gravity = Vector3(0, -1, 0)
 scale_min = 0.049999997
 scale_max = 0.14999999
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy8sr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we16d"]
 transparency = 1
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 billboard_mode = 3
@@ -269,14 +269,14 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_ciwqg"]
-material = SubResource("StandardMaterial3D_xy8sr")
+material = SubResource("StandardMaterial3D_we16d")
 size = Vector2(0.02, 0.02)
 
 [sub_resource type="Gradient" id="Gradient_bllpp"]
 offsets = PackedFloat32Array(0, 0.49473685, 1)
 colors = PackedColorArray(0.64705884, 0.64705884, 0.64705884, 0, 0.64705884, 0.64705884, 0.64705884, 1, 0.64705884, 0.64705884, 0.64705884, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_trjbm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lxrqs"]
 gradient = SubResource("Gradient_bllpp")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjip2"]
@@ -284,18 +284,18 @@ emission_shape = 3
 emission_box_extents = Vector3(0.5, 0.1, 0.5)
 gravity = Vector3(0, 0.5, 0)
 scale_max = 2.0
-color_ramp = SubResource("GradientTexture1D_trjbm")
+color_ramp = SubResource("GradientTexture1D_lxrqs")
 
-[sub_resource type="Gradient" id="Gradient_kae48"]
+[sub_resource type="Gradient" id="Gradient_w5lib"]
 colors = PackedColorArray(0.446777, 0.44677705, 0.44677705, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l7rbx"]
-gradient = SubResource("Gradient_kae48")
+gradient = SubResource("Gradient_w5lib")
 fill = 1
 fill_from = Vector2(0.4957265, 0.525641)
 fill_to = Vector2(0.8247863, 0.85470086)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we16d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgw0k"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -307,7 +307,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_lxrqs"]
-material = SubResource("StandardMaterial3D_we16d")
+material = SubResource("StandardMaterial3D_wgw0k")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvdkn"]
 cull_mode = 2
@@ -660,7 +660,6 @@ script = ExtResource("429_ljsym")
 
 [node name="DustParticles" type="GPUParticles3D" parent="Mesh/Room/ClassroomStructure" unique_id=64346952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30861542, -0.0918704)
-emitting = false
 amount = 200
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_xy8sr")
