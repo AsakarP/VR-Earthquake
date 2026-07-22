@@ -197,7 +197,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.4066966, -0.18382788
 admin_mode = true
 
 [node name="Menus" type="Node3D" parent="." unique_id=1084034712]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.919053, 1.6234312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7873033, 1.6234312)
 
 [node name="AdminMenu" type="Node3D" parent="Menus" unique_id=1013865809]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
