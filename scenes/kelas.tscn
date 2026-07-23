@@ -38,7 +38,7 @@ reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 0.5
-glow_strength = 1.1
+glow_strength = 1.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnvy"]
 transparency = 1
@@ -59,10 +59,7 @@ script = ExtResource("1_rwft6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=846349689]
 transform = Transform3D(-0.08715577, 0.86272997, -0.4980973, 0, 0.49999997, 0.86602545, 0.9961947, 0.07547911, -0.04357788, -9.793687, 9.181911, -7.450674)
-light_energy = 2.0
 shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=155467814]
 environment = SubResource("Environment_kkrti")

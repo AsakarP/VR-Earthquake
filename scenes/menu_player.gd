@@ -30,10 +30,12 @@ func _on_reset_button_pressed() -> void:
 	# 2. Reload the exact scene we are currently standing in!
 	get_tree().reload_current_scene()
 
-#func _on_exit_to_menu_button_pressed() -> void:
-	#DataLogging.advance_to_next_subject()
-	## 1. Wait for the screen to go black
-	#await fade_to_black()
-	#
-	## 2. Load the main menu
+func _on_exit_to_menu_button_pressed() -> void:
+	DataLogging.advance_to_next_subject()
+	# 1. Wait for the screen to go black
+	await fade_to_black()
+	
+	# 2. Load the main menu
 	#get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	# Quit game
+	get_tree().quit()

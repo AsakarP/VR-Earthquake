@@ -82,10 +82,22 @@ func trigger_earthquake() -> void:
 		has_quake_started = false
 		
 		# Perhitungan debu dinamis
-		var raw_multiplier = pow(10, intensity - baseline_intensity)
-		var visual_multiplier = clamp(raw_multiplier, 0.1, 3.0)
-		var base_dust_amount := 40
-		var final_dust_amount = clampi(int(base_dust_amount * visual_multiplier), 5, 150)
+		var final_dust_amount := 1 # Default jumlah partikel
+
+		if intensity >= 4.5:
+			# Lakukan perhitungan matematika hanya jika gempa cukup kuat
+			var raw_multiplier = pow(10, intensity - baseline_intensity)
+			var visual_multiplier = clamp(raw_multiplier, 0.1, 3.0)
+			
+			# Jumlah debu normal saat intensitas tepat di baseline (5.0)
+			var base_dust_amount := 40 
+			
+			final_dust_amount = clampi(int(base_dust_amount * visual_multiplier), 5, 150)
+		else:
+			# Intensitas 1.0 - 4.4: Tetapkan ke angka yang sangat kecil
+			final_dust_amount = 1
+
+		# Terapkan jumlah ke node partikel
 		dust_particles.amount = final_dust_amount
 		ground_dust_particles.amount = final_dust_amount
 		
@@ -94,11 +106,11 @@ func trigger_earthquake() -> void:
 		ground_dust_particles.emitting = true
 		
 		# Menyesuaikan volume gemuruh berdasarkan besarnya gempa
-		if intensity < 3:
+		if intensity < 4:
 			rumble_audio.volume_db = -50
-		elif intensity >= 3 and intensity < 4:
+		elif intensity >= 4 and intensity < 5:
 			rumble_audio.volume_db = -30
-		elif intensity >= 4:
+		elif intensity >= 5:
 			rumble_audio.volume_db = 0
 		rumble_audio.play()
 		

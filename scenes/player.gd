@@ -38,14 +38,25 @@ func _ready() -> void:
 		#global_position.x += offset_x
 		#global_position.z += offset_z
 		
-	# Give the OpenXR runtime a split second to initialize tracking data 
-	# before attempting to recenter the headset
-	await get_tree().create_timer(0.1).timeout
+	# 1. Save the exact editor spawn coordinates before the headset moves anything
+	var spawn_pos = global_position
+	
+	# Give the Meta Quest tracking time to fully initialize (0.2 is safer than 0.1 for mobile VR)
+	await get_tree().create_timer(0.2).timeout
 	
 	if camera != null:
-		# Force the VR headset to snap perfectly to this XROrigin3D's position 
-		# and rotation, while maintaining the player's real-world physical height.
-		XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+		# 2. Fix the Rotation: Look at how far they physically turned, and counter-rotate the Origin
+		var local_yaw = camera.transform.basis.get_euler().y
+		rotate_y(-local_yaw)
+		
+		# 3. Fix the Position: Grab their physical walk distance from the center of their real room
+		var local_walk_offset = camera.position
+		
+		# We ignore the Y axis so we don't accidentally offset their height and push them through the floor!
+		local_walk_offset.y = 0 
+		
+		# 4. Slide the entire origin backward by exactly the distance they walked
+		global_position = spawn_pos - (transform.basis * local_walk_offset)
 
 # The Fall Boundary (Kill Z) remains the same
 func _process(delta: float) -> void:

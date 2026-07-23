@@ -77,7 +77,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dlswk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dlswk")
-text = "Exit to Main Menu"
+text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=1049427384]
 layout_mode = 1
