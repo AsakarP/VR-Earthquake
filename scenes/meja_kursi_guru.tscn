@@ -6,7 +6,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_adig8"]
 friction = 0.3
-bounce = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
 albedo_color = Color(0.5409902, 0.5409906, 0.5409904, 1)
@@ -43,7 +42,6 @@ size = Vector3(0.041550122, 0.053162113, 0.4051367)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_muqw8"]
 friction = 0.3
-bounce = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0u6y"]
 albedo_color = Color(0.29411766, 0.28235295, 0.24705882, 1)
@@ -78,7 +76,7 @@ size = Vector3(0.018846996, 0.35619977, 0.014205143)
 [node name="MejaKursiGuru" type="Node3D" unique_id=1720367425]
 
 [node name="MejaRigidBody" type="RigidBody3D" parent="." unique_id=2009887078]
-mass = 12.0
+mass = 25.0
 physics_material_override = SubResource("PhysicsMaterial_adig8")
 
 [node name="TeacherTableMesh" type="MeshInstance3D" parent="MejaRigidBody" unique_id=1366622202]
@@ -115,7 +113,7 @@ shape = SubResource("BoxShape3D_wcln6")
 
 [node name="KursiRigidBody" type="RigidBody3D" parent="." unique_id=601772696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13795187, -0.58207905)
-mass = 5.0
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_muqw8")
 
 [node name="TeacherChairMesh" type="MeshInstance3D" parent="KursiRigidBody" unique_id=265229900]

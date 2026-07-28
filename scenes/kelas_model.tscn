@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dkhuar7pswi1x" path="res://scenes/whiteboard.tscn" id="11_j23ae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d6ww"]
-friction = 0.2
+friction = 0.3
 rough = true
 absorbent = true
 
@@ -377,7 +377,7 @@ physics_material_override = SubResource("PhysicsMaterial_8d6ww")
 script = ExtResource("1_r18kb")
 
 [node name="DustParticles" type="GPUParticles3D" parent="ClassroomStructure" unique_id=64039236]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.323107, 20.946678, 12.988429)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.17911674, 20.946676, -0.46522132)
 emitting = false
 amount = 200
 lifetime = 4.0
@@ -385,454 +385,455 @@ process_material = SubResource("ParticleProcessMaterial_j23ae")
 draw_pass_1 = SubResource("QuadMesh_ly6wr")
 
 [node name="GroundDustParticles" type="GPUParticles3D" parent="ClassroomStructure" unique_id=167697097]
-transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 17.323, 1.7371844, 12.988)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.1790102, 1.7371844, -0.46565047)
 emitting = false
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_6uhsj")
 draw_pass_1 = SubResource("QuadMesh_4s0jj")
 
 [node name="RumbleAudio" type="AudioStreamPlayer3D" parent="ClassroomStructure" unique_id=1344852626]
-transform = Transform3D(3.333333, 0, 0, 0, 3.333333, 0, 0, 0, 3.333333, 17.138876, 4.9043617, 0)
+transform = Transform3D(3.333333, 0, 0, 0, 3.333333, 0, 0, 0, 3.333333, -0.0051140767, 4.9043617, -13.453648)
 stream = ExtResource("2_gijtf")
 max_distance = 20.0
 
 [node name="Lantai" type="MeshInstance3D" parent="ClassroomStructure" unique_id=617066234]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.16447, 0.4454672, 12.789946)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.020480968, 0.4454672, -0.66370475)
 mesh = SubResource("BoxMesh_57qmd")
 
 [node name="LantaiCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=500256477]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.16447, 0.4454672, 12.789946)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.020480968, 0.4454672, -0.66370475)
 shape = SubResource("ConvexPolygonShape3D_r18kb")
 
 [node name="Plafon" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1440828622]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.164, 21.403, 12.79)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.0200089, 21.403, -0.6636523)
 mesh = SubResource("BoxMesh_jrxeh")
 
 [node name="PlafonCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=452450898]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.164, 21.403, 12.79)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.0200089, 21.403, -0.6636523)
 shape = SubResource("ConvexPolygonShape3D_gijtf")
 
 [node name="DoorMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=122477051]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 44.34412, 8.234226, -13.438291)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 27.200125, 8.234226, -26.891937)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="DoorCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1643304957]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 44.34412, 8.234226, -13.438291)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 27.200125, 8.234226, -26.891937)
 shape = SubResource("ConvexPolygonShape3D_j23ae")
 
 [node name="CeilingLight" parent="ClassroomStructure" unique_id=1253728184 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 1.728, 20.87, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -15.415985, 20.87, -13.453648)
 
 [node name="CeilingLight2" parent="ClassroomStructure" unique_id=671893601 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 33.6947, 20.87, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 16.550709, 20.87, -13.453648)
 
 [node name="CeilingLight3" parent="ClassroomStructure" unique_id=173340391 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 1.7279999, 20.87, 28.41485)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -15.415985, 20.87, 14.961194)
 
 [node name="CeilingLight4" parent="ClassroomStructure" unique_id=1309384958 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 33.694695, 20.87, 28.41485)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 16.5507, 20.87, 14.961194)
 
 [node name="WhiteWallCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=459064092]
-transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 17.163998, 15.999999, 12.789999)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.020007316, 15.999996, -0.6636523)
 shape = SubResource("ConcavePolygonShape3D_48j06")
 
 [node name="WhiteWallMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1602748480]
-transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 17.163998, 15.999999, 12.789999)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.020007316, 15.999996, -0.6636523)
 mesh = SubResource("ArrayMesh_pqd2c")
 surface_material_override/0 = SubResource("StandardMaterial3D_i37nu")
 surface_material_override/1 = SubResource("StandardMaterial3D_i37nu")
 surface_material_override/2 = SubResource("StandardMaterial3D_i37nu")
 
 [node name="DarkWallCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1849363352]
-transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 17.163996, 6.1869884, 12.789998)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.020005723, 6.1869884, -0.6636523)
 shape = SubResource("ConcavePolygonShape3D_igjg2")
 
 [node name="DarkWallMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1415388136]
-transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 17.163996, 6.1869884, 12.789998)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.020005723, 6.1869884, -0.6636523)
 mesh = SubResource("ArrayMesh_jrxeh")
 surface_material_override/0 = SubResource("StandardMaterial3D_4s0jj")
 surface_material_override/1 = SubResource("StandardMaterial3D_4s0jj")
 
 [node name="TileWallCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=2004184546]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.163996, 1.1138841, 12.789998)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.020005723, 1.1138841, -0.6636523)
 shape = SubResource("ConcavePolygonShape3D_cllil")
 
 [node name="TileWallMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1913493982]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 17.163996, 1.1138841, 12.789998)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.020005723, 1.1138841, -0.6636523)
 mesh = SubResource("ArrayMesh_p10va")
 surface_material_override/0 = SubResource("StandardMaterial3D_k7lwm")
 surface_material_override/1 = SubResource("StandardMaterial3D_k7lwm")
 surface_material_override/2 = SubResource("StandardMaterial3D_k7lwm")
 
 [node name="WindowFrameCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=96002004]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28921, 14.472217, -0.0039202524)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145222, 14.472217, -13.45757)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=661853432]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28921, 14.472217, -0.0039202524)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145222, 14.472217, -13.45757)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1152357860]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, -7.7610207e-10)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, -13.453648)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=523381221]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, -7.7610207e-10)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, -13.453648)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WindowFrameCollision2" type="CollisionShape3D" parent="ClassroomStructure" unique_id=174843122]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28921, 14.472217, 25.803001)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145222, 14.472217, 12.349344)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh2" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1180803759]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28921, 14.472217, 25.803001)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145222, 14.472217, 12.349344)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh2" type="MeshInstance3D" parent="ClassroomStructure" unique_id=543552621]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, 25.806921)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, 12.353264)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision2" type="CollisionShape3D" parent="ClassroomStructure" unique_id=127017682]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, 25.806921)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, 12.353264)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WindowFrameCollision3" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1659005323]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, 40.007996)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, 26.554344)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh3" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2121164806]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.289, 14.472, 40.007996)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.145012, 14.472, 26.554344)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh3" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1490594432]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28879, 14.471784, 40.011917)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.144802, 14.471783, 26.558256)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision3" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1944203592]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 44.28879, 14.471784, 40.011917)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 27.144802, 14.471783, 26.558256)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WindowFrameCollision4" type="CollisionShape3D" parent="ClassroomStructure" unique_id=754429670]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472217, -0.0039202524)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472217, -13.45757)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh4" type="MeshInstance3D" parent="ClassroomStructure" unique_id=307055252]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472217, -0.0039202524)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472217, -13.45757)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh4" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1472600767]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.472, -7.7610207e-10)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.472, -13.453648)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision4" type="CollisionShape3D" parent="ClassroomStructure" unique_id=504151534]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.472, -7.7610207e-10)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.472, -13.453648)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WindowFrameCollision5" type="CollisionShape3D" parent="ClassroomStructure" unique_id=49054702]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472217, 25.803001)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472217, 12.349344)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh5" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1660412428]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472217, 25.803001)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472217, 12.349344)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh5" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1232640031]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.472, 25.806921)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.472, 12.353264)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision5" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1325783485]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.472, 25.806921)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.472, 12.353264)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WindowFrameCollision6" type="CollisionShape3D" parent="ClassroomStructure" unique_id=144904920]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472, 40.007996)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472, 26.554344)
 shape = SubResource("ConcavePolygonShape3D_pqd2c")
 
 [node name="WindowFrameMesh6" type="MeshInstance3D" parent="ClassroomStructure" unique_id=508410699]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.959995, 14.472, 40.007996)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.103981, 14.472, 26.554344)
 mesh = SubResource("ArrayMesh_oocvo")
 
 [node name="WindowGlassMesh6" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2017348102]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.471784, 40.011913)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.471783, 26.558254)
 mesh = SubResource("BoxMesh_3gngh")
 
 [node name="WindowGlassCollision6" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1110568433]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, -9.960205, 14.471784, 40.011913)
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, -27.10419, 14.471783, 26.558254)
 shape = SubResource("ConvexPolygonShape3D_ju3tu")
 
 [node name="WideWindowsCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=2038495702]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 7.3176227)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -6.136027)
 shape = SubResource("ConcavePolygonShape3D_jrxeh")
 
 [node name="WideWindowsMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1805000152]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 7.3176227)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -6.136027)
 mesh = SubResource("ArrayMesh_ju3tu")
 
 [node name="WideWindowsGlassMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=244520400]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 7.315627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -6.1380224)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=903710903]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 7.315627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -6.1380224)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision2" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1298703282]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 0.37837663)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -13.075272)
 shape = SubResource("ConcavePolygonShape3D_fiilk")
 
 [node name="WideWindowsMesh2" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2009495974]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 0.37837663)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -13.075272)
 mesh = SubResource("ArrayMesh_rwft6")
 
 [node name="WideWindowsGlassMesh2" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1442229653]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 0.3763801)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -13.077269)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision2" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1640231996]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, 0.3763801)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -13.077269)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision3" type="CollisionShape3D" parent="ClassroomStructure" unique_id=30853529]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -6.538062)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -19.99171)
 shape = SubResource("ConcavePolygonShape3D_4kbsq")
 
 [node name="WideWindowsMesh3" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1377260689]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -6.538062)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -19.99171)
 mesh = SubResource("ArrayMesh_84xfx")
 
 [node name="WideWindowsGlassMesh3" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1544867840]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -6.540059)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -19.993704)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision3" type="CollisionShape3D" parent="ClassroomStructure" unique_id=746218575]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -6.540059)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -19.993704)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision4" type="CollisionShape3D" parent="ClassroomStructure" unique_id=258882882]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -13.464737)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -26.918383)
 shape = SubResource("ConcavePolygonShape3D_tc4x1")
 
 [node name="WideWindowsMesh4" type="MeshInstance3D" parent="ClassroomStructure" unique_id=845143770]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -13.464737)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -26.918383)
 mesh = SubResource("ArrayMesh_o0ehj")
 
 [node name="WideWindowsGlassMesh4" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2094620882]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -13.466734)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -26.920376)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision4" type="CollisionShape3D" parent="ClassroomStructure" unique_id=935055717]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471899, -13.466734)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471899, -26.920376)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision5" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1039901727]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 39.138622)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 25.684958)
 shape = SubResource("ConcavePolygonShape3D_jrxeh")
 
 [node name="WideWindowsMesh5" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2007577385]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 39.138622)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 25.684958)
 mesh = SubResource("ArrayMesh_ju3tu")
 
 [node name="WideWindowsGlassMesh5" type="MeshInstance3D" parent="ClassroomStructure" unique_id=754052666]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 39.136627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 25.682972)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision5" type="CollisionShape3D" parent="ClassroomStructure" unique_id=657936440]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 39.136627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 25.682972)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision6" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1374207607]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 32.199375)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 18.745722)
 shape = SubResource("ConcavePolygonShape3D_fiilk")
 
 [node name="WideWindowsMesh6" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1006491377]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 32.199375)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 18.745722)
 mesh = SubResource("ArrayMesh_rwft6")
 
 [node name="WideWindowsGlassMesh6" type="MeshInstance3D" parent="ClassroomStructure" unique_id=946505272]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 32.19738)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 18.74372)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision6" type="CollisionShape3D" parent="ClassroomStructure" unique_id=191614385]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 32.19738)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 18.74372)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision7" type="CollisionShape3D" parent="ClassroomStructure" unique_id=227257072]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 25.282938)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 11.829284)
 shape = SubResource("ConcavePolygonShape3D_4kbsq")
 
 [node name="WideWindowsMesh7" type="MeshInstance3D" parent="ClassroomStructure" unique_id=162346509]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 25.282938)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 11.829284)
 mesh = SubResource("ArrayMesh_84xfx")
 
 [node name="WideWindowsGlassMesh7" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1998322916]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 25.280941)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 11.827284)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision7" type="CollisionShape3D" parent="ClassroomStructure" unique_id=512124831]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 25.280941)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 11.827284)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision8" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1970398900]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 18.35626)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 4.902609)
 shape = SubResource("ConcavePolygonShape3D_tc4x1")
 
 [node name="WideWindowsMesh8" type="MeshInstance3D" parent="ClassroomStructure" unique_id=57664680]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 18.35626)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 4.902609)
 mesh = SubResource("ArrayMesh_o0ehj")
 
 [node name="WideWindowsGlassMesh8" type="MeshInstance3D" parent="ClassroomStructure" unique_id=2012114803]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 18.354265)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 4.9006143)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision8" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1493355211]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.471998, 18.354265)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.471994, 4.9006143)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsGlassMesh9" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1459459431]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.472399, 14.833142)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.472395, 1.3794919)
 mesh = SubResource("BoxMesh_fcnqv")
 
 [node name="WideWindowsGlassCollision9" type="CollisionShape3D" parent="ClassroomStructure" unique_id=41587352]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 44.289, 17.472399, 14.833142)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 27.145012, 17.472395, 1.3794919)
 shape = SubResource("ConvexPolygonShape3D_48j06")
 
 [node name="WideWindowsCollision9" type="CollisionShape3D" parent="ClassroomStructure" unique_id=843062818]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 7.3176227)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -6.136027)
 shape = SubResource("ConcavePolygonShape3D_jrxeh")
 
 [node name="WideWindowsMesh9" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1936285363]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 7.3176227)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -6.136027)
 mesh = SubResource("ArrayMesh_ju3tu")
 
 [node name="WideWindowsGlassMesh10" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1525673201]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 7.315627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -6.1380224)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision10" type="CollisionShape3D" parent="ClassroomStructure" unique_id=2132185129]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 7.315627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -6.1380224)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision10" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1184319881]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 0.37837663)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -13.075272)
 shape = SubResource("ConcavePolygonShape3D_fiilk")
 
 [node name="WideWindowsMesh10" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1959461326]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 0.37837663)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -13.075272)
 mesh = SubResource("ArrayMesh_rwft6")
 
 [node name="WideWindowsGlassMesh11" type="MeshInstance3D" parent="ClassroomStructure" unique_id=62462672]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 0.3763801)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -13.077269)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision11" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1625393369]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, 0.3763801)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -13.077269)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision11" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1197259233]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -6.538062)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -19.99171)
 shape = SubResource("ConcavePolygonShape3D_4kbsq")
 
 [node name="WideWindowsMesh11" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1503766769]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -6.538062)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -19.99171)
 mesh = SubResource("ArrayMesh_84xfx")
 
 [node name="WideWindowsGlassMesh12" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1316262179]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -6.540059)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -19.993704)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision12" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1436555239]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -6.540059)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -19.993704)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision12" type="CollisionShape3D" parent="ClassroomStructure" unique_id=152651540]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -13.464737)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -26.918383)
 shape = SubResource("ConcavePolygonShape3D_tc4x1")
 
 [node name="WideWindowsMesh12" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1443283204]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -13.464737)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -26.918383)
 mesh = SubResource("ArrayMesh_o0ehj")
 
 [node name="WideWindowsGlassMesh13" type="MeshInstance3D" parent="ClassroomStructure" unique_id=250549802]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -13.466734)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -26.920376)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision13" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1833027841]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.959151, 17.471899, -13.466734)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.103136, 17.471899, -26.920376)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision13" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1041668640]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 39.138622)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 25.684958)
 shape = SubResource("ConcavePolygonShape3D_jrxeh")
 
 [node name="WideWindowsMesh13" type="MeshInstance3D" parent="ClassroomStructure" unique_id=362553297]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 39.138622)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 25.684958)
 mesh = SubResource("ArrayMesh_ju3tu")
 
 [node name="WideWindowsGlassMesh14" type="MeshInstance3D" parent="ClassroomStructure" unique_id=293276457]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 39.136627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 25.682972)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision14" type="CollisionShape3D" parent="ClassroomStructure" unique_id=125710901]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 39.136627)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 25.682972)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision14" type="CollisionShape3D" parent="ClassroomStructure" unique_id=353579933]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 32.199375)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 18.745722)
 shape = SubResource("ConcavePolygonShape3D_fiilk")
 
 [node name="WideWindowsMesh14" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1994707253]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 32.199375)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 18.745722)
 mesh = SubResource("ArrayMesh_rwft6")
 
 [node name="WideWindowsGlassMesh15" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1384125203]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 32.19738)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 18.74372)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision15" type="CollisionShape3D" parent="ClassroomStructure" unique_id=141302149]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 32.19738)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 18.74372)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision15" type="CollisionShape3D" parent="ClassroomStructure" unique_id=191202487]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 25.282938)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 11.829284)
 shape = SubResource("ConcavePolygonShape3D_4kbsq")
 
 [node name="WideWindowsMesh15" type="MeshInstance3D" parent="ClassroomStructure" unique_id=106014701]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 25.282938)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 11.829284)
 mesh = SubResource("ArrayMesh_84xfx")
 
 [node name="WideWindowsGlassMesh16" type="MeshInstance3D" parent="ClassroomStructure" unique_id=144777169]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 25.280941)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 11.827284)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision16" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1459473301]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 25.280941)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 11.827284)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsCollision16" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1042639543]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 18.35626)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 4.902609)
 shape = SubResource("ConcavePolygonShape3D_tc4x1")
 
 [node name="WideWindowsMesh16" type="MeshInstance3D" parent="ClassroomStructure" unique_id=796455281]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 18.35626)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 4.902609)
 mesh = SubResource("ArrayMesh_o0ehj")
 
 [node name="WideWindowsGlassMesh17" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1037630243]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 18.354265)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 4.9006143)
 mesh = SubResource("BoxMesh_d0u6y")
 
 [node name="WideWindowsGlassCollision17" type="CollisionShape3D" parent="ClassroomStructure" unique_id=647933610]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.471998, 18.354265)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.471994, 4.9006143)
 shape = SubResource("ConvexPolygonShape3D_kv2x1")
 
 [node name="WideWindowsGlassMesh18" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1497370464]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.472399, 14.833142)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.472395, 1.3794919)
 mesh = SubResource("BoxMesh_fcnqv")
 
 [node name="WideWindowsGlassCollision18" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1812871218]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -9.961999, 17.472399, 14.833142)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -27.105984, 17.472395, 1.3794919)
 shape = SubResource("ConvexPolygonShape3D_48j06")
 
 [node name="Objects" type="Node3D" parent="." unique_id=631229381]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -17.143988, 0, -13.453648)
 
 [node name="MejaKursiMurid" type="Node3D" parent="Objects" unique_id=866645296]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0.18295008, -2.7497962)

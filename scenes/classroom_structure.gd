@@ -51,6 +51,9 @@ func _ready() -> void:
 	earthquake_noise.fractal_type = FastNoiseLite.FRACTAL_FBM
 	earthquake_noise.fractal_octaves = 4 # Menambahkan getaran tajam (micro-jitters) di dalam gelombang besar
 	
+	# Mencegah Godot memperlambat pergerakan noise
+	earthquake_noise.frequency = 1.0
+	
 	# Memulai secara automatis pada mode normal
 	if not admin_mode:
 		var rand_int = randf_range(4.0, 4.9)
@@ -152,6 +155,7 @@ func _physics_process(delta: float) -> void:
 		if time_passed >= total_duration:
 			is_quaking = false
 			global_position = initial_position # Mengembalikan ruangan kembali ke pusat sempurna
+			rotation = Vector3.ZERO
 			
 			rumble_audio.stop()
 			dust_particles.emitting = false
@@ -212,7 +216,13 @@ func _physics_process(delta: float) -> void:
 		
 		# Primary Wave (P-Wave): Guncangan vertikal menggunakan noise pada frekuensi tinggi
 		var p_wave_y = earthquake_noise.get_noise_1d(time_passed * p_wave_freq) * p_wave_amp * realistic_multiplier * envelope
-
+		
+		# P-Wave Tilt (Rotasi)
+		# Menggunakan offset +3000 dan +4000 agar arah miringnya acak
+		var tilt_amp = 0.015 # Sudut kemiringan maksimal (dalam radian)
+		var p_wave_tilt_x = earthquake_noise.get_noise_1d((time_passed * p_wave_freq) + 3000.0) * tilt_amp * realistic_multiplier * envelope
+		var p_wave_tilt_z = earthquake_noise.get_noise_1d((time_passed * p_wave_freq) + 4000.0) * tilt_amp * realistic_multiplier * envelope
+		
 		# Secondary Wave (S-Wave): Penggulingan horizontal yang berat
 		var s_wave_x := 0.0
 		var s_wave_z := 0.0
@@ -228,3 +238,6 @@ func _physics_process(delta: float) -> void:
 
 		# Menerapkan perhitungan offset akhir pada posisi global ruangan
 		global_position = initial_position + Vector3(s_wave_x, p_wave_y, s_wave_z)
+		
+		# Menerapkan kemiringan agar meja-meja terpental secara acak
+		rotation = Vector3(p_wave_tilt_x, 0.0, p_wave_tilt_z)
