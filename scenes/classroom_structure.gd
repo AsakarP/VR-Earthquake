@@ -38,9 +38,18 @@ var is_evacuation_ready := true
 var exact_time_survived := 0.0
 var player_was_hit := false
 
+# Noise Gempa
+var earthquake_noise := FastNoiseLite.new()
+
 func _ready() -> void:
 	# Simpan koordinat spawn asli kelas
 	initial_position = global_position
+	
+	# Konfigurasi Perlin Noise
+	earthquake_noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	earthquake_noise.seed = randi() # Gempa akan berbeda setiap kali dimainkan
+	earthquake_noise.fractal_type = FastNoiseLite.FRACTAL_FBM
+	earthquake_noise.fractal_octaves = 4 # Menambahkan getaran tajam (micro-jitters) di dalam gelombang besar
 	
 	# Memulai secara automatis pada mode normal
 	if not admin_mode:
@@ -194,17 +203,17 @@ func _physics_process(delta: float) -> void:
 						
 			return
 		
-		# Perhitungan Fisika
+		# Perhitungan Fisika Menggunakan Perlin Noise
 		# Penskalaan Logaritmik: Mengubah besaran linier menjadi gaya eksponensial
 		var raw_multiplier = pow(10, intensity - baseline_intensity)
 		
 		# Jepit pengganda fisika untuk mencegah ruangan merusak game engine
 		var realistic_multiplier = clamp(raw_multiplier, 0.0001, 8.0)
 		
-		# Primary Wave (P-Wave): Guncangan vertikal cepat yang dihitung melalui gelombang Sinus
-		var p_wave_y = sin(time_passed * p_wave_freq) * p_wave_amp * realistic_multiplier * envelope
+		# Primary Wave (P-Wave): Guncangan vertikal menggunakan noise pada frekuensi tinggi
+		var p_wave_y = earthquake_noise.get_noise_1d(time_passed * p_wave_freq) * p_wave_amp * realistic_multiplier * envelope
 
-		# Secondary Wave (S-Wave): Penggulingan horizontal yang berat dan merusak
+		# Secondary Wave (S-Wave): Penggulingan horizontal yang berat
 		var s_wave_x := 0.0
 		var s_wave_z := 0.0
 		
@@ -212,9 +221,10 @@ func _physics_process(delta: float) -> void:
 		var s_wave_envelope = clamp((time_passed - s_wave_delay) / 2.0, 0.0, 1.0) 
 		
 		if time_passed > s_wave_delay:
-			# Menggabungkan beberapa gelombang sinus/kosinus pada frekuensi offset untuk mensimulasikan pergerakan kerak bumi yang kacau dan tidak dapat diprediksi
-			s_wave_x = (sin(time_passed * s_wave_freq) + sin(time_passed * s_wave_freq * 0.73)) * 0.5 * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
-			s_wave_z = (cos(time_passed * s_wave_freq * 0.8) + sin(time_passed * s_wave_freq * 1.1)) * 0.5 * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
+			# Mengambil sampel noise pada titik waktu yang sangat berjauhan (+1000, +2000)
+			# agar pergerakan sumbu X dan Z benar-benar terpisah dan kacau
+			s_wave_x = earthquake_noise.get_noise_1d((time_passed * s_wave_freq) + 1000.0) * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
+			s_wave_z = earthquake_noise.get_noise_1d((time_passed * s_wave_freq) + 2000.0) * s_wave_amp * realistic_multiplier * envelope * s_wave_envelope
 
 		# Menerapkan perhitungan offset akhir pada posisi global ruangan
 		global_position = initial_position + Vector3(s_wave_x, p_wave_y, s_wave_z)
