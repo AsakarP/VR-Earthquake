@@ -46,7 +46,7 @@ func _ready() -> void:
 	initial_position = global_position
 	
 	# Konfigurasi Perlin Noise
-	earthquake_noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	earthquake_noise.noise_type = FastNoiseLite.TYPE_PERLIN # Bisa ubah menjadi PERLIN/SIMPLEX/SIMPLEX_SMOOTH
 	earthquake_noise.seed = randi() # Gempa akan berbeda setiap kali dimainkan
 	earthquake_noise.fractal_type = FastNoiseLite.FRACTAL_FBM
 	earthquake_noise.fractal_octaves = 4 # Menambahkan getaran tajam (micro-jitters) di dalam gelombang besar
