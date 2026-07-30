@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bi0uhmkxkw0uy"]
 
+[ext_resource type="PackedScene" uid="uid://4tnhlt6a1ce1" path="res://scenes/ceiling_light.tscn" id="1_5rtg7"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwioo"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nc77g"]
@@ -47,3 +49,15 @@ mesh = SubResource("ArrayMesh_ji5qo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" unique_id=1468502827]
 shape = SubResource("ConcavePolygonShape3D_qwpha")
+
+[node name="CeilingLight" parent="." unique_id=1253728184 instance=ExtResource("1_5rtg7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -30, -1.1, -30)
+
+[node name="CeilingLight2" parent="." unique_id=794351619 instance=ExtResource("1_5rtg7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 30, -1.1, -30)
+
+[node name="CeilingLight3" parent="." unique_id=1657219317 instance=ExtResource("1_5rtg7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 30, -1.1, 30)
+
+[node name="CeilingLight4" parent="." unique_id=65383218 instance=ExtResource("1_5rtg7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -30, -1.1, 30)

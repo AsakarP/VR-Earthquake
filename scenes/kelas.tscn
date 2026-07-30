@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="18_wp7ul"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="19_5itmv"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="20_gfybe"]
-[ext_resource type="Script" uid="uid://cjfu28jmrajlo" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="21_4kbsq"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="21_phdfy"]
 [ext_resource type="PackedScene" uid="uid://dogmw2hxpgr27" path="res://scenes/kelas_model.tscn" id="22_dfdae"]
 [ext_resource type="PackedScene" uid="uid://duqf63fn7qu5d" path="res://scenes/menu_admin.tscn" id="23_4kbsq"]
@@ -35,6 +34,7 @@ background_mode = 2
 sky = SubResource("Sky_rlgmb")
 sky_rotation = Vector3(0, -1.0471976, 0)
 ambient_light_source = 3
+ambient_light_sky_contribution = 0.2
 reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
@@ -54,10 +54,6 @@ size = Vector2(2, 2)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xubko"]
 radius = 0.25657472
-
-[sub_resource type="Resource" id="Resource_rwft6"]
-script = ExtResource("21_4kbsq")
-metadata/_custom_type_script = "uid://cjfu28jmrajlo"
 
 [node name="Kelas" type="Node3D" unique_id=315214593]
 script = ExtResource("1_rwft6")
@@ -191,7 +187,6 @@ collision_mask = 5243392
 [node name="PlayerBody" parent="XROrigin3D" unique_id=1003759215 instance=ExtResource("21_phdfy")]
 slide_on_ceiling = false
 head_behavior_mode = 0
-physics = SubResource("Resource_rwft6")
 
 [node name="KelasModel" parent="." unique_id=1523441918 instance=ExtResource("22_dfdae")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

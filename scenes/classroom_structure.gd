@@ -17,8 +17,8 @@ extends AnimatableBody3D
 
 # Parameter Gelombang Fisika
 @export_group("P-Wave (Vertical Jolt)")
-@export var p_wave_amp := 0.03
-@export var p_wave_freq := 30.0
+@export var p_wave_amp := 0.01
+@export var p_wave_freq := 15.0
 
 @export_group("S-Wave (Horizontal Rolling)")
 @export var s_wave_amp := 0.20

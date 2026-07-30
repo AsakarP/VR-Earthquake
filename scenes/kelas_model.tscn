@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cgm1o4y8mpf8k" path="res://assets/textures/Tiles107_1K-JPG/Tiles107_1K-JPG_NormalGL.jpg" id="3_12vgl"]
 [ext_resource type="Texture2D" uid="uid://cag8b55esjqot" path="res://assets/textures/Tiles107_1K-JPG/Tiles107_1K-JPG_Roughness.jpg" id="4_r18kb"]
 [ext_resource type="Texture2D" uid="uid://cq763wjkn3i06" path="res://assets/textures/Plaster001_1K-JPG/Plaster001_1K-JPG_NormalGL.jpg" id="6_6uhsj"]
+[ext_resource type="Script" uid="uid://tko0wek6s880" path="res://scenes/ceiling_group.gd" id="7_4s0jj"]
 [ext_resource type="PackedScene" uid="uid://bi0uhmkxkw0uy" path="res://scenes/solid_ceiling.tscn" id="7_6uhsj"]
 [ext_resource type="Texture2D" uid="uid://b3mq4ex6rqm2q" path="res://assets/textures/Plaster001_1K-JPG/Plaster001_1K-JPG_Roughness.jpg" id="7_hjkai"]
 [ext_resource type="PackedScene" uid="uid://cmvws5r2y1hn1" path="res://scenes/destroyed_ceiling.tscn" id="8_hjkai"]
-[ext_resource type="PackedScene" uid="uid://4tnhlt6a1ce1" path="res://scenes/ceiling_light.tscn" id="9_ly6wr"]
 [ext_resource type="PackedScene" uid="uid://dkhuar7pswi1x" path="res://scenes/whiteboard.tscn" id="11_j23ae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d6ww"]
@@ -395,6 +395,7 @@ shape = SubResource("ConvexPolygonShape3D_r18kb")
 
 [node name="CeilingGroup" type="Node3D" parent="ClassroomStructure" unique_id=1605604791 groups=["drop_objects"]]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.0200089, 21.403, -0.6636522)
+script = ExtResource("7_4s0jj")
 
 [node name="SolidCeiling" parent="ClassroomStructure/CeilingGroup" unique_id=2075537560 instance=ExtResource("7_6uhsj")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -410,18 +411,6 @@ mesh = SubResource("BoxMesh_g4v7s")
 [node name="DoorCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=1643304957]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 27.200125, 8.234226, -26.891937)
 shape = SubResource("ConvexPolygonShape3D_j23ae")
-
-[node name="CeilingLight" parent="ClassroomStructure" unique_id=1253728184 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -15.415985, 20.87, -13.453648)
-
-[node name="CeilingLight2" parent="ClassroomStructure" unique_id=671893601 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 16.550709, 20.87, -13.453648)
-
-[node name="CeilingLight3" parent="ClassroomStructure" unique_id=173340391 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -15.415985, 20.87, 14.961194)
-
-[node name="CeilingLight4" parent="ClassroomStructure" unique_id=1309384958 instance=ExtResource("9_ly6wr")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 16.5507, 20.87, 14.961194)
 
 [node name="WhiteWallCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=459064092]
 transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.020007316, 15.999996, -0.6636523)

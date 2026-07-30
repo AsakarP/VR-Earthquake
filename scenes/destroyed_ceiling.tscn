@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cmvws5r2y1hn1"]
 
+[ext_resource type="PackedScene" uid="uid://4tnhlt6a1ce1" path="res://scenes/ceiling_light.tscn" id="1_tni2i"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boths"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nvd5d"]
@@ -32,8 +34,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nvd5d")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o7uig"]
-data = PackedVector3Array(-23.5129, -1, 27.1479, 30.5339, 1, 27.1183, 30.5446, -1, 27.1468, -23.5129, -1, 27.1479, -23.5129, 1, 27.1183, 30.5339, 1, 27.1183, -23.5129, 1, -44.5934, 30.5339, 1, 27.1183, -23.5129, 1, 27.1183, -23.5129, 1, -44.5934, 16.486399, 1, -9.6735, 30.5339, 1, 27.1183, 16.4856, -1, -9.6746, 30.5339, 1, 27.1183, 16.486399, 1, -9.6735, 16.4856, -1, -9.6746, 30.5446, -1, 27.1468, 30.5339, 1, 27.1183, -23.5129, -1, -44.5934, 30.5446, -1, 27.1468, 16.4856, -1, -9.6746, -23.5129, -1, -44.5934, -23.5129, -1, 27.1479, 30.5446, -1, 27.1468, -23.5129, -1, -44.5934, -23.5129, 1, 27.1183, -23.5129, -1, 27.1479, -23.5129, -1, -44.5934, -23.5129, 1, -44.5934, -23.5129, 1, 27.1183, 16.4856, -1, -9.6746, -23.5129, 1, -44.5934, -23.5129, -1, -44.5934, 16.4856, -1, -9.6746, 16.486399, 1, -9.6735, -23.5129, 1, -44.5934)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o7uig"]
+points = PackedVector3Array(30.544598, -0.99999994, 27.140854, 30.52872, 1, 27.11277, -23.512913, -0.99999994, 27.14788, 16.485199, -0.99999994, -9.677818, 16.485199, 1, -9.677818, -23.512913, 1, 27.11277, -23.512913, -0.99999994, -44.593414, -23.512913, 1, -44.593414)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q84ef"]
 
@@ -67,8 +69,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oucqc")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tni2i"]
-data = PackedVector3Array(-30.8104, 1, -42.638, -16.7626, 1, 31.7986, -30.8104, 1, -4.9947, -16.7626, 1, 31.7986, -30.8104, 1, -42.638, 39.1885, 1, -42.638, -16.7626, 1, 31.7986, 39.1885, 1, -42.638, 39.1885, 1, 58.4436, -30.8104, -1, -4.9932, 39.1885, -1, -42.638, -30.8104, -1, -42.638, 39.1885, -1, -42.638, -30.8104, -1, -4.9932, -16.7519, -1, 31.8279, 39.1885, -1, -42.638, -16.7519, -1, 31.8279, 39.1885, -1, 58.466698, -30.8104, -1, -42.638, -30.8104, 1, -4.9947, -30.8104, -1, -4.9932, -30.8104, -1, -42.638, -30.8104, 1, -42.638, -30.8104, 1, -4.9947, -16.7626, 1, 31.7986, -30.8104, -1, -4.9932, -30.8104, 1, -4.9947, -16.7626, 1, 31.7986, -16.7519, -1, 31.8279, -30.8104, -1, -4.9932, -30.8104, 1, -42.638, 39.1885, -1, -42.638, 39.1885, 1, -42.638, -30.8104, 1, -42.638, -30.8104, -1, -42.638, 39.1885, -1, -42.638, 39.1885, -1, -42.638, 39.1885, 1, 58.4436, 39.1885, 1, -42.638, 39.1885, -1, -42.638, 39.1885, -1, 58.466698, 39.1885, 1, 58.4436, 39.1885, 1, 58.4436, -16.7519, -1, 31.8279, -16.7626, 1, 31.7986, 39.1885, 1, 58.4436, 39.1885, -1, 58.466698, -16.7519, -1, 31.8279)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tni2i"]
+points = PackedVector3Array(39.188534, -1, 58.466724, 39.188534, 1, 58.43703, -16.764057, 1, 31.795094, -16.757204, -1, 31.824787, 39.188534, -1, -42.638042, 39.188534, 1, -42.638042, -30.810444, 1, -5.000862, -30.810444, -1, -5.000862, -30.810444, -1, -42.638042, -30.810444, 1, -42.638042)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnmq4"]
 
@@ -102,8 +104,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ji7mt")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h3yf2"]
-data = PackedVector3Array(-54.8108, -1, 25.5992, -0.75159997, -1, -25.932499, -54.8108, -1, -25.9333, -0.75159997, -1, -25.932499, -54.8108, -1, 25.5992, 55.189198, -1, 25.5992, -0.75159997, -1, -25.932499, 55.189198, -1, 25.5992, 55.189198, -1, 0.70629996, 55.189198, -1, 25.5992, 55.189198, 1, 0.6827, 55.189198, -1, 0.70629996, 55.189198, -1, 25.5992, 55.189198, 1, 25.5992, 55.189198, 1, 0.6827, 55.189198, -1, 0.70629996, -0.7633, 1, -25.9608, -0.75159997, -1, -25.932499, 55.189198, -1, 0.70629996, 55.189198, 1, 0.6827, -0.7633, 1, -25.9608, -54.8108, -1, 25.5992, 55.189198, 1, 25.5992, 55.189198, -1, 25.5992, -54.8108, -1, 25.5992, -54.8108, 1, 25.5992, 55.189198, 1, 25.5992, -0.7633, 1, -25.9608, -54.8108, 1, 25.5992, -54.8108, 1, -25.9608, -54.8108, 1, 25.5992, -0.7633, 1, -25.9608, 55.189198, 1, 0.6827, -54.8108, 1, 25.5992, 55.189198, 1, 0.6827, 55.189198, 1, 25.5992, -54.8108, -1, -25.9333, -54.8108, 1, 25.5992, -54.8108, -1, 25.5992, -54.8108, -1, -25.9333, -54.8108, 1, -25.9608, -54.8108, 1, 25.5992, -54.8108, 1, -25.9608, -0.75159997, -1, -25.932499, -0.7633, 1, -25.9608, -54.8108, 1, -25.9608, -54.8108, -1, -25.9333, -0.75159997, -1, -25.932499)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h3yf2"]
+points = PackedVector3Array(-54.81077, 1, -25.96079, -54.81077, -1, -25.935556, -54.81077, 1, 25.59921, -0.7690697, 1, -25.96079, -54.81077, -1, 25.59921, -0.7583008, -1, -25.935556, 55.18923, 1, 25.59921, 55.18923, 1, 0.68224335, 55.18923, -1, 25.59921, 55.18923, -1, 0.70243263)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0syd"]
 
@@ -137,43 +139,369 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3537o")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6ecsl"]
-data = PackedVector3Array(19.998999, 1, -10.091499, 19.998999, -1, 27.5514, 19.9996, 1, 27.550798, 19.998999, 1, -10.091499, 19.998999, -1, -10.091499, 19.998999, -1, 27.5514, -19.9994, -1, -7.3683, 19.9996, 1, 27.550798, 19.998999, -1, 27.5514, -19.9994, -1, -7.3683, -19.9994, 1, -7.3689, 19.9996, 1, 27.550798, -19.9994, -1, -7.3683, 19.998999, -1, -10.091499, -19.9994, -1, -10.091499, -19.9994, -1, -7.3683, 19.998999, -1, 27.5514, 19.998999, -1, -10.091499, -19.9994, -1, -10.091499, 19.998999, 1, -10.091499, -19.9994, 1, -10.091499, -19.9994, -1, -10.091499, 19.998999, -1, -10.091499, 19.998999, 1, -10.091499, 19.9996, 1, 27.550798, -19.9994, 1, -10.091499, 19.998999, 1, -10.091499, 19.9996, 1, 27.550798, -19.9994, 1, -7.3689, -19.9994, 1, -10.091499, -19.9994, -1, -10.091499, -19.9994, 1, -7.3689, -19.9994, -1, -7.3683, -19.9994, -1, -10.091499, -19.9994, 1, -10.091499, -19.9994, 1, -7.3689)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6ecsl"]
+points = PackedVector3Array(-19.99937, -0.99999994, -10.091531, -19.99937, 1, -10.091531, 19.995655, -0.99999994, -10.091531, -19.99937, -0.99999994, -7.3685374, -19.99937, 1, -7.372222, 19.995655, 1, -10.091531, 19.999569, 1, 27.547684, 19.995655, -0.99999994, 27.551369)
+
+[sub_resource type="Animation" id="Animation_o7uig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-31.487087, 0, -15.68104)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RigidBody3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RigidBody3D:freeze")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RigidBody3D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15.811463, 0, -20.361958)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RigidBody3D2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RigidBody3D2:freeze")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RigidBody3D3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.18923187, 0, 37.400795)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RigidBody3D3:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RigidBody3D3:freeze")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RigidBody3D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-35.00063, 0, -52.90847)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RigidBody3D4:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RigidBody3D4:freeze")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tni2i"]
+resource_name = "ceiling_collapse"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-31.487087, 0, -15.68104), Vector3(-31.487087, -24.295769, -15.68104)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RigidBody3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.26149526, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RigidBody3D:freeze")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RigidBody3D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(15.811463, 0, -20.361958), Vector3(15.811463, -12.28014, -20.361958)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RigidBody3D2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.19814608, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RigidBody3D2:freeze")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RigidBody3D3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.18923187, 0, 37.400795), Vector3(-0.18923187, -17.366753, 37.400795)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RigidBody3D3:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.25411692, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RigidBody3D3:freeze")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RigidBody3D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-35.00063, 0, -52.90847), Vector3(-35.00063, -12.773714, -52.90847)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RigidBody3D4:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.47410238, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RigidBody3D4:freeze")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3yf2"]
+_data = {
+&"RESET": SubResource("Animation_o7uig"),
+&"ceiling_collapse": SubResource("Animation_tni2i")
+}
 
 [node name="Destroyed_Ceiling" type="Node3D" unique_id=195483332]
 
-[node name="Cube_cell" type="MeshInstance3D" parent="." unique_id=974041832]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=328168186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.487087, 0, -15.68104)
+freeze = true
+freeze_mode = 1
+
+[node name="CeilingLight" parent="RigidBody3D" unique_id=1253728184 instance=ExtResource("1_tni2i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.4870872, -1.1, -14.31896)
+
+[node name="Cube_cell" type="MeshInstance3D" parent="RigidBody3D" unique_id=974041832]
 mesh = SubResource("ArrayMesh_54rh4")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Cube_cell" unique_id=1225029028]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=330922517]
+shape = SubResource("ConvexPolygonShape3D_o7uig")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_cell/AnimatableBody3D" unique_id=438793244]
-shape = SubResource("ConcavePolygonShape3D_o7uig")
-
-[node name="Cube_cell_001" type="MeshInstance3D" parent="." unique_id=1557568382]
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=761592513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.811463, 0, -20.361958)
+freeze = true
+freeze_mode = 1
+
+[node name="CeilingLight2" parent="RigidBody3D2" unique_id=2146662625 instance=ExtResource("1_tni2i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14.188537, -1.1, -9.638042)
+
+[node name="Cube_cell_001" type="MeshInstance3D" parent="RigidBody3D2" unique_id=1557568382]
 mesh = SubResource("ArrayMesh_gtuvi")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Cube_cell_001" unique_id=1995770588]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=374279214]
+shape = SubResource("ConvexPolygonShape3D_tni2i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_cell_001/AnimatableBody3D" unique_id=1883896978]
-shape = SubResource("ConcavePolygonShape3D_tni2i")
+[node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=1980412351]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.18923187, 0, 37.400795)
+freeze = true
+freeze_mode = 1
 
-[node name="Cube_cell_002" type="MeshInstance3D" parent="." unique_id=1537257599]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18923187, 0, 37.400795)
+[node name="CeilingLight3" parent="RigidBody3D3" unique_id=730614851 instance=ExtResource("1_tni2i")]
+transform = Transform3D(3.0000005, 0, 0, 0, 3.0000005, 0, 0, 0, 3, 30.189236, -1.1000001, -7.400795)
+
+[node name="CeilingLight4" parent="RigidBody3D3" unique_id=1913206388 instance=ExtResource("1_tni2i")]
+transform = Transform3D(3.0000005, 0, 0, 0, 3.0000005, 0, 0, 0, 3, -29.810772, -1.1000001, -7.400795)
+
+[node name="Cube_cell_002" type="MeshInstance3D" parent="RigidBody3D3" unique_id=1537257599]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3wtux")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Cube_cell_002" unique_id=1395335829]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3" unique_id=653521888]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_h3yf2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_cell_002/AnimatableBody3D" unique_id=1733223521]
-shape = SubResource("ConcavePolygonShape3D_h3yf2")
-
-[node name="Cube_cell_003" type="MeshInstance3D" parent="." unique_id=857804310]
+[node name="RigidBody3D4" type="RigidBody3D" parent="." unique_id=905482547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.00063, 0, -52.90847)
+freeze = true
+freeze_mode = 1
+
+[node name="Cube_cell_003" type="MeshInstance3D" parent="RigidBody3D4" unique_id=857804310]
 mesh = SubResource("ArrayMesh_jj841")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Cube_cell_003" unique_id=1099607679]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4" unique_id=747503973]
+shape = SubResource("ConvexPolygonShape3D_6ecsl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_cell_003/AnimatableBody3D" unique_id=940547879]
-shape = SubResource("ConcavePolygonShape3D_6ecsl")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1774597265]
+libraries/ = SubResource("AnimationLibrary_h3yf2")
