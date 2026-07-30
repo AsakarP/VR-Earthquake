@@ -46,7 +46,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wdjhl"]
 resource_name = "power_fail"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,10 +54,10 @@ tracks/0/path = NodePath("SpotLight3D:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 1.9, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [2.0, 0.1, 2.0, 0.1, 2.0, 0.1, 2.0, 0.1, 0.0]
+"values": [2.0, 0.0, 2.0, 0.0, 2.0, 0.1, 2.0, 0.1, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,16 +66,45 @@ tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.5),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 1.9, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [5.0, 0.5, 5.0, 0.5, 5.0, 0.5, 5.0, 0.5, 0.0]
+"values": [5.0, 0.0, 5.0, 0.0, 5.0, 0.5, 5.0, 0.5, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2xfhq"]
+resource_name = "quake_flicker"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.0, 0.0, 0.1, 0.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 0.0, 0.1, 0.0, 5.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhabb"]
 _data = {
 &"RESET": SubResource("Animation_yhabb"),
-&"power_fail": SubResource("Animation_wdjhl")
+&"power_fail": SubResource("Animation_wdjhl"),
+&"quake_flicker": SubResource("Animation_2xfhq")
 }
 
 [node name="CeilingLight" type="MeshInstance3D" unique_id=1253728184]

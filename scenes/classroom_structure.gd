@@ -117,6 +117,9 @@ func trigger_earthquake() -> void:
 		dust_particles.emitting = true
 		ground_dust_particles.emitting = true
 		
+		# TAMPILKAN EFEK LAMPU BERKEDIP
+		get_tree().call_group("drop_objects", "start_quake_flicker", intensity)
+		
 		# Menyesuaikan volume gemuruh berdasarkan besarnya gempa
 		if intensity < 4:
 			rumble_audio.volume_db = -50

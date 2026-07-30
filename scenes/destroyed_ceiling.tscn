@@ -147,7 +147,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RigidBody3D:position")
+tracks/0/path = NodePath("Ceiling1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -159,7 +159,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RigidBody3D:rotation")
+tracks/1/path = NodePath("Ceiling1:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -171,7 +171,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RigidBody3D:freeze")
+tracks/2/path = NodePath("Ceiling1:freeze")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -183,7 +183,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RigidBody3D2:position")
+tracks/3/path = NodePath("Ceiling2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -195,7 +195,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RigidBody3D2:rotation")
+tracks/4/path = NodePath("Ceiling2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -207,7 +207,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RigidBody3D2:freeze")
+tracks/5/path = NodePath("Ceiling2:freeze")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -219,7 +219,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RigidBody3D3:position")
+tracks/6/path = NodePath("Ceiling3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -231,7 +231,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RigidBody3D3:rotation")
+tracks/7/path = NodePath("Ceiling3:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -243,7 +243,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RigidBody3D3:freeze")
+tracks/8/path = NodePath("Ceiling3:freeze")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -255,7 +255,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("RigidBody3D4:position")
+tracks/9/path = NodePath("Ceiling4:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -267,7 +267,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("RigidBody3D4:rotation")
+tracks/10/path = NodePath("Ceiling4:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -279,7 +279,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("RigidBody3D4:freeze")
+tracks/11/path = NodePath("Ceiling4:freeze")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -295,7 +295,7 @@ length = 3.0000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RigidBody3D:position")
+tracks/0/path = NodePath("Ceiling1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -307,7 +307,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RigidBody3D:rotation")
+tracks/1/path = NodePath("Ceiling1:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -319,7 +319,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RigidBody3D:freeze")
+tracks/2/path = NodePath("Ceiling1:freeze")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -331,7 +331,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RigidBody3D2:position")
+tracks/3/path = NodePath("Ceiling2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -343,7 +343,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RigidBody3D2:rotation")
+tracks/4/path = NodePath("Ceiling2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -355,7 +355,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RigidBody3D2:freeze")
+tracks/5/path = NodePath("Ceiling2:freeze")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -367,7 +367,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RigidBody3D3:position")
+tracks/6/path = NodePath("Ceiling3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -379,7 +379,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RigidBody3D3:rotation")
+tracks/7/path = NodePath("Ceiling3:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -391,7 +391,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RigidBody3D3:freeze")
+tracks/8/path = NodePath("Ceiling3:freeze")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -403,7 +403,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("RigidBody3D4:position")
+tracks/9/path = NodePath("Ceiling4:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -415,7 +415,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("RigidBody3D4:rotation")
+tracks/10/path = NodePath("Ceiling4:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -427,7 +427,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("RigidBody3D4:freeze")
+tracks/11/path = NodePath("Ceiling4:freeze")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -443,64 +443,64 @@ _data = {
 &"ceiling_collapse": SubResource("Animation_tni2i")
 }
 
-[node name="Destroyed_Ceiling" type="Node3D" unique_id=195483332]
+[node name="DestroyedCeiling" type="Node3D" unique_id=195483332]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=328168186]
+[node name="Ceiling1" type="RigidBody3D" parent="." unique_id=328168186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.487087, 0, -15.68104)
 freeze = true
 freeze_mode = 1
 
-[node name="CeilingLight" parent="RigidBody3D" unique_id=1253728184 instance=ExtResource("1_tni2i")]
+[node name="CeilingLight" parent="Ceiling1" unique_id=1253728184 instance=ExtResource("1_tni2i")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.4870872, -1.1, -14.31896)
 
-[node name="Cube_cell" type="MeshInstance3D" parent="RigidBody3D" unique_id=974041832]
+[node name="Cube_cell" type="MeshInstance3D" parent="Ceiling1" unique_id=974041832]
 mesh = SubResource("ArrayMesh_54rh4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=330922517]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling1" unique_id=330922517]
 shape = SubResource("ConvexPolygonShape3D_o7uig")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=761592513]
+[node name="Ceiling2" type="RigidBody3D" parent="." unique_id=761592513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.811463, 0, -20.361958)
 freeze = true
 freeze_mode = 1
 
-[node name="CeilingLight2" parent="RigidBody3D2" unique_id=2146662625 instance=ExtResource("1_tni2i")]
+[node name="CeilingLight2" parent="Ceiling2" unique_id=2146662625 instance=ExtResource("1_tni2i")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14.188537, -1.1, -9.638042)
 
-[node name="Cube_cell_001" type="MeshInstance3D" parent="RigidBody3D2" unique_id=1557568382]
+[node name="Cube_cell_001" type="MeshInstance3D" parent="Ceiling2" unique_id=1557568382]
 mesh = SubResource("ArrayMesh_gtuvi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=374279214]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling2" unique_id=374279214]
 shape = SubResource("ConvexPolygonShape3D_tni2i")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=1980412351]
+[node name="Ceiling3" type="RigidBody3D" parent="." unique_id=1980412351]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.18923187, 0, 37.400795)
 freeze = true
 freeze_mode = 1
 
-[node name="CeilingLight3" parent="RigidBody3D3" unique_id=730614851 instance=ExtResource("1_tni2i")]
+[node name="CeilingLight3" parent="Ceiling3" unique_id=730614851 instance=ExtResource("1_tni2i")]
 transform = Transform3D(3.0000005, 0, 0, 0, 3.0000005, 0, 0, 0, 3, 30.189236, -1.1000001, -7.400795)
 
-[node name="CeilingLight4" parent="RigidBody3D3" unique_id=1913206388 instance=ExtResource("1_tni2i")]
+[node name="CeilingLight4" parent="Ceiling3" unique_id=1913206388 instance=ExtResource("1_tni2i")]
 transform = Transform3D(3.0000005, 0, 0, 0, 3.0000005, 0, 0, 0, 3, -29.810772, -1.1000001, -7.400795)
 
-[node name="Cube_cell_002" type="MeshInstance3D" parent="RigidBody3D3" unique_id=1537257599]
+[node name="Cube_cell_002" type="MeshInstance3D" parent="Ceiling3" unique_id=1537257599]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3wtux")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3" unique_id=653521888]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling3" unique_id=653521888]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_h3yf2")
 
-[node name="RigidBody3D4" type="RigidBody3D" parent="." unique_id=905482547]
+[node name="Ceiling4" type="RigidBody3D" parent="." unique_id=905482547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.00063, 0, -52.90847)
 freeze = true
 freeze_mode = 1
 
-[node name="Cube_cell_003" type="MeshInstance3D" parent="RigidBody3D4" unique_id=857804310]
+[node name="Cube_cell_003" type="MeshInstance3D" parent="Ceiling4" unique_id=857804310]
 mesh = SubResource("ArrayMesh_jj841")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4" unique_id=747503973]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling4" unique_id=747503973]
 shape = SubResource("ConvexPolygonShape3D_6ecsl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1774597265]

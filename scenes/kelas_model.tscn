@@ -400,7 +400,7 @@ script = ExtResource("7_4s0jj")
 [node name="SolidCeiling" parent="ClassroomStructure/CeilingGroup" unique_id=2075537560 instance=ExtResource("7_6uhsj")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Destroyed_Ceiling" parent="ClassroomStructure/CeilingGroup" unique_id=195483332 instance=ExtResource("8_hjkai")]
+[node name="DestroyedCeiling" parent="ClassroomStructure/CeilingGroup" unique_id=195483332 instance=ExtResource("8_hjkai")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 visible = false
 
