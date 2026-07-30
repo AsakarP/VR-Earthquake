@@ -214,3 +214,4 @@ scene_properties_keys = PackedStringArray("menu_admin.gd")
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/XRCamera3D/Results" method="_on_left_hand_button_pressed"]
 
 [editable path="KelasModel"]
+[editable path="KelasModel/WallObjects/Clock"]
