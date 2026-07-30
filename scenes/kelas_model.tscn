@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cgm1o4y8mpf8k" path="res://assets/textures/Tiles107_1K-JPG/Tiles107_1K-JPG_NormalGL.jpg" id="3_12vgl"]
 [ext_resource type="Texture2D" uid="uid://cag8b55esjqot" path="res://assets/textures/Tiles107_1K-JPG/Tiles107_1K-JPG_Roughness.jpg" id="4_r18kb"]
 [ext_resource type="Texture2D" uid="uid://cq763wjkn3i06" path="res://assets/textures/Plaster001_1K-JPG/Plaster001_1K-JPG_NormalGL.jpg" id="6_6uhsj"]
+[ext_resource type="PackedScene" uid="uid://bi0uhmkxkw0uy" path="res://scenes/solid_ceiling.tscn" id="7_6uhsj"]
 [ext_resource type="Texture2D" uid="uid://b3mq4ex6rqm2q" path="res://assets/textures/Plaster001_1K-JPG/Plaster001_1K-JPG_Roughness.jpg" id="7_hjkai"]
+[ext_resource type="PackedScene" uid="uid://cmvws5r2y1hn1" path="res://scenes/destroyed_ceiling.tscn" id="8_hjkai"]
 [ext_resource type="PackedScene" uid="uid://4tnhlt6a1ce1" path="res://scenes/ceiling_light.tscn" id="9_ly6wr"]
 [ext_resource type="PackedScene" uid="uid://dkhuar7pswi1x" path="res://scenes/whiteboard.tscn" id="11_j23ae"]
 
@@ -89,19 +91,6 @@ material = SubResource("StandardMaterial3D_4kte0")
 size = Vector3(55, 1, 63)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r18kb"]
-points = PackedVector3Array(27.5, 0.5, 31.5, 27.5, -0.5, 31.5, 27.5, 0.5, -31.5, -27.5, 0.5, 31.5, -27.5, -0.5, 31.5, 27.5, -0.5, -31.5, -27.5, 0.5, -31.5, -27.5, -0.5, -31.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vr77"]
-roughness_texture = ExtResource("7_hjkai")
-normal_enabled = true
-normal_texture = ExtResource("6_6uhsj")
-uv1_scale = Vector3(5, 5, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jrxeh"]
-material = SubResource("StandardMaterial3D_4vr77")
-size = Vector3(55, 1, 63)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gijtf"]
 points = PackedVector3Array(27.5, 0.5, 31.5, 27.5, -0.5, 31.5, 27.5, 0.5, -31.5, -27.5, 0.5, 31.5, -27.5, -0.5, 31.5, 27.5, -0.5, -31.5, -27.5, 0.5, -31.5, -27.5, -0.5, -31.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gijtf"]
@@ -404,13 +393,15 @@ mesh = SubResource("BoxMesh_57qmd")
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.020480968, 0.4454672, -0.66370475)
 shape = SubResource("ConvexPolygonShape3D_r18kb")
 
-[node name="Plafon" type="MeshInstance3D" parent="ClassroomStructure" unique_id=1440828622]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.0200089, 21.403, -0.6636523)
-mesh = SubResource("BoxMesh_jrxeh")
+[node name="CeilingGroup" type="Node3D" parent="ClassroomStructure" unique_id=1605604791 groups=["drop_objects"]]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.0200089, 21.403, -0.6636522)
 
-[node name="PlafonCollision" type="CollisionShape3D" parent="ClassroomStructure" unique_id=452450898]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.0200089, 21.403, -0.6636523)
-shape = SubResource("ConvexPolygonShape3D_gijtf")
+[node name="SolidCeiling" parent="ClassroomStructure/CeilingGroup" unique_id=2075537560 instance=ExtResource("7_6uhsj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Destroyed_Ceiling" parent="ClassroomStructure/CeilingGroup" unique_id=195483332 instance=ExtResource("8_hjkai")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 
 [node name="DoorMesh" type="MeshInstance3D" parent="ClassroomStructure" unique_id=122477051]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 27.200125, 8.234226, -26.891937)
