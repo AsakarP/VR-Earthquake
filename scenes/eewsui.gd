@@ -2,7 +2,9 @@ extends Label3D
 
 @onready var warning_audio: AudioStreamPlayer = $WarningAudio
 @onready var phone_sprite: Sprite3D = $PhoneSprite
-@onready var warning_sprite: Sprite3D = $WarningSprite
+@onready var display_sprite: Sprite3D = $DisplaySprite
+@onready var jarak_label: Label3D = $JarakLabel
+@onready var tangal_jam_label: Label3D = $TangalJamLabel
 
 var is_counting_down := false
 var time_left := 0.0
@@ -13,7 +15,9 @@ func _ready() -> void:
 	modulate.a = 0.0
 	outline_modulate.a = 0.0
 	phone_sprite.modulate.a = 0.0
-	warning_sprite.modulate.a = 0.0
+	display_sprite.modulate.a = 0.0
+	jarak_label.modulate.a = 0.0
+	tangal_jam_label.modulate.a = 0.0
 
 # This runs every frame to update the text!
 func _process(delta: float) -> void:
@@ -23,7 +27,7 @@ func _process(delta: float) -> void:
 		if time_left > 0:
 			# Update the text with the live countdown.
 			# ceil() rounds the decimal up (so 2.1 seconds shows as "3")
-			text = "Gempa Bumi\nPerkiraan Besarnya: %.1f\n\nTiba dalam: %d detik" % [current_intensity, int(ceil(time_left))]
+			text = "Dalam %d detik" % [int(ceil(time_left))]
 		else:
 			# Time is up! Stop counting and fade out.
 			is_counting_down = false
@@ -42,7 +46,9 @@ func trigger_warning(intensity: float, countdown_seconds: float) -> void:
 	tween.tween_property(self, "modulate:a", 1.0, 0.5)
 	tween.parallel().tween_property(self, "outline_modulate:a", 1.0, 0.5)
 	tween.parallel().tween_property(phone_sprite, "modulate:a", 1.0, 0.5)
-	tween.parallel().tween_property(warning_sprite, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(display_sprite, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(jarak_label, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(tangal_jam_label, "modulate:a", 1.0, 0.5)
 
 # A dedicated function to hide the UI when time is up
 func hide_warning() -> void:
@@ -50,4 +56,6 @@ func hide_warning() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
 	tween.parallel().tween_property(self, "outline_modulate:a", 0.0, 1.0)
 	tween.parallel().tween_property(phone_sprite, "modulate:a", 0.0, 1.0)
-	tween.parallel().tween_property(warning_sprite, "modulate:a", 0.0, 1.0)
+	tween.parallel().tween_property(display_sprite, "modulate:a", 0.0, 1.0)
+	tween.parallel().tween_property(jarak_label, "modulate:a", 0.0, 1.0)
+	tween.parallel().tween_property(tangal_jam_label, "modulate:a", 0.0, 1.0)

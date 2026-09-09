@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://upb2tn70dfoj" path="res://scenes/menu_player.tscn" id="8_oekib"]
 [ext_resource type="Script" uid="uid://enpssrcl4jos" path="res://scenes/eewsui.gd" id="9_fm5jx"]
 [ext_resource type="AudioStream" uid="uid://bt2t84ibbr8io" path="res://audio/Emergency_Alert_Sound.mp3" id="10_uknif"]
+[ext_resource type="Texture2D" uid="uid://dbjr7uigownqj" path="res://images/INAEEWS.jpg" id="11_rwft6"]
 [ext_resource type="Texture2D" uid="uid://d02xsbhbgracv" path="res://images/phone_transparent.png" id="11_snwdc"]
-[ext_resource type="Texture2D" uid="uid://b838oq2kb3vi1" path="res://images/warning.png" id="12_4fhah"]
 [ext_resource type="Script" uid="uid://dge1kye5h7ity" path="res://scenes/results.gd" id="13_hnvfm"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="14_vv7j1"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="15_7mkmt"]
@@ -99,17 +99,17 @@ collision_mask = 7
 shape = SubResource("SphereShape3D_xubko")
 
 [node name="EEWSUI" type="Label3D" parent="XROrigin3D/XRCamera3D" unique_id=899581210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05411453, 5.9604645e-07, -0.58705187)
 pixel_size = 0.001
 offset = Vector2(0, 70)
-billboard = 1
 no_depth_test = true
 render_priority = 1
 outline_render_priority = 0
-text = "Gempa Bumi
-Perkiraan Besarnya: 1.0
-Tiba dalam: 5:00 detik"
-font_size = 30
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Dalam 0 detik"
+font_size = 12
+outline_size = 0
 script = ExtResource("9_fm5jx")
 
 [node name="WarningAudio" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1626341366]
@@ -117,20 +117,37 @@ stream = ExtResource("10_uknif")
 volume_db = -15.0
 
 [node name="PhoneSprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1934753008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054114483, -5.9604645e-07, -0.024942875)
+modulate = Color(0.9779369, 0.97793704, 0.9779369, 1)
 pixel_size = 0.001
 no_depth_test = true
 texture = ExtResource("11_snwdc")
 
-[node name="WarningSprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1529472155]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16488194, 0)
+[node name="DisplaySprite" type="Sprite3D" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1529472155]
+transform = Transform3D(0.367, 0, 0, 0, 0.367, 0, 0, 0, 0.367, 0.054114487, -0.006228924, -0.022016048)
 pixel_size = 0.001
-billboard = 1
-texture = ExtResource("12_4fhah")
+texture = ExtResource("11_rwft6")
+
+[node name="JarakLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=530617241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1379443, 0.06981766, 0)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Jarak 0 km"
+font_size = 12
+
+[node name="TangalJamLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/EEWSUI" unique_id=1750849121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03888284, 0.13647878, 0)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "00 January 2026, 00:00:00 WIB"
+font_size = 12
+horizontal_alignment = 0
 
 [node name="Results" type="Label3D" parent="XROrigin3D/XRCamera3D" unique_id=569586222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
+visible = false
 pixel_size = 0.0013
 billboard = 1
 no_depth_test = true
